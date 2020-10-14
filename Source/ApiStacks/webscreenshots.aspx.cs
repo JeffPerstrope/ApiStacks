@@ -31,10 +31,12 @@ namespace ApiStacks
                         if (Rgx.IsMatch(url))
                         {
                             Session["screenshot"] = null;
-                            var screenshotResponse = getScreenshot(url);
+
+                            //Get Screenshot
+                            var screenshotResponse = APICall.call(APICall.API_Screenshot, url);
                             if (screenshotResponse != null)
                             {
-                                Session["screenshot"] = screenshotResponse;
+                                Session["screenshot"] = screenshotResponse.Replace(@"\", "").Replace("\"", ""); ;
                             }
                         }
                     }
@@ -53,34 +55,5 @@ namespace ApiStacks
                 screenshotImage.Src = Session["screenshot"].ToString();
             }
         }
-
-        private string getScreenshot(string URL)
-        {
-            var endpoint = "https://apistacks-webscreenshot.glitch.me/getScreenshot?url=" + URL;
-
-            var request = (HttpWebRequest)WebRequest.Create(endpoint);
-            request.Method = "GET";
-            request.AutomaticDecompression = DecompressionMethods.GZip | DecompressionMethods.Deflate;
-            request.UserAgent = @"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/51.0.2704.106 Safari/537.36";
-            var content = string.Empty;
-            using (var response = (HttpWebResponse)request.GetResponse())
-            {
-                using (var stream = response.GetResponseStream())
-                {
-                    using (var sr = new StreamReader(stream))
-                    {
-                        content = sr.ReadToEnd();
-                        if (content != null)
-                        {
-                            content = content.Replace(@"\", "").Replace("\"", "");
-                            return content;
-                        }
-                    }
-                }
-            }
-
-            return null;
-        }
-
     }
 }

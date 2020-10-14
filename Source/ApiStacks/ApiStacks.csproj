@@ -262,6 +262,19 @@
     <Content Include="css\style-rtl.css" />
     <Content Include="css\style.css" />
     <Content Include="css\swiper.min.css" />
+    <Content Include="emailvalidate.aspx" />
+    <Content Include="images\app\emailscraper.png" />
+    <Content Include="images\app\emailvalidate.png" />
+    <Content Include="images\app\languagedetect.png" />
+    <Content Include="images\app\linkscraper.png" />
+    <Content Include="images\app\opengraph.png" />
+    <Content Include="images\app\qrcode.png" />
+    <Content Include="images\app\webpdf.png" />
+    <Content Include="images\app\webscraper.png" />
+    <Content Include="images\app\webscreenshots.png" />
+    <Content Include="images\app\whois.png" />
+    <Content Include="linkscraper.aspx" />
+    <Content Include="emailscraper.aspx" />
     <Content Include="fonts\ajax-loader.gif" />
     <Content Include="fonts\materialdesignicons-webfont.svg" />
     <Content Include="Global.asax" />
@@ -755,19 +768,47 @@
     <Content Include="js\typed.init.js" />
     <Content Include="js\typed.js" />
     <Content Include="js\unicons-monochrome.js" />
+    <Content Include="languagedetect.aspx" />
     <Content Include="Login.aspx" />
     <Content Include="opengraph.aspx" />
     <Content Include="php\contact.php" />
+    <Content Include="qrcode.aspx" />
+    <Content Include="samples\qrcode.png" />
+    <Content Include="samples\sampleWhois.txt" />
     <Content Include="samples\sampleGraph.txt" />
     <Content Include="SignUp.aspx" />
     <Content Include="ViewSwitcher.ascx" />
     <Content Include="Web.config" />
     <Content Include="Default.aspx" />
     <Content Include="webpdf.aspx" />
+    <Content Include="webscraper.aspx" />
     <Content Include="webscreenshots.aspx" />
+    <Content Include="whois.aspx" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="emailvalidate.aspx.cs">
+      <DependentUpon>emailvalidate.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="emailvalidate.aspx.designer.cs">
+      <DependentUpon>emailvalidate.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Helpers\APICall.cs" />
+    <Compile Include="linkscraper.aspx.cs">
+      <DependentUpon>linkscraper.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="linkscraper.aspx.designer.cs">
+      <DependentUpon>linkscraper.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="emailscraper.aspx.cs">
+      <DependentUpon>emailscraper.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="emailscraper.aspx.designer.cs">
+      <DependentUpon>emailscraper.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -777,6 +818,13 @@
     </Compile>
     <Compile Include="ipgeolocation.aspx.designer.cs">
       <DependentUpon>ipgeolocation.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="languagedetect.aspx.cs">
+      <DependentUpon>languagedetect.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="languagedetect.aspx.designer.cs">
+      <DependentUpon>languagedetect.aspx</DependentUpon>
     </Compile>
     <Compile Include="Login.aspx.cs">
       <DependentUpon>Login.aspx</DependentUpon>
@@ -807,6 +855,13 @@
     <Compile Include="Default.aspx.designer.cs">
       <DependentUpon>Default.aspx</DependentUpon>
     </Compile>
+    <Compile Include="qrcode.aspx.cs">
+      <DependentUpon>qrcode.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="qrcode.aspx.designer.cs">
+      <DependentUpon>qrcode.aspx</DependentUpon>
+    </Compile>
     <Compile Include="SignUp.aspx.cs">
       <DependentUpon>SignUp.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -828,12 +883,26 @@
     <Compile Include="webpdf.aspx.designer.cs">
       <DependentUpon>webpdf.aspx</DependentUpon>
     </Compile>
+    <Compile Include="webscraper.aspx.cs">
+      <DependentUpon>webscraper.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="webscraper.aspx.designer.cs">
+      <DependentUpon>webscraper.aspx</DependentUpon>
+    </Compile>
     <Compile Include="webscreenshots.aspx.cs">
       <DependentUpon>webscreenshots.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="webscreenshots.aspx.designer.cs">
       <DependentUpon>webscreenshots.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="whois.aspx.cs">
+      <DependentUpon>whois.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="whois.aspx.designer.cs">
+      <DependentUpon>whois.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>

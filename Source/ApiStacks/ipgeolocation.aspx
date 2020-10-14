@@ -38,6 +38,7 @@
 
                         <%--Give it a try--%>
                         <form runat="server" id="webScnreenshotsTry">
+                            <i data-feather="book-open" class="fea icon-sm icons" style="position: absolute; margin-left: 15px; margin-top: 10px"></i>
                             <input runat="server" id="txtAddress" type="text" class="form-control pl-5" style="display: inline-block; max-width: 200px" placeholder="Web Address" required="" value="104.70.66.209">
                             <button id="btnTakeScreenshot" type="submit" onclick="takeScreenshot();" class="btn btn-primary" style="display: inline-block;"> <span id="spinner"></span> Get Data</button>
                         </form>
@@ -46,12 +47,15 @@
 
 
                     <%--CODE EDITOR--%>
-                    <section class="section">
-                        <div class="container">
+                        <div class="container" style="margin-top: 50px;">
                             <div class="row justify-content-center">
                                 <div class="col-lg-9">
                                     <div class="p-4 shadow rounded border">
-                                       
+                                        <div style="opacity: 0.6;">
+                                            <div style="width: 10px; height: 10px; background-color: red; border-radius: 5px; display: inline-block"></div>
+                                            <div style="width: 10px; height: 10px; background-color: yellow; border-radius: 5px; display: inline-block"></div>
+                                            <div style="width: 10px; height: 10px; background-color: greenyellow; border-radius: 5px; display: inline-block"></div>
+                                        </div>
                                         <div style="height: 400px;">
                                             <textarea readonly id="txtData" runat="server" class="codeReader"></textarea>
                                         </div>
@@ -62,8 +66,6 @@
                             <!--end row-->
                         </div>
                         <!--end container-->
-                    </section>
-                    <!--end section-->
 
 
 
@@ -202,7 +204,7 @@
 
             function takeScreenshot() {
                 var address = $("#txtAddress").val().trim();
-                debugger;
+                
                 if ($("#txtAddress").val().trim() != "") {
                     $("#spinner").addClass("fa fa-circle-o-notch fa-spin");
                     $("#spinner").css("margin-right", "9px");

@@ -1,4 +1,5 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="opengraph.aspx.cs" Inherits="ApiStacks.opengraph" MasterPageFile="~/default.Master" ClientIDMode="Static" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="linkscraper.aspx.cs" Inherits="ApiStacks.linkscraper" MasterPageFile="~/default.Master" ClientIDMode="Static" %>
+
 
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder_Head" runat="server">
     <title>webscreenshots</title>
@@ -26,7 +27,7 @@
             <div class="row justify-content-center">
                 <div class="col-lg-12 text-center mt-0 mt-md-5 pt-0 pt-md-5">
                     <div class="title-heading margin-top-100">
-                        <h1 class="heading mb-3">Open Graph API</h1>
+                        <h1 class="heading mb-3">Link Scraper API</h1>
 
                         <div class="alert alert-light alert-pills shadow" role="alert">
                             <span class="badge badge-pill badge-danger mr-1">0.1.2 BETA</span>
@@ -39,8 +40,7 @@
                         <form runat="server" id="webScnreenshotsTry">
                             <i data-feather="link" class="fea icon-sm icons" style="position: absolute; margin-left: 15px; margin-top: 10px"></i>
                             <input runat="server" id="txtAddress" type="text" class="form-control pl-5" style="display: inline-block; max-width: 500px" placeholder="Web Address" required="">
-                            <button id="btnTakeScreenshot" type="submit" onclick="takeScreenshot();" class="btn btn-primary" style="display: inline-block;"><span id="spinner"></span>Get Data
-                            </button>
+                            <button id="btnTakeScreenshot" type="submit" onclick="takeScreenshot();" class="btn btn-primary" style="display: inline-block;"><span id="spinner"></span>Scrape Links</button>
                         </form>
                     </div>
 
@@ -58,6 +58,10 @@
                                         </div>
                                         <div style="height: 400px;">
                                             <textarea readonly id="txtData" runat="server" class="codeReader"></textarea>
+                                        </div>
+
+                                        <div style="height: 400px;">
+                                            <div  id="txtData2" runat="server" class="codeReader"></div>
                                         </div>
                                     </div>
                                 </div>

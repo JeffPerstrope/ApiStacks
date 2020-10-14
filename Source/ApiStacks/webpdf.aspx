@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" MasterPageFile="~/default.Master" CodeBehind="webpdf.aspx.cs" Inherits="ApiStacks.webpdf" ClientIDMode="Static" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="webpdf.aspx.cs" Inherits="ApiStacks.webpdf" MasterPageFile="~/default.Master" ClientIDMode="Static" %>
 
 
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder_Head" runat="server">
@@ -38,8 +38,9 @@
 
                         <%--Give it a try--%>
                         <form runat="server" id="webScnreenshotsTry">
-                            <input runat="server" id="txtAddress" type="text" class="form-control pl-5" style="display: inline-block; max-width: 500px" placeholder="Web Address" required="">
-                            <button id="btnTakeScreenshot" type="submit" onclick="takeScreenshot();" class="btn btn-primary" style="display: inline-block;"> <span id="spinner"></span> Take Screenshot</button>
+                            <i data-feather="link" class="fea icon-sm icons" style="position: absolute; margin-left: 15px; margin-top: 10px"></i>
+                            <input runat="server" id="txtAddress" type="text" class="form-control pl-5" style="display: inline-block; max-width: 500px; margin-bottom: 10px" placeholder="Web Address" required="">
+                            <button id="btnTakeScreenshot" type="submit" onclick="takeScreenshot();" class="btn btn-primary" style="display: inline-block;"> <span id="spinner"></span> Take PDF</button>
                         </form>
                     </div>
 
@@ -183,7 +184,7 @@
 
             function takeScreenshot() {
                 var address = $("#txtAddress").val().trim();
-                debugger;
+                
                 if ($("#txtAddress").val().trim() != "") {
                     $("#spinner").addClass("fa fa-circle-o-notch fa-spin");
                     $("#spinner").css("margin-right", "9px");

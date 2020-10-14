@@ -80,20 +80,25 @@
                         <ul class="submenu megamenu">
                             <li>
                                 <ul>
-                                    <li><a href="\webscreenshots.aspx">Web Screenshots <span class="badge badge-pill badge-warning ml-2">Hot</span></a></li>
-                                    <li><a href="\webpdf.aspx">Web PDF</a></li>
-                                    <li><a href="\opengraph.aspx">Open Graph Scraper</a></li>
-                                    <li><a href="#">WHOIS Lookup</a></li>
-                                    <li><a href="\ipgeolocation.aspx">IP Geolocation Lookup</a></li>
-                                    <li><a href="#">Language Detect</a></li>
+                                    <li><a href="\webscreenshots">Web Screenshots <span class="badge badge-pill badge-warning ml-2">Hot</span></a></li>
+                                    <li><a href="\webpdf">Web PDF</a></li>
+                                    <li><a href="\linkscraper">Link Scraper</a></li>
+                                    <li><a href="\emailscraper">Email Scraper <span class="badge badge-pill badge-warning ml-2">Hot</span></a></li>
+                                    <li><a href="\opengraph">Open Graph Scraper</a></li>
+                                    <li><a href="\whois">WHOIS Lookup</a></li>
+                                    <li><a href="\webscraper">Web Scraper</a></li>
+                                    
+                                    
+                                    
                                 </ul>
                             </li>
 
                             <li>
                                 <ul>
-                                    <li><a href="#">Web Scraper</a></li>
-                                    <li><a href="#">Email Validator</a></li>
-                                    <li><a href="#">QR Code Generator</a></li>
+                                    <li><a href="\languagedetect">Language Detect</a></li>
+                                    <li><a href="\emailvalidate">Email Validator</a></li>
+                                    <li><a href="\qrcode">QR Code Generator</a></li>
+                                    <li><a href="\ipgeolocation">IP Geolocation  <span class="badge badge-success rounded">Soon</span></a></li>
                                     <li><a href="#">Google Search Results  <span class="badge badge-success rounded">Soon</span></a></li>
                                     <li><a href="#">Domain Lookup  <span class="badge badge-success rounded">Soon</span></a></li>
                                     <li><a href="#">Tech Stack Detector  <span class="badge badge-success rounded">Soon</span></a></li>
@@ -116,7 +121,7 @@
                     </li>
 
                     <li><a href="#">Blog</a></li>
-                    <li><a href="#"><span style="color: lawngreen">●</span> Status</a></li>
+                    <li><a href="#"><div style="width: 10px; height: 10px; background-color: greenyellow; border-radius: 5px; display: inline-block"></div>   Status</a></li>
 
                 </ul>
                 <!--end navigation menu-->
@@ -150,7 +155,7 @@
                     <div class="section-title mb-4 pb-2">
                         <h4 class="title mb-4">Pricing Options</h4>
                         <p class="text-muted para-desc mb-0 mx-auto">No matter which plan you pick, you will have access to all the API Products. For the <span class="text-primary font-weight-bold">Free</span> plan, you can get started quickly, no credit card required.</p>
-                        <p class="text-muted para-desc mb-0 mx-auto" style="margin-top: 15px;">No questions asked <span class="text-primary font-weight-bold">30 day money back guarantee.</span></p>
+                        <p class="text-muted para-desc mb-0 mx-auto" style="margin-top: 15px;">No obligation subscription, <span class="text-primary font-weight-bold">cancel any time.</span></p>
                     </div>
                 </div>
                 <!--end col-->
@@ -178,6 +183,8 @@
                                 <li class="h6 text-muted mb-0"><span class="text-primary h5 mr-2"><i class="uim uim-check-circle"></i></span>IP Geolocation Lookup</li>
                                 <li class="h6 text-muted mb-0"><span class="text-primary h5 mr-2"><i class="uim uim-check-circle"></i></span>Language Detect</li>
                                 <li class="h6 text-muted mb-0"><span class="text-primary h5 mr-2"><i class="uim uim-check-circle"></i></span>Web Scraper</li>
+                                <li class="h6 text-muted mb-0"><span class="text-primary h5 mr-2"><i class="uim uim-check-circle"></i></span>Link Scraper</li>
+                                <li class="h6 text-muted mb-0"><span class="text-primary h5 mr-2"><i class="uim uim-check-circle"></i></span>Email Scraper</li>
                                 <li class="h6 text-muted mb-0"><span class="text-primary h5 mr-2"><i class="uim uim-check-circle"></i></span>Email Validator</li>
                                 <li class="h6 text-muted mb-0"><span class="text-primary h5 mr-2"><i class="uim uim-check-circle"></i></span>QR Code Generator</li>
                                 <br>
@@ -211,6 +218,8 @@
                                 <li class="h6 text-muted mb-0"><span class="text-primary h5 mr-2"><i class="uim uim-check-circle"></i></span>IP Geolocation Lookup</li>
                                 <li class="h6 text-muted mb-0"><span class="text-primary h5 mr-2"><i class="uim uim-check-circle"></i></span>Language Detect</li>
                                 <li class="h6 text-muted mb-0"><span class="text-primary h5 mr-2"><i class="uim uim-check-circle"></i></span>Web Scraper</li>
+                                <li class="h6 text-muted mb-0"><span class="text-primary h5 mr-2"><i class="uim uim-check-circle"></i></span>Link Scraper</li>
+                                <li class="h6 text-muted mb-0"><span class="text-primary h5 mr-2"><i class="uim uim-check-circle"></i></span>Email Scraper</li>
                                 <li class="h6 text-muted mb-0"><span class="text-primary h5 mr-2"><i class="uim uim-check-circle"></i></span>Email Validator</li>
                                 <li class="h6 text-muted mb-0"><span class="text-primary h5 mr-2"><i class="uim uim-check-circle"></i></span>QR Code Generator</li>
                                 <br>
@@ -244,6 +253,8 @@
                                 <li class="h6 text-muted mb-0"><span class="text-primary h5 mr-2"><i class="uim uim-check-circle"></i></span>IP Geolocation Lookup</li>
                                 <li class="h6 text-muted mb-0"><span class="text-primary h5 mr-2"><i class="uim uim-check-circle"></i></span>Language Detect</li>
                                 <li class="h6 text-muted mb-0"><span class="text-primary h5 mr-2"><i class="uim uim-check-circle"></i></span>Web Scraper</li>
+                                <li class="h6 text-muted mb-0"><span class="text-primary h5 mr-2"><i class="uim uim-check-circle"></i></span>Link Scraper</li>
+                                <li class="h6 text-muted mb-0"><span class="text-primary h5 mr-2"><i class="uim uim-check-circle"></i></span>Email Scraper</li>
                                 <li class="h6 text-muted mb-0"><span class="text-primary h5 mr-2"><i class="uim uim-check-circle"></i></span>Email Validator</li>
                                 <li class="h6 text-muted mb-0"><span class="text-primary h5 mr-2"><i class="uim uim-check-circle"></i></span>QR Code Generator</li>
                                 <br>
@@ -278,6 +289,8 @@
                                 <li class="h6 text-muted mb-0"><span class="text-primary h5 mr-2"><i class="uim uim-check-circle"></i></span>IP Geolocation Lookup</li>
                                 <li class="h6 text-muted mb-0"><span class="text-primary h5 mr-2"><i class="uim uim-check-circle"></i></span>Language Detect</li>
                                 <li class="h6 text-muted mb-0"><span class="text-primary h5 mr-2"><i class="uim uim-check-circle"></i></span>Web Scraper</li>
+                                <li class="h6 text-muted mb-0"><span class="text-primary h5 mr-2"><i class="uim uim-check-circle"></i></span>Link Scraper</li>
+                                <li class="h6 text-muted mb-0"><span class="text-primary h5 mr-2"><i class="uim uim-check-circle"></i></span>Email Scraper</li>
                                 <li class="h6 text-muted mb-0"><span class="text-primary h5 mr-2"><i class="uim uim-check-circle"></i></span>Email Validator</li>
                                 <li class="h6 text-muted mb-0"><span class="text-primary h5 mr-2"><i class="uim uim-check-circle"></i></span>QR Code Generator</li>
                                 <br>

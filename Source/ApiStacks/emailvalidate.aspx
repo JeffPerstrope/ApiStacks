@@ -1,4 +1,6 @@
-﻿<%@ Page Title="" Language="C#" AutoEventWireup="true" MasterPageFile="~/default.Master" CodeBehind="webscreenshots.aspx.cs" Inherits="ApiStacks.webscreenshots" ClientIDMode="Static" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="emailvalidate.aspx.cs" Inherits="ApiStacks.emailvalidate" MasterPageFile="~/default.Master" ClientIDMode="Static" %>
+
+
 
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder_Head" runat="server">
     <title>webscreenshots</title>
@@ -26,7 +28,7 @@
             <div class="row justify-content-center">
                 <div class="col-lg-12 text-center mt-0 mt-md-5 pt-0 pt-md-5">
                     <div class="title-heading margin-top-100">
-                        <h1 class="heading mb-3">Web Screenshots API</h1>
+                        <h1 class="heading mb-3">Email Validator API</h1>
 
                         <div class="alert alert-light alert-pills shadow" role="alert">
                             <span class="badge badge-pill badge-danger mr-1">0.1.2 BETA</span>
@@ -39,9 +41,11 @@
                         <form runat="server" id="webScnreenshotsTry">
                             <i data-feather="link" class="fea icon-sm icons" style="position: absolute; margin-left: 15px; margin-top: 10px"></i>
                             <input runat="server" id="txtAddress" type="text" class="form-control pl-5" style="display: inline-block; max-width: 500px; margin-bottom: 10px" placeholder="Web Address" required="">
-                            <button id="btnTakeScreenshot" type="submit" onclick="takeScreenshot();" class="btn btn-primary" style="display: inline-block;"> <span id="spinner"></span> Take Screenshot</button>
+                            <button id="btnTakeScreenshot" type="submit" onclick="takeScreenshot();" class="btn btn-primary" style="display: inline-block;"> <span id="spinner"></span> Validate</button>
                         </form>
                     </div>
+
+
 
                     <div class="home-dashboard">
                         <img runat="server" id="screenshotImage" src="images/webscreenshots_Browser.jpeg" alt="" class="img-fluid">

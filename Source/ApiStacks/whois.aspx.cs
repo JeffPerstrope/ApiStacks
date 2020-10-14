@@ -1,5 +1,4 @@
-﻿using Newtonsoft.Json;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -11,7 +10,7 @@ using System.Web.UI.WebControls;
 
 namespace ApiStacks
 {
-    public partial class opengraph : System.Web.UI.Page
+    public partial class whois : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -24,17 +23,17 @@ namespace ApiStacks
                     {
                         //Validate URL
                         var url = txtAddress.Value.ToLower().Trim();
-                        if (!url.StartsWith("http://") && !url.StartsWith("https://"))
-                            url = "http://" + url;
+                        //if (!url.StartsWith("http://") && !url.StartsWith("https://"))
+                        //    url = "http://" + url;
                         string Pattern = @"^(?:http(s)?:\/\/)?[\w.-]+(?:\.[\w\.-]+)+[\w\-\._~:/?#[\]@!\$&'\(\)\*\+,;=.]+$";
                         Regex Rgx = new Regex(Pattern, RegexOptions.Compiled | RegexOptions.IgnoreCase);
                         if (Rgx.IsMatch(url))
                         {
-                            Session["graphData"] = null;
-                            var screenshotResponse = APICall.call(APICall.API_OpenGraph, url);
+                            Session["whoisData"] = null;
+                            var screenshotResponse = APICall.call(APICall.API_Whois, url);
                             if (screenshotResponse != null)
                             {
-                                Session["graphData"] = screenshotResponse;
+                                Session["whoisData"] = screenshotResponse;
                             }
                         }
                     }
@@ -45,10 +44,10 @@ namespace ApiStacks
                 }
             }
 
-            if (Session["graphData"] == null)
+            if (Session["whoisData"] == null)
             {
                 //Load sample graph data
-                string sampleFilePathpath = Server.MapPath("/samples/sampleGraph.txt");
+                string sampleFilePathpath = Server.MapPath("/samples/sampleWhois.txt");
                 using (var sr = new StreamReader(sampleFilePathpath))
                 {
                     var content = sr.ReadToEnd();
@@ -57,7 +56,7 @@ namespace ApiStacks
             }
             else
             {
-                txtData.Value = Session["graphData"].ToString();
+                txtData.Value = Session["whoisData"].ToString();
             }
         }
     }
