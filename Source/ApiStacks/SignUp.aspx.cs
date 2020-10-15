@@ -11,7 +11,13 @@ namespace ApiStacks
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            if(Page.IsPostBack)
+            //Redirect if already logged in
+            if (Session["userID"] != null)
+            {
+                Response.Redirect("/Dashboard");
+            }
+
+            if (Page.IsPostBack)
             {
                 if (Request.QueryString["plan"] != null)
                     Session["selectedPlan"] = Request.QueryString["plan"];
@@ -27,7 +33,7 @@ namespace ApiStacks
                     return;
 
                 Session["userID"] = Guid.NewGuid();
-                Response.Redirect(@"\Index.aspx");
+                Response.Redirect(@"\");
             }
         }
     }

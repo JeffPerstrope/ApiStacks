@@ -14,6 +14,8 @@ namespace ApiStacks
         public static string API_OpenGraph = "https://apistacks-opengraph.glitch.me/getopengraph?url=";
         public static string API_Whois = "https://apistacks-whois.glitch.me/getwhois?url=";
         public static string API_IPLocation = "https://apistacks-whois.glitch.me/getiplocation?url=";
+        public static string API_LinkScraper = "https://apistacks-linkscraper.glitch.me/geturls?url=";
+        public static string API_WebScraper = "https://apistacks-webscraper.glitch.me/getwebsite?url=";
 
 
         public static string call(string endpoint, string queryString)

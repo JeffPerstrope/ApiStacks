@@ -5,16 +5,7 @@
 </asp:Content>
 
 <asp:Content ContentPlaceHolderID="ContentPlaceHolder_HeaderButton" runat="server">
-    <div class="buy-button">
-        <%if (Session["userID"] == null)
-            { %>
-        <a href="\SignUp.aspx" class="btn btn-primary">Sign Up</a>
-        <% }
-            else
-            { %>
-        <a href="\SignUp.aspx" class="btn btn-primary">My Account</a>
-        <% } %>
-    </div>
+    
 </asp:Content>
 
 
@@ -37,12 +28,11 @@
 
                         <%--Give it a try--%>
                         <form runat="server" id="webScnreenshotsTry">
-                            <input runat="server" id="txtAddress" type="text" class="form-control pl-5" style="display: inline-block; max-width: 500px" placeholder="Web Address" required="">
+                            <i data-feather="link" class="fea icon-sm icons" style="position: absolute; margin-left: 15px; margin-top: 10px"></i>
+                            <input runat="server" id="txtAddress" type="text" class="form-control pl-5" style="display: inline-block; max-width: 500px; margin-bottom: 10px" placeholder="Web Address" required="">
                             <button id="btnTakeScreenshot" type="submit" onclick="takeScreenshot();" class="btn btn-primary" style="display: inline-block;"> <span id="spinner"></span> Take Screenshot</button>
                         </form>
                     </div>
-
-
 
                     <div class="home-dashboard">
                         <img runat="server" id="screenshotImage" src="images/webscreenshots_Browser.jpeg" alt="" class="img-fluid">
@@ -182,7 +172,7 @@
 
             function takeScreenshot() {
                 var address = $("#txtAddress").val().trim();
-                debugger;
+                
                 if ($("#txtAddress").val().trim() != "") {
                     $("#spinner").addClass("fa fa-circle-o-notch fa-spin");
                     $("#spinner").css("margin-right", "9px");

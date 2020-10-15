@@ -1,5 +1,6 @@
 C:\Personal Projects\ApiStacks\Source\ApiStacks\bin\Microsoft.AspNet.FriendlyUrls.xml
 C:\Personal Projects\ApiStacks\Source\ApiStacks\bin\System.Text.Encodings.Web.xml
+C:\Personal Projects\ApiStacks\Source\ApiStacks\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
 C:\Personal Projects\ApiStacks\Source\ApiStacks\bin\ApiStacks.dll.config
 C:\Personal Projects\ApiStacks\Source\ApiStacks\bin\ApiStacks.dll
 C:\Personal Projects\ApiStacks\Source\ApiStacks\bin\ApiStacks.pdb
@@ -10,7 +11,6 @@ C:\Personal Projects\ApiStacks\Source\ApiStacks\bin\roslyn\csi.exe
 C:\Personal Projects\ApiStacks\Source\ApiStacks\bin\roslyn\csi.exe.config
 C:\Personal Projects\ApiStacks\Source\ApiStacks\bin\roslyn\csi.rsp
 C:\Personal Projects\ApiStacks\Source\ApiStacks\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
-C:\Personal Projects\ApiStacks\Source\ApiStacks\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
 C:\Personal Projects\ApiStacks\Source\ApiStacks\bin\roslyn\Microsoft.CodeAnalysis.CSharp.Scripting.dll
 C:\Personal Projects\ApiStacks\Source\ApiStacks\bin\roslyn\Microsoft.CodeAnalysis.dll
 C:\Personal Projects\ApiStacks\Source\ApiStacks\bin\roslyn\Microsoft.CodeAnalysis.Scripting.dll

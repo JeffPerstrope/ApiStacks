@@ -31,7 +31,7 @@
 
         
         <div class="back-to-home rounded d-none d-sm-block">
-            <a href="\Index.aspx" class="btn btn-icon btn-soft-primary"><i data-feather="home" class="icons"></i></a>
+            <a href="\" class="btn btn-icon btn-soft-primary"><i data-feather="home" class="icons"></i></a>
         </div>
 
         <!-- Hero Start -->
@@ -47,6 +47,8 @@
                         <div class="card login_page shadow rounded border-0">
                             <div class="card-body">
                                 <h4 class="card-title text-center">Signup</h4>  
+
+
                                 <form runat="server" id="signUpForm" class="login-form mt-4">
                                     <div class="row">
                                         <div class="col-md-6">
@@ -88,17 +90,9 @@
                                         <div class="col-md-12">
                                             <button type="submit" class="btn btn-primary btn-block">Sign Up</button>
                                         </div>
-                                        <div class="col-lg-12 mt-4 text-center">
-                                            <h6>Or Signup With</h6>
-                                            <ul class="list-unstyled social-icon mb-0 mt-3">
-                                                <li class="list-inline-item"><a href="javascript:void(0)" class="rounded"><i data-feather="facebook" class="fea icon-sm fea-social"></i></a></li>
-                                                <li class="list-inline-item"><a href="javascript:void(0)" class="rounded"><i data-feather="github" class="fea icon-sm fea-social"></i></a></li>
-                                                <li class="list-inline-item"><a href="javascript:void(0)" class="rounded"><i data-feather="twitter" class="fea icon-sm fea-social"></i></a></li>
-                                                <li class="list-inline-item"><a href="javascript:void(0)" class="rounded"><i data-feather="gitlab" class="fea icon-sm fea-social"></i></a></li>
-                                            </ul><!--end icon-->
-                                        </div>
+                                        
                                         <div class="mx-auto">
-                                            <p class="mb-0 mt-3"><small class="text-dark mr-2">Already have an account ?</small> <a href="\Login.aspx" class="text-dark font-weight-bold">Sign in</a></p>
+                                            <p class="mb-0 mt-3"><small class="text-dark mr-2">Already have an account ?</small> <a href="\Login" class="text-dark font-weight-bold">Sign in</a></p>
                                         </div>
                                     </div>
                                 </form>

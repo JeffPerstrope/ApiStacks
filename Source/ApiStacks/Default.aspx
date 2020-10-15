@@ -7,16 +7,7 @@
 
 
 <asp:Content ContentPlaceHolderID="ContentPlaceHolder_HeaderButton" runat="server">
-    <div class="buy-button">
-        <%if (Session["userID"] == null)
-            { %>
-        <a href="\SignUp.aspx" class="btn btn-primary">Sign Up</a>
-        <% }
-            else
-            { %>
-        <a href="\SignUp.aspx" class="btn btn-primary">My Account</a>
-        <% } %>
-    </div>
+    
 </asp:Content>
 
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder2" runat="server">
@@ -55,32 +46,32 @@
         <div class="container">
             <div class="row justify-content-center">
                 <div class="col-lg-2 col-md-2 col-6 text-center py-4">
-                    <img src="images/client/amazon.svg" class="avatar avatar-ex-sm" alt="">
+                    <img src="images/technologies/1.png" class="avatar avatar-ex-sm" alt="">
                 </div>
                 <!--end col-->
 
                 <div class="col-lg-2 col-md-2 col-6 text-center py-4">
-                    <img src="images/client/google.svg" class="avatar avatar-ex-sm" alt="">
+                    <img src="images/technologies/2.png" class="avatar avatar-ex-sm" alt="">
                 </div>
                 <!--end col-->
 
                 <div class="col-lg-2 col-md-2 col-6 text-center py-4">
-                    <img src="images/client/lenovo.svg" class="avatar avatar-ex-sm" alt="">
+                    <img src="images/technologies/3.png" class="avatar avatar-ex-sm" alt="">
                 </div>
                 <!--end col-->
 
                 <div class="col-lg-2 col-md-2 col-6 text-center py-4">
-                    <img src="images/client/paypal.svg" class="avatar avatar-ex-sm" alt="">
+                    <img src="images/technologies/4.png" class="avatar avatar-ex-sm" alt="">
                 </div>
                 <!--end col-->
 
                 <div class="col-lg-2 col-md-2 col-6 text-center py-4">
-                    <img src="images/client/shopify.svg" class="avatar avatar-ex-sm" alt="">
+                    <img src="images/technologies/5.png" class="avatar avatar-ex-sm" alt="">
                 </div>
                 <!--end col-->
 
                 <div class="col-lg-2 col-md-2 col-6 text-center py-4">
-                    <img src="images/client/spotify.svg" class="avatar avatar-ex-sm" alt="">
+                    <img src="images/technologies/6.png" class="avatar avatar-ex-sm" alt="">
                 </div>
                 <!--end col-->
             </div>
@@ -388,4 +379,10 @@
     <script src="https://unicons.iconscout.com/release/v2.1.9/script/monochrome/bundle.js"></script>
     <!-- Main Js -->
     <script src="js/app.js"></script>
+
+    <style>
+        .avatar.avatar-ex-sm {
+            max-height: 50px !important;
+        }
+    </style>
 </asp:Content>

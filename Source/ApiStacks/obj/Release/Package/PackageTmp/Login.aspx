@@ -28,9 +28,9 @@
 
 <body>
 
-    <form runat="server" id="loginForm">
+    
         <div class="back-to-home rounded d-none d-sm-block">
-            <a href="\Index.aspx" class="btn btn-icon btn-soft-primary"><i data-feather="home" class="icons"></i></a>
+            <a href="\" class="btn btn-icon btn-soft-primary"><i data-feather="home" class="icons"></i></a>
         </div>
 
         <!-- Hero Start -->
@@ -46,13 +46,13 @@
                         <div class="card login-page bg-white shadow rounded border-0">
                             <div class="card-body">
                                 <h4 class="card-title text-center">Login</h4>
-                                <form class="login-form mt-4">
+                                <form runat="server" id="signInForm" class="login-form mt-4">
                                     <div class="row">
                                         <div class="col-lg-12">
                                             <div class="form-group position-relative">
                                                 <label>Your Email <span class="text-danger">*</span></label>
                                                 <i data-feather="user" class="fea icon-sm icons"></i>
-                                                <input type="email" class="form-control pl-5" placeholder="Email" name="email" required="">
+                                                <input runat="server" id="txtEmail" type="email" class="form-control pl-5" placeholder="Email" name="email" required="">
                                             </div>
                                         </div>
 
@@ -60,7 +60,7 @@
                                             <div class="form-group position-relative">
                                                 <label>Password <span class="text-danger">*</span></label>
                                                 <i data-feather="key" class="fea icon-sm icons"></i>
-                                                <input type="password" class="form-control pl-5" placeholder="Password" required="">
+                                                <input runat="server" id="txtPassword" type="password" class="form-control pl-5" placeholder="Password" required="">
                                             </div>
                                         </div>
 
@@ -78,18 +78,9 @@
                                         <div class="col-lg-12 mb-0">
                                             <button class="btn btn-primary btn-block">Sign in</button>
                                         </div>
-                                        <div class="col-lg-12 mt-4 text-center">
-                                            <h6>Or Login With</h6>
-                                            <ul class="list-unstyled social-icon mb-0 mt-3">
-                                                <li class="list-inline-item"><a href="javascript:void(0)" class="rounded"><i data-feather="facebook" class="fea icon-sm fea-social"></i></a></li>
-                                                <li class="list-inline-item"><a href="javascript:void(0)" class="rounded"><i data-feather="github" class="fea icon-sm fea-social"></i></a></li>
-                                                <li class="list-inline-item"><a href="javascript:void(0)" class="rounded"><i data-feather="twitter" class="fea icon-sm fea-social"></i></a></li>
-                                                <li class="list-inline-item"><a href="javascript:void(0)" class="rounded"><i data-feather="gitlab" class="fea icon-sm fea-social"></i></a></li>
-                                            </ul>
-                                            <!--end icon-->
-                                        </div>
+                                        
                                         <div class="col-12 text-center">
-                                            <p class="mb-0 mt-3"><small class="text-dark mr-2">Don't have an account ?</small> <a href="\SignUp.aspx" class="text-dark font-weight-bold">Sign Up</a></p>
+                                            <p class="mb-0 mt-3"><small class="text-dark mr-2">Don't have an account ?</small> <a href="\SignUp" class="text-dark font-weight-bold">Sign Up</a></p>
                                         </div>
                                     </div>
                                 </form>
@@ -117,6 +108,5 @@
         <!-- Main Js -->
         <script src="js/app.js"></script>
 
-    </form>
 </body>
 </html>

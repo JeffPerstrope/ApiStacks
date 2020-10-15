@@ -7,16 +7,7 @@
 </asp:Content>
 
 <asp:Content ContentPlaceHolderID="ContentPlaceHolder_HeaderButton" runat="server">
-    <div class="buy-button">
-        <%if (Session["userID"] == null)
-            { %>
-        <a href="\SignUp.aspx" class="btn btn-primary">Sign Up</a>
-        <% }
-            else
-            { %>
-        <a href="\SignUp.aspx" class="btn btn-primary">My Account</a>
-        <% } %>
-    </div>
+    
 </asp:Content>
 
 
