@@ -11,7 +11,6 @@ namespace ApiStacks
 
         public static void PopulateApps()
         {
-
             #region ALL APPS
 
             if (InstalledApps.Count <= 0)
@@ -22,7 +21,13 @@ namespace ApiStacks
                     name = "Web Screenshots",
                     icon = "/images/app/webscreenshots.png",
                     enabled = true,
-                    version = "0.1.3 BETA"
+                    version = "0.1.3 BETA",
+                    customization = new List<string>()
+                    {
+                        "quality : [0 ... 9]",
+                        "scaleFactor : [1 ... 3]",
+                        "emulateDevice : [string]"
+                    }
                 };
 
                 var app2 = new Model_ApiApp
@@ -98,6 +103,23 @@ namespace ApiStacks
                 InstalledApps.Add(app8);
             }
             #endregion
+        }
+
+        private static void PopulateAppSettings()
+        {
+            var app1 = new List<KeyValuePair<string, object>>()
+            {
+                new KeyValuePair<string, object>("High Definition", true),
+                new KeyValuePair<string, object>("High Definition", true),
+            };
+               
+            lock (InstalledApps)
+            {
+                foreach(var app in InstalledApps.ToArray())
+                {
+
+                }
+            }
         }
 
 

@@ -13,5 +13,15 @@ namespace ApiStacks
         public string icon { get; set; }
         public string version { get; set; }
         public bool enabled { get; set; }
+        public List<string> customization { get; set; }
+
+        public List<KeyValuePair<string, object>> settings { get; set; }
+
+        public Model_ApiApp()
+        {
+            customization = new List<string>();
+        }
     }
+
+    
 }

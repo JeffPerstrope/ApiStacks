@@ -37,7 +37,7 @@
                     </div>
 
                     <div style="margin-top: 50px;">
-                        <img runat="server" id="screenshotImage" src="samples/qrcode.png" alt="" class="img-fluid">
+                        <img runat="server" id="screenshotImage" src="samples/qrcode.png" alt="" class="img-fluid" style="width: 250px">
                     </div>
                 </div>
                 <!--end col-->

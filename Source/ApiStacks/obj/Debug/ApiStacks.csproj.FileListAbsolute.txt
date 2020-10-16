@@ -1,6 +1,3 @@
-C:\Personal Projects\ApiStacks\Source\ApiStacks\bin\Microsoft.AspNet.FriendlyUrls.xml
-C:\Personal Projects\ApiStacks\Source\ApiStacks\bin\System.Text.Encodings.Web.xml
-C:\Personal Projects\ApiStacks\Source\ApiStacks\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
 C:\Personal Projects\ApiStacks\Source\ApiStacks\bin\ApiStacks.dll.config
 C:\Personal Projects\ApiStacks\Source\ApiStacks\bin\ApiStacks.dll
 C:\Personal Projects\ApiStacks\Source\ApiStacks\bin\ApiStacks.pdb
@@ -11,6 +8,7 @@ C:\Personal Projects\ApiStacks\Source\ApiStacks\bin\roslyn\csi.exe
 C:\Personal Projects\ApiStacks\Source\ApiStacks\bin\roslyn\csi.exe.config
 C:\Personal Projects\ApiStacks\Source\ApiStacks\bin\roslyn\csi.rsp
 C:\Personal Projects\ApiStacks\Source\ApiStacks\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+C:\Personal Projects\ApiStacks\Source\ApiStacks\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
 C:\Personal Projects\ApiStacks\Source\ApiStacks\bin\roslyn\Microsoft.CodeAnalysis.CSharp.Scripting.dll
 C:\Personal Projects\ApiStacks\Source\ApiStacks\bin\roslyn\Microsoft.CodeAnalysis.dll
 C:\Personal Projects\ApiStacks\Source\ApiStacks\bin\roslyn\Microsoft.CodeAnalysis.Scripting.dll
@@ -177,6 +175,7 @@ C:\Personal Projects\ApiStacks\Source\ApiStacks\bin\System.Text.Encodings.Web.dl
 C:\Personal Projects\ApiStacks\Source\ApiStacks\bin\System.Text.Json.dll
 C:\Personal Projects\ApiStacks\Source\ApiStacks\bin\System.Threading.Tasks.Extensions.dll
 C:\Personal Projects\ApiStacks\Source\ApiStacks\bin\System.ValueTuple.dll
+C:\Personal Projects\ApiStacks\Source\ApiStacks\bin\Microsoft.AspNet.FriendlyUrls.xml
 C:\Personal Projects\ApiStacks\Source\ApiStacks\bin\Microsoft.AspNetCore.Hosting.Abstractions.xml
 C:\Personal Projects\ApiStacks\Source\ApiStacks\bin\Microsoft.AspNetCore.Hosting.Server.Abstractions.xml
 C:\Personal Projects\ApiStacks\Source\ApiStacks\bin\Microsoft.AspNetCore.Http.Abstractions.xml
@@ -201,6 +200,7 @@ C:\Personal Projects\ApiStacks\Source\ApiStacks\bin\System.IO.Pipelines.xml
 C:\Personal Projects\ApiStacks\Source\ApiStacks\bin\System.Memory.xml
 C:\Personal Projects\ApiStacks\Source\ApiStacks\bin\System.Numerics.Vectors.xml
 C:\Personal Projects\ApiStacks\Source\ApiStacks\bin\System.Runtime.CompilerServices.Unsafe.xml
+C:\Personal Projects\ApiStacks\Source\ApiStacks\bin\System.Text.Encodings.Web.xml
 C:\Personal Projects\ApiStacks\Source\ApiStacks\bin\System.Text.Json.xml
 C:\Personal Projects\ApiStacks\Source\ApiStacks\bin\System.Threading.Tasks.Extensions.xml
 C:\Personal Projects\ApiStacks\Source\ApiStacks\bin\System.ValueTuple.xml

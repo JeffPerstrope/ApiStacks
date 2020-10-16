@@ -2,11 +2,11 @@
 
 <asp:Content ID="Content2" ContentPlaceHolderID="dashboardPanel" runat="server">
     <form runat="server">
-    <h5>API Apps:</h5>
+        <h5>API Apps:</h5>
 
-    <div class="row">
+        <div class="row">
 
-        
+
 
             <% foreach (var app in ApiStacks.AppsList.InstalledApps)
                 { %>
@@ -16,7 +16,7 @@
                     <div class="content mt-3">
                         <a class="h5 text-dark"><%= app.name %></a>
                         <ul class="list-unstyled social-icon social mb-0 mt-2">
-                            <li class="list-inline-item"><a onclick="showConfigModal('<%= app.name %>', '<%= app.enabled %>');" class="rounded"><i data-feather="settings" class="fea icon-sm fea-social"></i></a></li>
+                            <li class="list-inline-item"><a onclick="showConfigModal('<%= app.name %>','<%= app.id %>', '<%= app.enabled %>');" class="rounded"><i data-feather="info" class="fea icon-sm fea-social"></i></a></li>
                             <li class="list-inline-item"><a href="javascript:void(0)" class="rounded"><i data-feather="help-circle" class="fea icon-sm fea-social"></i></a></li>
                         </ul>
                         <!--end icon-->
@@ -32,38 +32,63 @@
                 </div>
             </div>
             <!--end col-->
-            <% } %>
-        
-    </div>
-    <!--end row-->
-    </form>
 
 
-    <!-- Modal -->
-    <div id="myModal" class="modal fade" role="dialog">
-        <div class="modal-dialog">
 
-            <!-- Modal content-->
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h4 id="modalAPIAppTitle"class="modal-title">Web Screenshots API</h4>
-                    <button type="button" class="close" data-dismiss="modal">&times;</button>
 
-                </div>
-                <div class="modal-body">
-                    <div id="modalAPIAppAlert" class="alert" role="alert">API endpoint is currently active </div>
+            <%--Generate Modal windows--%>
+            <!-- Modal -->
+            <div id="modal<%= app.id %>" class="modal fade" role="dialog">
+                <div class="modal-dialog">
 
-                    <h6>API keys:</h6>
-                    <p>Private Key: <a class="text-primary">814f52b2-0b74-43cc-9848-eaeec97da3e0</a></p>
+                    <!-- Modal content-->
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h4 id="modalAPIAppTitle" class="modal-title"><%= app.name %> API</h4>
+                            <button type="button" class="close" data-dismiss="modal">&times;</button>
 
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        </div>
+                        <div class="modal-body">
+                            <% if (app.enabled)
+                                { %>
+                            <div id="modalAPIAppAlert" class="alert alert-light" role="alert">API endpoint is currently active </div>
+                            <%}
+                                else
+                                { %>
+                            <div id="modalAPIAppAlert" class="alert alert-warning" role="alert">API endpoint inactive. Requests to this API will fail </div>
+                            <%} %>
+
+
+
+                            <h6>API keys:</h6>
+                            <p>Private Key: <a class="text-primary">814f52b2-0b74-43cc-9848-eaeec97da3e0</a></p>
+
+
+
+                            <h6 style="display: inline-block">Customization:</h6>
+                            <span class="badge badge-pill badge-danger">Premium </span>
+                            <% foreach (var customization in app.customization)
+                                {  %>
+                            <p class="text-muted"><%= customization %></p>
+                            <% }  %>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-primary" data-dismiss="modal">Save</button>
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        </div>
+                    </div>
+
                 </div>
             </div>
 
+
+            <% } %>
         </div>
-    </div>
+        <!--end row-->
+    </form>
+
+
+
 
 
     <script>
@@ -79,21 +104,9 @@
             }
         });
 
-        function showConfigModal(appName, enabled) {
-            //Reset
-            $("#modalAPIAppAlert").removeClass("alert-light");
-            $("#modalAPIAppAlert").removeClass("alert-warning");
+        function showConfigModal(appName, appID, enabled) {
 
-            $('#myModal').modal('show');
-            $('#modalAPIAppTitle').text(appName)
-
-            if (enabled == "True") {
-                $("#modalAPIAppAlert").addClass("alert-light");
-                $("#modalAPIAppAlert").text("API endpoint is currently active");
-            } else {
-                $("#modalAPIAppAlert").addClass("alert-warning");
-                $("#modalAPIAppAlert").text("API endpoint is currently inactive. Calls to this endpoint will fail");
-            }
+            $('#modal' + appID).modal('show');
         }
     </script>
 </asp:Content>

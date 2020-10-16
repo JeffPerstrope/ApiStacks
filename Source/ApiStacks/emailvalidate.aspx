@@ -31,16 +31,37 @@
                         <%--Give it a try--%>
                         <form runat="server" id="webScnreenshotsTry">
                             <i data-feather="link" class="fea icon-sm icons" style="position: absolute; margin-left: 15px; margin-top: 10px"></i>
-                            <input runat="server" id="txtAddress" type="text" class="form-control pl-5" style="display: inline-block; max-width: 500px; margin-bottom: 10px" placeholder="Web Address" required="">
+                            <input runat="server" id="txtAddress" type="email" class="form-control pl-5" style="display: inline-block; max-width: 500px; margin-bottom: 10px" placeholder="Email Address" required="">
                             <button id="btnTakeScreenshot" type="submit" onclick="takeScreenshot();" class="btn btn-primary" style="display: inline-block;"> <span id="spinner"></span> Validate</button>
                         </form>
                     </div>
 
 
 
-                    <div class="home-dashboard">
-                        <img runat="server" id="screenshotImage" src="images/webscreenshots_Browser.jpeg" alt="" class="img-fluid">
-                    </div>
+                    <%--CODE EDITOR--%>
+                        <div class="container" style="margin-top: 50px;">
+                            <div class="row justify-content-center">
+                                <div class="col-lg-9">
+                                    <div class="p-4 shadow rounded border">
+                                        <div style="opacity: 0.6;">
+                                            <div style="width: 10px; height: 10px; background-color: red; border-radius: 5px; display: inline-block"></div>
+                                            <div style="width: 10px; height: 10px; background-color: yellow; border-radius: 5px; display: inline-block"></div>
+                                            <div style="width: 10px; height: 10px; background-color: greenyellow; border-radius: 5px; display: inline-block"></div>
+                                        </div>
+                                        <div style="height: 400px;">
+                                            <textarea readonly id="txtData" runat="server" class="codeReader"></textarea>
+                                        </div>
+
+                                        <div style="height: 400px;">
+                                            <div  id="txtData2" runat="server" class="codeReader"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!--end col-->
+                            </div>
+                            <!--end row-->
+                        </div>
+                        <!--end container-->
                 </div>
                 <!--end col-->
             </div>
@@ -174,6 +195,10 @@
 
         <script>
 
+            $(document).ready(function () {
+                prettyPrint();
+            });
+
             function takeScreenshot() {
                 var address = $("#txtAddress").val().trim();
                 
@@ -183,6 +208,14 @@
                     $("#spinner").css("cursor", "progress");
                     //$("#btnTakeScreenshot").prop("disabled", true);
                 }
+            }
+
+            function prettyPrint() {
+
+                var ugly = $("#txtData").val();
+                var obj = JSON.parse(ugly);
+                var pretty = JSON.stringify(obj, undefined, 4);
+                $("#txtData").val(pretty);
             }
         </script>
 </asp:Content>
