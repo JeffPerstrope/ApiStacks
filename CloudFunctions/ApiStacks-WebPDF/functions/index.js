@@ -1,13 +1,15 @@
-const functions = require("firebase-functions");
-const captureWebsite = require("capture-website");
+const functions = require('firebase-functions');
+const puppeteer = require("puppeteer");
+const RenderPDF = require('chrome-headless-render-pdf');
 const ftp = require("basic-ftp");
 const fs = require("fs");
 const { Duplex } = require("stream");
 
 //app.get("/getscreenshot", (request, response) => {
-exports.getscreenshot = functions.https.onRequest((request, response) => {
+exports.getpdf = functions.https.onRequest((request, response) => {
   //Parse request
   var URL = request.query.url;
+  var PAGES = request.query.pages;
   if (URL === undefined || URL.trim() === "") {
     response.sendStatus(404);
     return;
@@ -15,24 +17,16 @@ exports.getscreenshot = functions.https.onRequest((request, response) => {
 
   //URL is valid, generate GUID
   var imageID = getGUID();
-  var imageName = imageID + ".jpeg";
+  var imageName = imageID + ".pdf";
   //var imageFullPath = __dirname + "/public/capture/" + imageName;
   var destination = "https://demo.adblock.evlar.net/api/" + imageName;
 
-  //Grab Image
-  //https://www.npmjs.com/package/capture-website
-  captureWebsite
-    .buffer(URL, {
-      type: "jpeg",
-      quality: 0.2,
-      scaleFactor: 2,
-      timeout: 30,
-      launchOptions: {
-        args: ["--no-sandbox"]
-      },
-    })
-    .then(function (data) {
-      const myReadableStream = bufferToStream(data);
+  
+console.log(puppeteer.executablePath());
+
+    RenderPDF.generatePdfBuffer(URL, { "chromeBinary": puppeteer.executablePath(), "includeBackground": true, "chromeOptions" : ["--ignore-certificate-errors", "--no-sandbox", "--ignore-certificate-errors", "--disable-setuid-sandbox"]})
+    .then((pdfBuffer) => {
+      const myReadableStream = bufferToStream(pdfBuffer);
 
       uploadScrape(myReadableStream, imageName)
         .then(function (data) {

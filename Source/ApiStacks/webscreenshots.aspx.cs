@@ -37,6 +37,8 @@ namespace ApiStacks
                             if (screenshotResponse != null)
                             {
                                 Session["screenshot"] = screenshotResponse.Replace(@"\", "").Replace("\"", ""); ;
+                                var fileName = Session["screenshot"].ToString().Split('/').Last();
+                                Response.Redirect("webscreenshots?capture=" + fileName);
                             }
                         }
                     }

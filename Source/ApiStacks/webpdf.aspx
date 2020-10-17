@@ -37,8 +37,9 @@
 
 
 
-                    <div class="home-dashboard">
-                        <img runat="server" id="screenshotImage" src="images/webscreenshots_Browser.jpeg" alt="" class="img-fluid">
+                    <div class="home-dashboard" style="margin-top: 50px">
+                        <embed id="screenshotImage" runat="server" src= "samples/samplePDF.pdf" type="application/pdf" width= "800" height= "800" />
+                        <%--<img runat="server" id="screenshotImage" src="images/webscreenshots_Browser.jpeg" alt="" class="img-fluid">--%>
                     </div>
                 </div>
                 <!--end col-->

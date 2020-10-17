@@ -19,14 +19,16 @@ namespace ApiStacks
                 {
                     id = "1",
                     name = "Web Screenshots",
+                    endpoint = "webscreenshots",
                     icon = "/images/app/webscreenshots.png",
                     enabled = true,
                     version = "0.1.3 BETA",
                     customization = new List<string>()
                     {
-                        "quality : [0 ... 9]",
-                        "scaleFactor : [1 ... 3]",
-                        "emulateDevice : [string]"
+                        "quality :\t [0 ... 9]",
+                        "scaleFactor :\t [1 ... 3]",
+                        "fullscreen :\t [boolean]",
+                        "emulateDevice :\t [string]"
                     }
                 };
 
@@ -34,15 +36,23 @@ namespace ApiStacks
                 {
                     id = "2",
                     name = "Web PDF",
+                    endpoint = "webpdf",
                     icon = "/images/app/webpdf.png",
                     enabled = true,
-                    version = "0.1.3 BETA"
+                    version = "0.1.3 BETA",
+                    customization = new List<string>()
+                    {
+                        "quality :\t [0 ... 9]",
+                        "width :\t [pixels]",
+                        "heigt :\t [pixels]"
+                    }
                 };
 
                 var app3 = new Model_ApiApp
                 {
                     id = "3",
                     name = "Link Scraper",
+                    endpoint = "linkscraper",
                     icon = "/images/app/linkscraper.png",
                     enabled = false,
                     version = "0.1.3 BETA"
@@ -52,6 +62,7 @@ namespace ApiStacks
                 {
                     id = "4",
                     name = "Email Scraper",
+                    endpoint = "emailscraper",
                     icon = "/images/app/emailscraper.png",
                     enabled = false,
                     version = "0.1.3 BETA"
@@ -61,6 +72,7 @@ namespace ApiStacks
                 {
                     id = "5",
                     name = "Open Graph",
+                    endpoint = "opengraph",
                     icon = "/images/app/opengraph.png",
                     enabled = false,
                     version = "0.1.3 BETA"
@@ -70,6 +82,7 @@ namespace ApiStacks
                 {
                     id = "6",
                     name = "WHOIS Lookup",
+                    endpoint = "whois",
                     icon = "/images/app/whois.png",
                     enabled = false,
                     version = "0.1.3 BETA"
@@ -79,6 +92,7 @@ namespace ApiStacks
                 {
                     id = "7",
                     name = "Web Scraper",
+                    endpoint = "webscraper",
                     icon = "/images/app/webscraper.png",
                     enabled = false,
                     version = "0.1.3 BETA"
@@ -88,6 +102,7 @@ namespace ApiStacks
                 {
                     id = "8",
                     name = "Language Detect",
+                    endpoint = "languagedetect",
                     icon = "/images/app/languagedetect.png",
                     enabled = false,
                     version = "0.1.3 BETA"
