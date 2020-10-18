@@ -35,7 +35,7 @@
                     </div>
 
                     <div class="home-dashboard">
-                        <img runat="server" id="screenshotImage" src="images/webscreenshots_Browser.jpeg" alt="" class="img-fluid">
+                        <img runat="server" id="screenshotImage" src="images/WebScreenshots_Browser.jpeg" style="max-width: 800px; filter: drop-shadow(rgba(0, 0, 0, 0.3) 0px 16px 12px); margin-bottom: 80px;" alt="" class="img-fluid">
                     </div>
                 </div>
                 <!--end col-->

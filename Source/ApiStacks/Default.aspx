@@ -22,8 +22,8 @@
                             <span class="element text-primary" data-elements="APIs, Webapps, Data"></span></h1>
                         <p class="para-desc text-muted">Don't re-invent the wheel. Save time and money by implementing these Web APIs to your product and get to market faster! 😎</p>
                         <div class="mt-4">
-                            <a href="\SignUp.aspx" class="btn btn-primary mt-2 mr-2"><i class="mdi mdi-magnify"></i>Signup Free</a>
-                            <a href="#sectionPricing" class="btn btn-outline-primary mt-2"><i class="mdi mdi-currency-usd"></i>Pricing</a>
+                            <a href="\SignUp.aspx" class="btn btn-primary mt-2 mr-2"><i class="mdi mdi-account"></i> Sign up for free</a>
+                            <%--<a href="#sectionPricing" class="btn btn-outline-primary mt-2"><i class="mdi mdi-currency-usd"></i>Pricing</a>--%>
                         </div>
                     </div>
                 </div>
@@ -100,7 +100,7 @@
             <div class="col-md-3 col-6 mt-4 pt-2">
                 <div class="counter-box text-center">
                     <img src="images/illustrator/Asset190.svg" class="avatar avatar-small" alt="">
-                    <h2 class="mb-0 mt-4"><span class="counter-value" data-count="1311">1</span></h2>
+                    <h2 class="mb-0 mt-4"><span class="counter-value" data-count="8500">1</span>+</h2>
                     <h6 class="counter-head text-muted">API Invocations</h6>
                 </div>
                 <!--end counter box-->
@@ -109,7 +109,7 @@
             <div class="col-md-3 col-6 mt-4 pt-2">
                 <div class="counter-box text-center">
                     <img src="images/illustrator/Asset189.svg" class="avatar avatar-small" alt="">
-                    <h2 class="mb-0 mt-4"><span class="counter-value" data-count="4">1</span>TB</h2>
+                    <h2 class="mb-0 mt-4"><span class="counter-value" data-count="2">1</span>GB+</h2>
                     <h6 class="counter-head text-muted">Data Served</h6>
                 </div>
                 <!--end counter box-->
@@ -127,7 +127,7 @@
             <div class="col-md-3 col-6 mt-4 pt-2">
                 <div class="counter-box text-center">
                     <img src="images/illustrator/Asset187.svg" class="avatar avatar-small" alt="">
-                    <h2 class="mb-0 mt-4"><span class="counter-value" data-count="104">0</span></h2>
+                    <h2 class="mb-0 mt-4"><span class="counter-value" data-count="20">0</span>+</h2>
                     <h6 class="counter-head text-muted">Implementations</h6>
                 </div>
                 <!--end counter box-->
@@ -166,7 +166,7 @@
                             <h5 class="mt-4"><a href="javascript:void(0)" class="title text-dark">Web Screenshots</a></h5>
                             <p class="text-muted">Turn websites into high definition screenshot images super quick and super easy! Give it a try</p>
 
-                            <a href="\webscreenshots" class="text-primary">Try It <i data-feather="chevron-right" class="fea icon-sm"></i></a>
+                            <a href="/webscreenshots" class="text-primary">Try It <i data-feather="chevron-right" class="fea icon-sm"></i></a>
                         </div>
                     </div>
                 </div>
@@ -183,27 +183,12 @@
                             <h5 class="mt-4"><a href="javascript:void(0)" class="title text-dark">Open Graph Scraper</a></h5>
                             <p class="text-muted">The most well-known dummy text is the 'Lorem Ipsum', which is said to have originated</p>
 
-                            <a href="\opengraph" class="text-primary">Try It <i data-feather="chevron-right" class="fea icon-sm"></i></a>
+                            <a href="/opengraph" class="text-primary">Try It <i data-feather="chevron-right" class="fea icon-sm"></i></a>
                         </div>
                     </div>
                 </div>
                 <!--end col-->
 
-                <div class="col-lg-4 col-md-6 col-12 mt-4 pt-2">
-                    <div class="card features explore-feature p-4 px-md-3 border-0 rounded-md shadow text-center">
-                        <div class="icons rounded h2 text-center text-primary px-3">
-                            <img src="images/app/opengraph.png" style="height: 60px;" />
-                        </div>
-
-                        <div class="card-body p-0 content">
-                            <h5 class="mt-4"><a href="javascript:void(0)" class="title text-dark">IP Geolocation Lookup</a></h5>
-                            <p class="text-muted">The most well-known dummy text is the 'Lorem Ipsum', which is said to have originated</p>
-
-                            <a href="javascript:void(0)" class="text-primary">Try It <i data-feather="chevron-right" class="fea icon-sm"></i></a>
-                        </div>
-                    </div>
-                </div>
-                <!--end col-->
 
                 <div class="col-lg-4 col-md-6 col-12 mt-4 pt-2">
                     <div class="card features explore-feature p-4 px-md-3 border-0 rounded-md shadow text-center">
@@ -215,7 +200,7 @@
                             <h5 class="mt-4"><a href="javascript:void(0)" class="title text-dark">Language Detect</a></h5>
                             <p class="text-muted">The most well-known dummy text is the 'Lorem Ipsum', which is said to have originated</p>
 
-                            <a href="javascript:void(0)" class="text-primary">Try It <i data-feather="chevron-right" class="fea icon-sm"></i></a>
+                            <a href="/languagedetect" class="text-primary">Try It <i data-feather="chevron-right" class="fea icon-sm"></i></a>
                         </div>
                     </div>
                 </div>
@@ -231,7 +216,7 @@
                             <h5 class="mt-4"><a href="javascript:void(0)" class="title text-dark">Web Scraper</a></h5>
                             <p class="text-muted">The most well-known dummy text is the 'Lorem Ipsum', which is said to have originated</p>
 
-                            <a href="javascript:void(0)" class="text-primary">Try It <i data-feather="chevron-right" class="fea icon-sm"></i></a>
+                            <a href="/webscraper" class="text-primary">Try It <i data-feather="chevron-right" class="fea icon-sm"></i></a>
                         </div>
                     </div>
                 </div>
@@ -247,7 +232,7 @@
                             <h5 class="mt-4"><a href="javascript:void(0)" class="title text-dark">Email Validator</a></h5>
                             <p class="text-muted">The most well-known dummy text is the 'Lorem Ipsum', which is said to have originated</p>
 
-                            <a href="javascript:void(0)" class="text-primary">Try It <i data-feather="chevron-right" class="fea icon-sm"></i></a>
+                            <a href="/emailvalidate" class="text-primary">Try It <i data-feather="chevron-right" class="fea icon-sm"></i></a>
                         </div>
                     </div>
                 </div>
@@ -264,7 +249,7 @@
                             <h5 class="mt-4"><a href="javascript:void(0)" class="title text-dark">QR Code Generator</a></h5>
                             <p class="text-muted">The most well-known dummy text is the 'Lorem Ipsum', which is said to have originated</p>
 
-                            <a href="javascript:void(0)" class="text-primary">Try It <i data-feather="chevron-right" class="fea icon-sm"></i></a>
+                            <a href="/qrcode" class="text-primary">Try It <i data-feather="chevron-right" class="fea icon-sm"></i></a>
                         </div>
                     </div>
                 </div>
@@ -281,27 +266,13 @@
                             <h5 class="mt-4"><a href="javascript:void(0)" class="title text-dark">WHOIS Lookup</a></h5>
                             <p class="text-muted">The most well-known dummy text is the 'Lorem Ipsum', which is said to have originated</p>
 
-                            <a href="javascript:void(0)" class="text-primary">Try It <i data-feather="chevron-right" class="fea icon-sm"></i></a>
+                            <a href="/whois" class="text-primary">Try It <i data-feather="chevron-right" class="fea icon-sm"></i></a>
                         </div>
                     </div>
                 </div>
 
 
-                <div class="col-lg-4 col-md-6 col-12 mt-4 pt-2">
-                    <div class="card features explore-feature p-4 px-md-3 border-0 rounded-md shadow text-center">
-                        <div class="icons rounded h2 text-center text-primary px-3">
-                            <img src="images/app/emailscraper.png" style="height: 60px;" />
-                        </div>
-
-                        <div class="card-body p-0 content">
-                            <h5 class="mt-4"><a href="javascript:void(0)" class="title text-dark">Email Scraper</a></h5>
-                            <p class="text-muted">The most well-known dummy text is the 'Lorem Ipsum', which is said to have originated</p>
-
-                            <a href="javascript:void(0)" class="text-primary">Try It <i data-feather="chevron-right" class="fea icon-sm"></i></a>
-                        </div>
-                    </div>
-                </div>
-                <!--end col-->
+                
 
 
                 <div class="col-lg-4 col-md-6 col-12 mt-4 pt-2">
@@ -314,7 +285,7 @@
                             <h5 class="mt-4"><a href="javascript:void(0)" class="title text-dark">Web PDF</a></h5>
                             <p class="text-muted">The most well-known dummy text is the 'Lorem Ipsum', which is said to have originated</p>
 
-                            <a href="javascript:void(0)" class="text-primary">Try It <i data-feather="chevron-right" class="fea icon-sm"></i></a>
+                            <a href="/webpdf" class="text-primary">Try It <i data-feather="chevron-right" class="fea icon-sm"></i></a>
                         </div>
                     </div>
                 </div>
@@ -331,26 +302,13 @@
                             <h5 class="mt-4"><a href="javascript:void(0)" class="title text-dark">Link Scraper</a></h5>
                             <p class="text-muted">The most well-known dummy text is the 'Lorem Ipsum', which is said to have originated</p>
 
-                            <a href="javascript:void(0)" class="text-primary">Try It <i data-feather="chevron-right" class="fea icon-sm"></i></a>
+                            <a href="/linkscraper" class="text-primary">Try It <i data-feather="chevron-right" class="fea icon-sm"></i></a>
                         </div>
                     </div>
                 </div>
 
 
-                <div class="col-lg-4 col-md-6 col-12 mt-4 pt-2">
-                    <div class="card features explore-feature p-4 px-md-3 border-0 rounded-md shadow text-center">
-                        <div class="icons rounded h2 text-center text-primary px-3">
-                            <img src="images/app/emailscraper.png" style="height: 60px;" />
-                        </div>
-
-                        <div class="card-body p-0 content">
-                            <h5 class="mt-4"><a href="javascript:void(0)" class="title text-dark">Email Scraper</a></h5>
-                            <p class="text-muted">The most well-known dummy text is the 'Lorem Ipsum', which is said to have originated</p>
-
-                            <a href="javascript:void(0)" class="text-primary">Try It <i data-feather="chevron-right" class="fea icon-sm"></i></a>
-                        </div>
-                    </div>
-                </div>
+                
                 <!--end col-->
             </div>
             <!--end row-->

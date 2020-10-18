@@ -8,10 +8,10 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
   </PropertyGroup>
   <ItemGroup>
     <File Include="bin/ApiStacks.dll">
-      <publishTime>10/15/2020 17:04:05</publishTime>
+      <publishTime>10/17/2020 03:14:51</publishTime>
     </File>
     <File Include="bin/ApiStacks.pdb">
-      <publishTime>10/15/2020 17:04:05</publishTime>
+      <publishTime>10/17/2020 03:14:51</publishTime>
     </File>
     <File Include="bin/Microsoft.AspNet.FriendlyUrls.dll">
       <publishTime>07/30/2013 16:57:30</publishTime>
@@ -632,7 +632,7 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>07/24/2020 10:25:36</publishTime>
     </File>
     <File Include="Dashboard.aspx">
-      <publishTime>10/15/2020 15:46:05</publishTime>
+      <publishTime>10/16/2020 16:18:38</publishTime>
     </File>
     <File Include="dashboard.Master">
       <publishTime>10/15/2020 15:32:42</publishTime>
@@ -647,7 +647,7 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>10/14/2020 20:16:33</publishTime>
     </File>
     <File Include="emailvalidate.aspx">
-      <publishTime>10/14/2020 19:09:18</publishTime>
+      <publishTime>10/15/2020 21:38:29</publishTime>
     </File>
     <File Include="fonts/ajax-loader.gif">
       <publishTime>10/03/2017 23:19:30</publishTime>
@@ -2219,7 +2219,7 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>10/14/2020 19:09:29</publishTime>
     </File>
     <File Include="linkscraper.aspx">
-      <publishTime>10/14/2020 19:09:33</publishTime>
+      <publishTime>10/15/2020 21:30:18</publishTime>
     </File>
     <File Include="Login.aspx">
       <publishTime>10/14/2020 18:57:54</publishTime>
@@ -2234,13 +2234,16 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>10/15/2020 12:14:08</publishTime>
     </File>
     <File Include="qrcode.aspx">
-      <publishTime>10/14/2020 19:09:45</publishTime>
+      <publishTime>10/15/2020 22:47:50</publishTime>
     </File>
     <File Include="samples/qrcode.png">
       <publishTime>10/14/2020 14:20:20</publishTime>
     </File>
     <File Include="samples/sampleGraph.txt">
       <publishTime>10/13/2020 15:21:50</publishTime>
+    </File>
+    <File Include="samples/samplePDF.pdf">
+      <publishTime>10/16/2020 21:52:05</publishTime>
     </File>
     <File Include="samples/sampleWhois.txt">
       <publishTime>10/14/2020 14:46:49</publishTime>
@@ -2369,16 +2372,16 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>10/11/2020 22:26:04</publishTime>
     </File>
     <File Include="Web.config">
-      <publishTime>10/13/2020 16:17:17</publishTime>
+      <publishTime>10/17/2020 03:14:52</publishTime>
     </File>
     <File Include="webpdf.aspx">
-      <publishTime>10/14/2020 19:09:54</publishTime>
+      <publishTime>10/16/2020 23:08:27</publishTime>
     </File>
     <File Include="webscraper.aspx">
       <publishTime>10/14/2020 19:09:58</publishTime>
     </File>
     <File Include="WebScreenshots.aspx">
-      <publishTime>10/14/2020 19:10:06</publishTime>
+      <publishTime>10/16/2020 23:02:12</publishTime>
     </File>
     <File Include="whois.aspx">
       <publishTime>10/14/2020 19:10:12</publishTime>

@@ -49,7 +49,7 @@
                                             <div style="width: 10px; height: 10px; background-color: greenyellow; border-radius: 5px; display: inline-block"></div>
                                         </div>
                                         <div style="height: 400px;">
-                                            <textarea readonly id="txtData" runat="server" class="codeReader"></textarea>
+                                            <textarea readonly id="txtData" style="font-family: 'Space Mono', monospace; font-size: 13px" runat="server" class="codeReader"></textarea>
                                         </div>
 
                                         <div style="height: 400px;">
