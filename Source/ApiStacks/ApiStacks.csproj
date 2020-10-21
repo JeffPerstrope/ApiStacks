@@ -772,6 +772,8 @@
     <Content Include="Plan.aspx" />
     <Content Include="qrcode.aspx" />
     <Content Include="samples\qrcode.png" />
+    <Content Include="samples\sampleLinkScraper.txt" />
+    <Content Include="samples\sampleWebScrape.txt" />
     <Content Include="samples\sampleWhois.txt" />
     <Content Include="samples\sampleGraph.txt" />
     <Content Include="Settings.aspx" />

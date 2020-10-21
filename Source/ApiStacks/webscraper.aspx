@@ -51,10 +51,6 @@
                                         <div style="height: 400px;">
                                             <textarea readonly id="txtData" style="font-family: 'Space Mono', monospace; font-size: 13px" runat="server" class="codeReader"></textarea>
                                         </div>
-
-                                        <div style="height: 400px;">
-                                            <div  id="txtData2" runat="server" class="codeReader"></div>
-                                        </div>
                                     </div>
                                 </div>
                                 <!--end col-->

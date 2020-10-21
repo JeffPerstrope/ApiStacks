@@ -35,6 +35,10 @@
     <%--JQuery--%>
     <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
 
+    <link href="https://fonts.googleapis.com/css2?family=Space+Mono&display=swap" rel="stylesheet">
+
+
+
 </head>
 
 
@@ -94,26 +98,21 @@
                                     <li><a href="\webscreenshots">Web Screenshots <span class="badge badge-pill badge-warning ml-2">Hot</span></a></li>
                                     <li><a href="\webpdf">Web PDF</a></li>
                                     <li><a href="\linkscraper">Link Scraper</a></li>
-                                    <li><a href="\emailscraper">Email Scraper <span class="badge badge-pill badge-warning ml-2">Hot</span></a></li>
                                     <li><a href="\opengraph">Open Graph Scraper</a></li>
-                                    <li><a href="\whois">WHOIS Lookup</a></li>
+                                    
                                     <li><a href="\webscraper">Web Scraper</a></li>
-
-
-
+                                     <li><a href="\languagedetect">Language Detect</a></li>
                                 </ul>
                             </li>
 
                             <li>
                                 <ul>
-                                    <li><a href="\languagedetect">Language Detect</a></li>
+                                   <li><a href="\whois">WHOIS Lookup</a></li>
                                     <li><a href="\emailvalidate">Email Validator</a></li>
                                     <li><a href="\qrcode">QR Code Generator</a></li>
+                                    <li><a href="\emailscraper">Email Scraper <span class="badge badge-success rounded">Soon</span></a></li>
                                     <li><a href="\ipgeolocation">IP Geolocation  <span class="badge badge-success rounded">Soon</span></a></li>
                                     <li><a href="#">Google Search Results  <span class="badge badge-success rounded">Soon</span></a></li>
-                                    <li><a href="#">Domain Lookup  <span class="badge badge-success rounded">Soon</span></a></li>
-                                    <li><a href="#">Tech Stack Detector  <span class="badge badge-success rounded">Soon</span></a></li>
-
                                 </ul>
                             </li>
                         </ul>
@@ -541,7 +540,6 @@
     </footer>
     <!--end footer-->
     <!-- Footer End -->
-
 
 
 

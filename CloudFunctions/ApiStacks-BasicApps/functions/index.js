@@ -25,7 +25,7 @@ exports.getwhois = functions.https.onRequest((request, response) => {
     var i = j = 0;
     while ((j = data.indexOf(char, i)) !== -1) {
       //console.log(data.substring(i, j));
-      array.push(data.substring(i, j))
+      array.push(data.substring(i, j).replace(':', '": "'));
       i = j + 1;
     }
 
@@ -33,7 +33,15 @@ exports.getwhois = functions.https.onRequest((request, response) => {
       response.sendStatus(404);
       return;
     }
-    response.json(array);
+
+    const successData = {
+      "status": "success",
+      "timestamp": Date.now(),
+      "url": URL,
+      "data": array
+    }
+
+    response.json(successData);
     //response.send(JSON.stringify(data));
   });
 });
@@ -101,29 +109,42 @@ exports.scrapelinks = functions.https.onRequest((request, response) => {
       if (total <= 0) {
         const errorMessage = {
           "status": "failed",
+          "timestamp": Date.now(),
+          "url": URL,
           "reason": "bot was blocked"
         }
         response.json(errorMessage);
         return;
       }
       const links = [];
-      // we only need the "href" and "title" of each link
 
       for (let i = 0; i < total; i++) {
+
         links.push({
-          href: linkObjects[i].attribs.href,
+          href: linkObjects[i].attribs.href.replace("\"/", "\"/" + URL),
           title: linkObjects[i].attribs.title
         });
       }
 
-      console.log(links);
-      response.json(links);
+      const successData = {
+        "status": "success",
+        "timestamp": Date.now(),
+        "url": URL,
+        "data": links
+      }
+
+      response.json(successData);
       return;
-      // do something else here with links
     })
     .catch(err => {
+      const errorMessage = {
+        "status": "failed",
+        "timestamp": Date.now(),
+        "url": URL,
+        "reason": "bot was blocked"
+      }
       console.log(err);
-      response.sendStatus(404);
+      response.json(errorMessage);
       return;
     });
 });
@@ -149,9 +170,23 @@ exports.getmeta = functions.https.onRequest((request, response) => {
 
   extract({ uri: URL }, (err, res) => {
     if (err !== null) {
-      response.sendStatus(404);
+      const errorMessage = {
+        "status": "failed",
+        "timestamp": Date.now(),
+        "url": URL,
+        "reason": "bot was blocked"
+      }
+      response.json(errorMessage);
+      return;
     }
-    response.json(res);
+
+    const successData = {
+      "status": "success",
+      "timestamp": Date.now(),
+      "url": URL,
+      "data": res
+    }
+    response.json(successData);
     return;
   });
 });
@@ -274,7 +309,7 @@ exports.generateqr = functions.https.onRequest((request, response) => {
   var imageID = getGUID();
   var imageName = imageID + ".png";
   var imageFullPath = __dirname + "/tmp/" + imageName;
-  var destination = "https://demo.adblock.evlar.net/api/" + imageName;
+  var destination = "https://api.apistacks.com/repo/" + imageName;
 
   QRCode.toFile(
     imageFullPath,

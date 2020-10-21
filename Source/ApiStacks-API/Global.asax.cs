@@ -20,13 +20,45 @@ namespace ApiStacks_API
 
             RouteTable.Routes.MapHttpRoute(
                 name: "DefaultApi",
-                routeTemplate: "api/v1/{*catchall}",
-                defaults: new { controller = "v1" }
+                routeTemplate: "",
+                defaults: new { controller = "Default" }
+            );
+
+            RouteTable.Routes.MapHttpRoute(
+                name: "webscreenshots",
+                routeTemplate: "api/v1/webscreenshots/{*catchall}",
+                defaults: new { controller = "webscreenshots" }
+            );
+
+            RouteTable.Routes.MapHttpRoute(
+                name: "webpdf",
+                routeTemplate: "api/v1/webpdf/{*catchall}",
+                defaults: new { controller = "webpdf" }
+            );
+
+            RouteTable.Routes.MapHttpRoute(
+                name: "linkscraper",
+                routeTemplate: "api/v1/linkscraper/{*catchall}",
+                defaults: new { controller = "linkscraper" }
+            );
+
+            RouteTable.Routes.MapHttpRoute(
+                name: "opengraph",
+                routeTemplate: "api/v1/opengraph/{*catchall}",
+                defaults: new { controller = "opengraph" }
+            );
+
+            RouteTable.Routes.MapHttpRoute(
+                name: "whois",
+                routeTemplate: "api/v1/whois/{*catchall}",
+                defaults: new { controller = "whois" }
             );
 
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
+            GlobalConfiguration.Configuration.Formatters.XmlFormatter.SupportedMediaTypes.Clear();
+
         }
 
         protected void Application_PostAuthorizeRequest()

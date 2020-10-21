@@ -46,7 +46,7 @@ namespace ApiStacks
             if (Session["webScraperData"] == null)
             {
                 //Load sample graph data
-                string sampleFilePathpath = Server.MapPath("/samples/sampleWhois.txt");
+                string sampleFilePathpath = Server.MapPath("/samples/sampleWebScrape.txt");
                 using (var sr = new StreamReader(sampleFilePathpath))
                 {
                     var content = sr.ReadToEnd();

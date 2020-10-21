@@ -17,7 +17,7 @@ exports.getscreenshot = functions.https.onRequest((request, response) => {
   var imageID = getGUID();
   var imageName = imageID + ".jpeg";
   //var imageFullPath = __dirname + "/public/capture/" + imageName;
-  var destination = "https://demo.adblock.evlar.net/api/" + imageName;
+  var destination = "https://api.apistacks.com/repo/" + imageName;
 
   //Grab Image
   //https://www.npmjs.com/package/capture-website
