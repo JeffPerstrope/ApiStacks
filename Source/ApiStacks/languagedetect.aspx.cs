@@ -47,7 +47,7 @@ namespace ApiStacks
             if (Session["languageDetectorData"] == null)
             {
                 //Load sample graph data
-                string sampleFilePathpath = Server.MapPath("/samples/sampleWhois.txt");
+                string sampleFilePathpath = Server.MapPath("/samples/sampleLanguageDetect.txt");
                 using (var sr = new StreamReader(sampleFilePathpath))
                 {
                     var content = sr.ReadToEnd();

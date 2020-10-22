@@ -17,7 +17,7 @@ namespace ApiStacks
         //public static string API_WebScraper = "https://apistacks-webscraper.glitch.me/getwebsite?url=";
         //public static string API_EmailValidator = "https://apistacks-emailvalidate.glitch.me/validateemail?url=";
         //public static string API_QRCode = "https://apistacks-qrcodegen.glitch.me/generateqr?url=";
-        public static string API_LanguageDetect = "https://apistacks-languagedetect.glitch.me/detectlanguage?url=";
+        //public static string API_LanguageDetect = "https://apistacks-languagedetect.glitch.me/detectlanguage?url=";
 
 
         public static string API_Screenshot = "https://us-central1-apistacks-webscreenshot.cloudfunctions.net/getscreenshot?url=";
@@ -28,7 +28,10 @@ namespace ApiStacks
         public static string API_OpenGraph = "https://us-central1-apistacks-basicapps.cloudfunctions.net/getmeta?url=";
         public static string API_EmailValidator = "https://us-central1-apistacks-basicapps.cloudfunctions.net/checkemail?url=";
         public static string API_QRCode = "https://us-central1-apistacks-basicapps.cloudfunctions.net/generateqr?url=";
-        
+        public static string API_LanguageDetect = "https://us-central1-apistacks-basicapps.cloudfunctions.net/detectlanguage?url=";
+
+
+
 
 
 

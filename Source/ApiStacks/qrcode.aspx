@@ -31,7 +31,7 @@
                         <%--Give it a try--%>
                         <form runat="server" id="webScnreenshotsTry">
                             <i data-feather="link" class="fea icon-sm icons" style="position: absolute; margin-left: 15px; margin-top: 10px"></i>
-                            <input runat="server" id="txtAddress" type="text" class="form-control pl-5" style="display: inline-block; max-width: 500px; margin-bottom: 10px" placeholder="Enter any text" required="" value="google.com">
+                            <input runat="server" id="txtAddress" type="text" class="form-control pl-5 textboxTryIt" style="display: inline-block; max-width: 500px; margin-bottom: 10px" placeholder="Enter any text" required="" value="google.com">
                             <button id="btnTakeScreenshot" type="submit" onclick="takeScreenshot();" class="btn btn-primary" style="display: inline-block;"> <span id="spinner"></span> Generate</button>
                         </form>
                     </div>

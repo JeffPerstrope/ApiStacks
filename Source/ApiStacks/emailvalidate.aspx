@@ -31,7 +31,7 @@
                         <%--Give it a try--%>
                         <form runat="server" id="webScnreenshotsTry">
                             <i data-feather="link" class="fea icon-sm icons" style="position: absolute; margin-left: 15px; margin-top: 10px"></i>
-                            <input runat="server" id="txtAddress" type="email" class="form-control pl-5" style="display: inline-block; max-width: 500px; margin-bottom: 10px" placeholder="Email Address" required="">
+                            <input runat="server" id="txtAddress" type="email" class="form-control pl-5 textboxTryIt" style="display: inline-block; max-width: 500px; margin-bottom: 10px" placeholder="Email Address" required="">
                             <button id="btnTakeScreenshot" type="submit" onclick="takeScreenshot();" class="btn btn-primary" style="display: inline-block;"> <span id="spinner"></span> Validate</button>
                         </form>
                     </div>
@@ -50,10 +50,6 @@
                                         </div>
                                         <div style="height: 400px;">
                                             <textarea readonly id="txtData" style="font-family: 'Space Mono', monospace; font-size: 13px" runat="server" class="codeReader"></textarea>
-                                        </div>
-
-                                        <div style="height: 400px;">
-                                            <div  id="txtData2" runat="server" class="codeReader"></div>
                                         </div>
                                     </div>
                                 </div>

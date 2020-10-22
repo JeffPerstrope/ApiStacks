@@ -22,10 +22,10 @@
     "request-promise": "^4.2.6",
     "meta-extractor": "^2.0.0",
     "email-crawler": "^1.0.4",
-    "email-check": "^1.1.0",
-    "email-exists": "^0.2.1",
     "qrcode": "^1.4.4",
-    "basic-ftp": "^4.6.2"
+    "basic-ftp": "^4.6.2",
+    "languagedetect": "^2.0.0",
+    "@reacherhq/api": "^0.1.5"
   },
   "devDependencies": {
     "eslint": "^5.12.0",

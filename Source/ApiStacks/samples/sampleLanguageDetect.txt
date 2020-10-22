@@ -1,0 +1,21 @@
+﻿{
+  "status": "success",
+  "timestamp": 1603320644972,
+  "value": "This can identify 52 human languages from text samples and return confidence scores for each.",
+  "data": [
+    [
+      "english",
+      0.27340823970037453
+    ],
+    [
+      "danish",
+      0.24355805243445694
+    ]
+  ]
+}
+
+
+
+
+
+

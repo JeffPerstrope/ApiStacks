@@ -227,7 +227,8 @@ exports.scrapeemail = functions.https.onRequest((request, response) => {
 //############################################################
 
 
-var emailCheck = require('email-exists');
+//var emailCheck = require('email-exists');
+var emailCheck = require('@reacherhq/api');
 
 exports.checkemail = functions.https.onRequest((request, response) => {
   //Parse request
@@ -237,53 +238,42 @@ exports.checkemail = functions.https.onRequest((request, response) => {
     return;
   }
 
-  console.log(validateEmail(URL));
-  if (validateEmail(URL) === false) {
-    console.log("Email structure invalid");
-    response.sendStatus(404);
+  emailCheck.checkEmail({ to_email: URL }).then(function (data) {
+    const successData = {
+      "status": "success",
+      "timestamp": Date.now(),
+      "email": URL,
+      "data": data
+    }
+
+    response.json(successData);
     return;
-  }
 
-  emailCheck({
-    sender: 'samr@gmail.com',
-    recipient: URL, debug: true
-  })
-    .then(function (data) {
-      console.log(data);
-      response.send(data);
-      return;
-    }).catch(function (err) {
-      console.error(err);
-      response.send(err);
-      return;
-    });
+  }).catch((e) => {
+    const errorMessage = {
+      "status": "failed",
+      "timestamp": Date.now(),
+      "email": URL,
+      "reason": "unable to parse email request"
+    }
 
-  // emailCheck('mail@example.com', {
-  //   from: 'noreply@evlar.net',
-  //   //host: 'smtp.gmail.com',
-  //   timeout: 3000
-  // })
-  //   .then(function (res) {
-  //     console.log(res);
-  //     response.json(res);
-  //     return;
-  //   })
-  //   .catch(function (err) {
-  //     console.error(err);
-  //     response.sendStatus(404);
-  //     return;
-  //   });
+    console.log(e);
+    response.json(errorMessage);
+    return;
+  });
+  
+  return;
 });
 
-const EMAIL_REGEX = /^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$/i;
+// const EMAIL_REGEX = /^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$/i;
 
-function validateEmail(email) {
-  if (typeof email === 'string' && email.length > 5 && email.length < 61 && EMAIL_REGEX.test(email)) {
-    return email.toLowerCase();
-  } else {
-    return false;
-  }
-}
+// function validateEmail(email) {
+//   if (typeof email === 'string' && email.length > 5 && email.length < 61 && EMAIL_REGEX.test(email)) {
+//     return email.toLowerCase();
+//   } else {
+//     return false;
+//   }
+// }
 
 
 
@@ -377,3 +367,50 @@ function bufferToStream(myBuuffer) {
   tmp.push(null);
   return tmp;
 }
+
+
+
+
+
+
+//############################################################
+// LANGUAGE DETECT
+//############################################################
+
+const LanguageDetect = require('languagedetect');
+
+
+// send the default array of dreams to the webpage
+exports.detectlanguage = functions.https.onRequest((request, response) => {
+  //Parse request
+  var URL = request.query.url;
+  if (URL === undefined || URL.trim() === "") {
+    response.sendStatus(404);
+    return;
+  }
+  
+  const lngDetector = new LanguageDetect();
+  var detectedLanguages = lngDetector.detect(URL, 2);
+  if(detectedLanguages === undefined || detectedLanguages.length <= 0)
+  {
+    const errorMessage = {
+      "status": "failed",
+      "timestamp": Date.now(),
+      "value": URL,
+      "reason": "unable to parse text"
+    }
+
+    console.log(detectedLanguages);
+    response.json(errorMessage);
+    return;
+  }
+
+  const successData = {
+    "status": "success",
+    "timestamp": Date.now(),
+    "value": URL,
+    "data": detectedLanguages
+  }
+  response.json(successData);
+  return;
+});
