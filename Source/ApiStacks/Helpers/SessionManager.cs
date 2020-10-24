@@ -11,6 +11,7 @@ namespace ApiStacks
     {
         public void LoadUserInfo(User user)
         {
+            //Get Basic user info
             var userInfo = Global.db.GetFromDB("Main/Users/" + user.userID);
             var userInfoDictionary = JsonConvert.DeserializeObject<Dictionary<string, object>>(userInfo);
 

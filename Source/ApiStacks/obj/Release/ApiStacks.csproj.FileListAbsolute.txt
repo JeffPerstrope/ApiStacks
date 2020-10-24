@@ -226,3 +226,6 @@ C:\Personal Projects\ApiStacks\Source\ApiStacks\bin\WebGrease.dll
 C:\Personal Projects\ApiStacks\Source\ApiStacks\bin\Antlr3.Runtime.dll
 C:\Personal Projects\ApiStacks\Source\ApiStacks\bin\SharpFireStarter.pdb
 C:\Personal Projects\ApiStacks\Source\ApiStacks\bin\Antlr3.Runtime.pdb
+C:\Personal Projects\ApiStacks\Source\ApiStacks\bin\Stripe.net.dll
+C:\Personal Projects\ApiStacks\Source\ApiStacks\bin\Stripe.net.pdb
+C:\Personal Projects\ApiStacks\Source\ApiStacks\bin\Stripe.net.xml

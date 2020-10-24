@@ -14,19 +14,19 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>09/10/2013 16:29:20</publishTime>
     </File>
     <File Include="bin/ApiStacks-API.dll">
-      <publishTime>10/24/2020 02:49:04</publishTime>
+      <publishTime>10/24/2020 18:46:05</publishTime>
     </File>
     <File Include="bin/ApiStacks-API.dll.config">
-      <publishTime>10/21/2020 08:47:35</publishTime>
+      <publishTime>10/24/2020 17:21:37</publishTime>
     </File>
     <File Include="bin/ApiStacks-API.pdb">
-      <publishTime>10/24/2020 02:49:04</publishTime>
+      <publishTime>10/24/2020 18:46:05</publishTime>
     </File>
     <File Include="bin/ApiStacks.dll">
-      <publishTime>10/24/2020 02:49:05</publishTime>
+      <publishTime>10/24/2020 18:46:05</publishTime>
     </File>
     <File Include="bin/ApiStacks.pdb">
-      <publishTime>10/24/2020 02:49:05</publishTime>
+      <publishTime>10/24/2020 18:46:05</publishTime>
     </File>
     <File Include="bin/Microsoft.AspNet.FriendlyUrls.dll">
       <publishTime>07/30/2013 16:57:30</publishTime>
@@ -255,6 +255,12 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
     </File>
     <File Include="bin/SharpFireStarter.pdb">
       <publishTime>10/24/2020 01:37:28</publishTime>
+    </File>
+    <File Include="bin/Stripe.net.dll">
+      <publishTime>10/23/2020 20:19:38</publishTime>
+    </File>
+    <File Include="bin/Stripe.net.pdb">
+      <publishTime>10/23/2020 20:19:38</publishTime>
     </File>
     <File Include="bin/System.AppContext.dll">
       <publishTime>10/12/2020 02:08:45</publishTime>
@@ -695,16 +701,16 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>07/24/2020 10:25:36</publishTime>
     </File>
     <File Include="Dashboard.aspx">
-      <publishTime>10/23/2020 22:21:06</publishTime>
+      <publishTime>10/24/2020 16:56:42</publishTime>
     </File>
     <File Include="dashboard.Master">
-      <publishTime>10/23/2020 21:21:43</publishTime>
+      <publishTime>10/24/2020 16:28:37</publishTime>
     </File>
     <File Include="Default.aspx">
       <publishTime>10/17/2020 23:05:14</publishTime>
     </File>
     <File Include="default.Master">
-      <publishTime>10/21/2020 10:45:46</publishTime>
+      <publishTime>10/24/2020 16:22:20</publishTime>
     </File>
     <File Include="emailscraper.aspx">
       <publishTime>10/21/2020 17:54:30</publishTime>
@@ -2285,7 +2291,7 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>10/21/2020 17:57:21</publishTime>
     </File>
     <File Include="Login.aspx">
-      <publishTime>10/24/2020 00:59:17</publishTime>
+      <publishTime>10/24/2020 17:24:58</publishTime>
     </File>
     <File Include="opengraph.aspx">
       <publishTime>10/21/2020 17:57:29</publishTime>
@@ -2294,7 +2300,7 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>02/07/2020 08:47:06</publishTime>
     </File>
     <File Include="Plan.aspx">
-      <publishTime>10/15/2020 12:14:08</publishTime>
+      <publishTime>10/24/2020 18:38:57</publishTime>
     </File>
     <File Include="qrcode.aspx">
       <publishTime>10/21/2020 17:57:34</publishTime>
@@ -2447,7 +2453,7 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>10/11/2020 22:26:04</publishTime>
     </File>
     <File Include="Web.config">
-      <publishTime>10/23/2020 21:58:24</publishTime>
+      <publishTime>10/24/2020 17:59:01</publishTime>
     </File>
     <File Include="webpdf.aspx">
       <publishTime>10/16/2020 23:08:27</publishTime>

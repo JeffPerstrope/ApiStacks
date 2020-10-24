@@ -1,6 +1,7 @@
 ﻿using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
@@ -37,6 +38,10 @@ namespace ApiStacks
                 var userLastName = lastName.Value;
                 var userEmail = emailAddress.Value;
                 var userPassword = password.Value;
+
+                //Proceed if debugging
+                if (!Debugger.IsAttached)
+                    Response.Redirect("/Login");
 
                 var newUser = Global.db.SignUp(string.Format("{0} {1}", userFirstName, userLastName), userEmail, userPassword);
                 if(newUser != null)

@@ -52,7 +52,7 @@
                                             <div class="form-group position-relative">
                                                 <label>Your Email <span class="text-danger">*</span></label>
                                                 <i data-feather="user" class="fea icon-sm icons"></i>
-                                                <input runat="server" id="txtEmail" type="email" class="form-control pl-5" placeholder="Email" name="email" value="hello@gmail.com" required="">
+                                                <input runat="server" id="txtEmail" type="email" class="form-control pl-5" placeholder="Email" name="email" required="">
                                             </div>
                                         </div>
 

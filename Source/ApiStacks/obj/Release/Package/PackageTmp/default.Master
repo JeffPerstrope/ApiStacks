@@ -233,6 +233,7 @@
                                 <br>
                                 <p class="text-secondary font-weight-bold">More features</p>
                                 <li class="h6 text-muted mb-0"><span class="text-primary h5 mr-2"><i class="uim uim-check-circle"></i></span>SSL Encryption</li>
+                                <li class="h6 text-muted mb-0"><span class="text-primary h5 mr-2"><i class="uim uim-check-circle"></i></span>Unlimited Activations</li>
                                 <li class="h6 text-muted mb-0"><span class="text-primary h5 mr-2"><i class="uim uim-check-circle"></i></span>API Customization</li>
                             </ul>
                             <a href="\SignUp.aspx?plan=starter" class="btn btn-primary mt-4">Get Started</a>
@@ -266,6 +267,7 @@
                                 <br>
                                 <p class="text-secondary font-weight-bold">More features</p>
                                 <li class="h6 text-muted mb-0"><span class="text-primary h5 mr-2"><i class="uim uim-check-circle"></i></span>SSL Encryption</li>
+                                <li class="h6 text-muted mb-0"><span class="text-primary h5 mr-2"><i class="uim uim-check-circle"></i></span>Unlimited Activations</li>
                                 <li class="h6 text-muted mb-0"><span class="text-primary h5 mr-2"><i class="uim uim-check-circle"></i></span>API Customization</li>
                                 <li class="h6 text-muted mb-0"><span class="text-primary h5 mr-2"><i class="uim uim-check-circle"></i></span>Premium Support</li>
                             </ul>
@@ -300,6 +302,7 @@
                                 <br>
                                 <p class="text-secondary font-weight-bold">More features</p>
                                 <li class="h6 text-muted mb-0"><span class="text-primary h5 mr-2"><i class="uim uim-check-circle"></i></span>SSL Encryption</li>
+                                <li class="h6 text-muted mb-0"><span class="text-primary h5 mr-2"><i class="uim uim-check-circle"></i></span>Unlimited Activations</li>
                                 <li class="h6 text-muted mb-0"><span class="text-primary h5 mr-2"><i class="uim uim-check-circle"></i></span>API Customization</li>
                                 <li class="h6 text-muted mb-0"><span class="text-primary h5 mr-2"><i class="uim uim-check-circle"></i></span>Premium Support</li>
                                 <li class="h6 text-muted mb-0"><span class="text-primary h5 mr-2"><i class="uim uim-check-circle"></i></span>Priority Traffic</li>

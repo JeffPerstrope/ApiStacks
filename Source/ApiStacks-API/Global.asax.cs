@@ -33,6 +33,16 @@ namespace ApiStacks_API
             );
 
             RouteTable.Routes.MapHttpRoute(
+                name: "stripeCheckout",
+                routeTemplate: "v1/create-checkout-session/{*catchall}",
+                defaults: new { controller = "stripecheckout" }
+            );
+
+
+
+            //API APPS  ###################################
+
+            RouteTable.Routes.MapHttpRoute(
                 name: "getscreenshot",
                 routeTemplate: "v1/getscreenshot/{*catchall}",
                 defaults: new { controller = "webscreenshots" }
@@ -109,7 +119,20 @@ namespace ApiStacks_API
 
         protected void Application_BeginRequest(object sender, EventArgs e)
         {
+            var context = HttpContext.Current;
+            var response = context.Response;
 
+            // enable CORS
+            response.AddHeader("Access-Control-Allow-Origin", "*");
+            response.AddHeader("X-Frame-Options", "ALLOW-FROM *");
+
+            if (context.Request.HttpMethod == "OPTIONS")
+            {
+                response.AddHeader("Access-Control-Allow-Methods", "GET, POST");
+                response.AddHeader("Access-Control-Allow-Headers", "Content-Type, Accept");
+                response.AddHeader("Access-Control-Max-Age", "1728000");
+                response.End();
+            }
         }
 
         protected void Application_AuthenticateRequest(object sender, EventArgs e)

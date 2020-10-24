@@ -24,6 +24,24 @@ namespace ApiStacks
         protected global::System.Web.UI.WebControls.ContentPlaceHolder ContentPlaceHolder_Head;
 
         /// <summary>
+        /// enabledAppsProgress control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl enabledAppsProgress;
+
+        /// <summary>
+        /// enabledAppsCount control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl enabledAppsCount;
+
+        /// <summary>
         /// dashboardPanel control.
         /// </summary>
         /// <remarks>

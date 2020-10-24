@@ -36,6 +36,8 @@ namespace ApiStacks_API.Controllers
                 }
 
                 //Validate URL Structure
+                if ((parameters["url"].StartsWith("http://")) || (parameters["url"].StartsWith("https://")))
+                    parameters["url"] = parameters["url"].Replace("http://", "").Replace("https://", "");
                 if ((!parameters["url"].StartsWith("http://")) && (!parameters["url"].StartsWith("https://")))
                     parameters["url"] = "http://" + parameters["url"];
 

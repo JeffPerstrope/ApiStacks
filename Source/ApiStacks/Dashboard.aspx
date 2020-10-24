@@ -24,10 +24,20 @@
                             { %>
                         <a href="/Dashboard?deactivate=<%= app.id %>" id="<%= app.id %>" class="btn btn-light">Deactivate</a>
                         <%}
-                            else
+                        else
+                        {
+                            if ((bool)Session["userMaxAppsReached"] == true)
                             { %>
+
+                        <a data-toggle="modal" data-target="#modalAppLimitReached" class="btn btn-primary">Activate</a>
+
+
+                        <%}
+                        else
+                        { %>
                         <a href="/Dashboard?activate=<%= app.id %>" id="<%= app.id %>" class="btn btn-primary">Activate</a>
-                        <%} %>
+                        <%}
+                        }%>
                     </div>
                 </div>
             </div>
@@ -60,27 +70,26 @@
                             <%} %>
 
 
-                            <hr/>
+                            <hr />
                             <h6 style="font-weight: 800">Authentication:</h6>
                             <p class="text-muted" style="font-size: 13px">When authenticating your requests, pass the API Key in the request header as <a class="text-danger" style="font-weight: 800">'x-api-key' </a>:</p>
                             <p><a class="text-primary"><%= Session["userKey"].ToString() %></a></p>
 
-                            <hr/>
+                            <hr />
                             <h6 style="font-weight: 800">Endpoint:</h6>
                             <p class="text-primary">https://api.apistacks.com/v1/<a class="text-seconday"><%= app.endpoint %></a>?url={data}</p>
 
 
-                            <hr/>
+                            <hr />
                             <h6 style="display: inline-block; font-weight: 800">Customization:  </h6>
                             <span class="badge badge-pill badge-danger">Premium </span>
                             <p class="text-muted" style="font-size: 13px">These customizations are optional. Default values will be used if nothing is provided:</p>
                             <ul>
-                            <% foreach (var customization in app.customization)
-                                {  %>
-                            <li ><%= customization %></li>
-                            <% }  %>
-
-                            </ul>  
+                                <% foreach (var customization in app.customization)
+                                    {  %>
+                                <li><%= customization %></li>
+                                <% }  %>
+                            </ul>
                         </div>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
@@ -94,6 +103,43 @@
             <% } %>
         </div>
         <!--end row-->
+
+
+
+
+
+
+
+
+
+        <%--Generate Modal windows--%>
+        <!-- Modal -->
+        <div id="modalAppLimitReached" class="modal fade" role="dialog">
+            <div class="modal-dialog">
+
+                <!-- Modal content-->
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h4 id="appLimitTitle" class="modal-title">App Limit Reached</h4>
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+
+                    </div>
+                    <div class="modal-body">
+
+                        <h6 style="font-weight: 800">Please upgrade:</h6>
+                        <p class="text-muted" style="font-size: 14px">Your current membership has a maximum of 3 apps enabled at the same time. To enable more simultaneously, consider upgrading.</p>
+                        <p class="text-muted" style="font-size: 14px">You can always disable apps you're not using so you can enable others 😊</p>
+                    </div>
+                    <div class="modal-footer">
+                        <a href="/Plan" type="button" class="btn btn-primary">Upgrade</a>
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+
     </form>
 
 

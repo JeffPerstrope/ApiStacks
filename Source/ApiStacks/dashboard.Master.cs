@@ -24,7 +24,7 @@ namespace ApiStacks
                 var userUsagePercentage = ((userUsageCurrent / userUsageMax) * 100);
                 Session["userUsagePercentage"] = Convert.ToInt64(userUsagePercentage);
 
-
+                Session["userPlan"] = usageDictionary["plan"];
                 Session["userUsageCurrent"] = userUsageCurrent.ToString("N0");
                 Session["userUsageMax"] = userUsageMax.ToString("N0");
                 Session["userUsageRenewal"] = usageDictionary["renewal"];
@@ -32,6 +32,34 @@ namespace ApiStacks
             else
             {
                 Response.Redirect("/Login");
+            }
+
+            //Get number of activated apps
+            float ativatedApps = 0;
+            foreach(var app in AppsList.InstalledApps)
+            {
+                if (app.enabled)
+                    ativatedApps += 1;
+            }
+
+            if (Session["userPlan"].ToString() == "free")
+            {
+                float activatedAppsPercentage = ((ativatedApps / 3) * 100);
+                enabledAppsCount.InnerText = ativatedApps.ToString() + " / 3";
+                enabledAppsProgress.Attributes.Add("style", "width: " + activatedAppsPercentage + "%");
+                if (activatedAppsPercentage >= 100)
+                    Session["userMaxAppsReached"] = true;
+                else
+                    Session["userMaxAppsReached"] = false;
+            } else
+            {
+                float activatedAppsPercentage = ((ativatedApps / AppsList.InstalledApps.Count) * 100);
+                enabledAppsCount.InnerText = ativatedApps.ToString() + " / " + AppsList.InstalledApps.Count.ToString();
+                enabledAppsProgress.Attributes.Add("style", "width: " + activatedAppsPercentage + "%");
+                if (activatedAppsPercentage >= 100)
+                    Session["userMaxAppsReached"] = true;
+                else
+                    Session["userMaxAppsReached"] = false;
             }
         }
     }

@@ -226,3 +226,6 @@ C:\Personal Projects\ApiStacks\Source\ApiStacks\obj\Debug\ApiStacks.csproj.CoreC
 C:\Personal Projects\ApiStacks\Source\ApiStacks\obj\Debug\ApiStacks.csproj.CopyComplete
 C:\Personal Projects\ApiStacks\Source\ApiStacks\obj\Debug\ApiStacks.dll
 C:\Personal Projects\ApiStacks\Source\ApiStacks\obj\Debug\ApiStacks.pdb
+C:\Personal Projects\ApiStacks\Source\ApiStacks\bin\Stripe.net.dll
+C:\Personal Projects\ApiStacks\Source\ApiStacks\bin\Stripe.net.pdb
+C:\Personal Projects\ApiStacks\Source\ApiStacks\bin\Stripe.net.xml
