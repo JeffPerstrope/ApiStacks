@@ -221,3 +221,8 @@ C:\Personal Projects\ApiStacks\Source\ApiStacks\bin\System.Web.WebPages.xml
 C:\Personal Projects\ApiStacks\Source\ApiStacks\bin\System.Web.WebPages.Razor.xml
 C:\Personal Projects\ApiStacks\Source\ApiStacks\bin\System.Web.Razor.xml
 C:\Personal Projects\ApiStacks\Source\ApiStacks\bin\System.Web.WebPages.Deployment.xml
+C:\Personal Projects\ApiStacks\Source\ApiStacks\bin\SharpFireStarter.dll
+C:\Personal Projects\ApiStacks\Source\ApiStacks\bin\WebGrease.dll
+C:\Personal Projects\ApiStacks\Source\ApiStacks\bin\Antlr3.Runtime.dll
+C:\Personal Projects\ApiStacks\Source\ApiStacks\bin\SharpFireStarter.pdb
+C:\Personal Projects\ApiStacks\Source\ApiStacks\bin\Antlr3.Runtime.pdb

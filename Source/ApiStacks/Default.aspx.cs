@@ -11,8 +11,6 @@ namespace ApiStacks
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            Session["userID"] = "814f52b2-0b74-43cc-9848-eaeec97da3e0";
-            Session["privateKey"] = "814f52b2-0b74-43cc-9848-eaeec97da3e0";
         }
     }
 }

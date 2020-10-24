@@ -52,7 +52,7 @@
                                             <div class="form-group position-relative">
                                                 <label>Your Email <span class="text-danger">*</span></label>
                                                 <i data-feather="user" class="fea icon-sm icons"></i>
-                                                <input runat="server" id="txtEmail" type="email" class="form-control pl-5" placeholder="Email" name="email" required="">
+                                                <input runat="server" id="txtEmail" type="email" class="form-control pl-5" placeholder="Email" name="email" value="hello@gmail.com" required="">
                                             </div>
                                         </div>
 
@@ -60,7 +60,7 @@
                                             <div class="form-group position-relative">
                                                 <label>Password <span class="text-danger">*</span></label>
                                                 <i data-feather="key" class="fea icon-sm icons"></i>
-                                                <input runat="server" id="txtPassword" type="password" class="form-control pl-5" placeholder="Password" required="">
+                                                <input runat="server" id="txtPassword" type="password" class="form-control pl-5" placeholder="Password" value="password" required="">
                                             </div>
                                         </div>
 
@@ -79,6 +79,10 @@
                                             <button class="btn btn-primary btn-block">Sign in</button>
                                         </div>
                                         
+                                        <div runat="server" id="txtLoginError" class="col-12 text-center">
+                                            <p class="mb-0 mt-3"><small class="text-danger mr-2">Invalid username / password. Please try again</small></p>
+                                        </div>
+
                                         <div class="col-12 text-center">
                                             <p class="mb-0 mt-3"><small class="text-dark mr-2">Don't have an account ?</small> <a href="\SignUp" class="text-dark font-weight-bold">Sign Up</a></p>
                                         </div>

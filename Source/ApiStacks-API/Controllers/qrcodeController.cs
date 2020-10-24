@@ -1,4 +1,5 @@
-﻿using Newtonsoft.Json;
+﻿using ApiStacks_API.Helpers;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -17,7 +18,10 @@ namespace ApiStacks_API.Controllers
         [HttpGet]
         public HttpResponseMessage Get(HttpRequestMessage value)
         {
-            Dictionary<string, string> parameters = new Dictionary<string, string>();
+            var authorizeAPI = APIValidate.AuthorizeRequest(value);
+            if (authorizeAPI == "success")
+            {
+                Dictionary<string, string> parameters = new Dictionary<string, string>();
 
             var queryString = value.GetQueryNameValuePairs();
             foreach (var parameter in queryString)
@@ -35,15 +39,29 @@ namespace ApiStacks_API.Controllers
             var screenshotResponse = APICall.call(APICall.API_QRCode, parameters["url"]);
             if (screenshotResponse != null)
             {
-                return new HttpResponseMessage()
-                {
-                    Content = new StringContent(screenshotResponse, System.Text.Encoding.UTF8, "application/json")
-                };
-            }
+                    var incrementUsage = APIValidate.IncrementUsageRequest(value);
+                    if (incrementUsage == "success")
+                    {
+                        return new HttpResponseMessage()
+                        {
+                            Content = new StringContent(screenshotResponse, System.Text.Encoding.UTF8, "application/json")
+                        };
+                    }
+                    else
+                    {
+                        return APICall.ReturnAPIAuthorizationError(incrementUsage);
+                    }
+                }
             else
             {
                 return APICall.ReturnFormattingError();
             }
+        }
+            else
+            {
+                return APICall.ReturnAPIAuthorizationError(authorizeAPI);
+            }
+
         }
     }
 }

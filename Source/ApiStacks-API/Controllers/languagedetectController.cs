@@ -1,4 +1,5 @@
-﻿using Newtonsoft.Json;
+﻿using ApiStacks_API.Helpers;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -16,33 +17,50 @@ namespace ApiStacks_API.Controllers
         [HttpGet]
         public HttpResponseMessage Get(HttpRequestMessage value)
         {
-            Dictionary<string, string> parameters = new Dictionary<string, string>();
-
-            var queryString = value.GetQueryNameValuePairs();
-            foreach (var parameter in queryString)
+            var authorizeAPI = APIValidate.AuthorizeRequest(value);
+            if (authorizeAPI == "success")
             {
-                var key = parameter.Key;
-                var val = parameter.Value;
-                parameters.Add(key, val);
-            }
+                Dictionary<string, string> parameters = new Dictionary<string, string>();
 
-            if (!parameters.ContainsKey("url"))
-            {
-                return APICall.ReturnFormattingError();
-            }
-
-            var screenshotResponse = APICall.call(APICall.API_LanguageDetect, parameters["url"]);
-            if (screenshotResponse != null)
-            {
-                return new HttpResponseMessage()
+                var queryString = value.GetQueryNameValuePairs();
+                foreach (var parameter in queryString)
                 {
-                    Content = new StringContent(screenshotResponse, System.Text.Encoding.UTF8, "application/json")
-                };
+                    var key = parameter.Key;
+                    var val = parameter.Value;
+                    parameters.Add(key, val);
+                }
+
+                if (!parameters.ContainsKey("url"))
+                {
+                    return APICall.ReturnFormattingError();
+                }
+
+                var screenshotResponse = APICall.call(APICall.API_LanguageDetect, parameters["url"]);
+                if (screenshotResponse != null)
+                {
+                    var incrementUsage = APIValidate.IncrementUsageRequest(value);
+                    if (incrementUsage == "success")
+                    {
+                        return new HttpResponseMessage()
+                        {
+                            Content = new StringContent(screenshotResponse, System.Text.Encoding.UTF8, "application/json")
+                        };
+                    }
+                    else
+                    {
+                        return APICall.ReturnAPIAuthorizationError(incrementUsage);
+                    }
+                }
+                else
+                {
+                    return APICall.ReturnFormattingError();
+                }
             }
             else
             {
-                return APICall.ReturnFormattingError();
+                return APICall.ReturnAPIAuthorizationError(authorizeAPI);
             }
+
         }
     }
 }

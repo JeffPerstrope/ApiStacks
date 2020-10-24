@@ -17,11 +17,11 @@ namespace ApiStacks
             {
                 var app1 = new Model_ApiApp
                 {
-                    id = "1",
+                    id = "getscreenshot",
                     name = "Web Screenshots",
-                    endpoint = "webscreenshots",
+                    endpoint = "getscreenshot",
                     icon = "/images/app/webscreenshots.png",
-                    enabled = true,
+                    enabled = false,
                     version = "0.1.3 BETA",
                     customization = new List<string>()
                     {
@@ -34,11 +34,11 @@ namespace ApiStacks
 
                 var app2 = new Model_ApiApp
                 {
-                    id = "2",
+                    id = "getpdf",
                     name = "Web PDF",
-                    endpoint = "webpdf",
+                    endpoint = "getpdf",
                     icon = "/images/app/webpdf.png",
-                    enabled = true,
+                    enabled = false,
                     version = "0.1.3 BETA",
                     customization = new List<string>()
                     {
@@ -50,9 +50,9 @@ namespace ApiStacks
 
                 var app3 = new Model_ApiApp
                 {
-                    id = "3",
+                    id = "scrapelinks",
                     name = "Link Scraper",
-                    endpoint = "linkscraper",
+                    endpoint = "scrapelinks",
                     icon = "/images/app/linkscraper.png",
                     enabled = false,
                     version = "0.1.3 BETA"
@@ -60,9 +60,9 @@ namespace ApiStacks
 
                 var app4 = new Model_ApiApp
                 {
-                    id = "4",
-                    name = "Email Scraper",
-                    endpoint = "emailscraper",
+                    id = "checkemail",
+                    name = "Email Checker",
+                    endpoint = "checkemail",
                     icon = "/images/app/emailscraper.png",
                     enabled = false,
                     version = "0.1.3 BETA"
@@ -70,9 +70,9 @@ namespace ApiStacks
 
                 var app5 = new Model_ApiApp
                 {
-                    id = "5",
+                    id = "getmeta",
                     name = "Open Graph",
-                    endpoint = "opengraph",
+                    endpoint = "getmeta",
                     icon = "/images/app/opengraph.png",
                     enabled = false,
                     version = "0.1.3 BETA"
@@ -80,9 +80,9 @@ namespace ApiStacks
 
                 var app6 = new Model_ApiApp
                 {
-                    id = "6",
+                    id = "getwhois",
                     name = "WHOIS Lookup",
-                    endpoint = "whois",
+                    endpoint = "getwhois",
                     icon = "/images/app/whois.png",
                     enabled = false,
                     version = "0.1.3 BETA"
@@ -90,9 +90,9 @@ namespace ApiStacks
 
                 var app7 = new Model_ApiApp
                 {
-                    id = "7",
+                    id = "scrapewebsite",
                     name = "Web Scraper",
-                    endpoint = "webscraper",
+                    endpoint = "scrapewebsite",
                     icon = "/images/app/webscraper.png",
                     enabled = false,
                     version = "0.1.3 BETA"
@@ -100,10 +100,20 @@ namespace ApiStacks
 
                 var app8 = new Model_ApiApp
                 {
-                    id = "8",
+                    id = "detectlanguage",
                     name = "Language Detect",
-                    endpoint = "languagedetect",
+                    endpoint = "detectlanguage",
                     icon = "/images/app/languagedetect.png",
+                    enabled = false,
+                    version = "0.1.3 BETA"
+                };
+
+                var app9 = new Model_ApiApp
+                {
+                    id = "generateqr",
+                    name = "QR Code Generator",
+                    endpoint = "generateqr",
+                    icon = "/images/app/qrcode.png",
                     enabled = false,
                     version = "0.1.3 BETA"
                 };
@@ -116,6 +126,7 @@ namespace ApiStacks
                 InstalledApps.Add(app6);
                 InstalledApps.Add(app7);
                 InstalledApps.Add(app8);
+                InstalledApps.Add(app9);
             }
             #endregion
         }

@@ -13,12 +13,6 @@ namespace ApiStacks
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            //Redirect if already logged in
-            //if(Session["userID"] != null)
-            //{
-            //    Response.Redirect("/Dashboard");
-            //}
-
             //Hide login error
             txtLoginError.Visible = false;
 
@@ -31,6 +25,11 @@ namespace ApiStacks
                 Response.Redirect("/Login");
             }
 
+            //Redirect if already logged in
+            if (Session["userID"] != null)
+            {
+                Response.Redirect("/Dashboard");
+            }
 
             //If user is signing in
             if (Page.IsPostBack)
@@ -41,13 +40,9 @@ namespace ApiStacks
                 var signedInUser = validateLogin(userName, password);
                 if (signedInUser != null)
                 {
-                    Session["user"] = signedInUser;
-                    var userInfo = Global.db.GetFromDB("Main/Users/" + signedInUser.userID);
-                    var userInfoDictionary = JsonConvert.DeserializeObject < Dictionary<string, string>>(userInfo);
+                    SessionManager sessionMan = new SessionManager();
+                    sessionMan.LoadUserInfo(signedInUser);
 
-                    Session["userFirstName"] = userInfoDictionary["firstName"];
-                    Session["userLastName"] = userInfoDictionary["lastName"];
-                    Session["userKey"] = userInfoDictionary["key"];
                     Response.Redirect("/Dashboard");
                 } else
                 {
@@ -60,7 +55,7 @@ namespace ApiStacks
         {
             //Authenticate with Firebase DB
             var signedInUser = Global.db.Authenticate(username, password);
-            if(signedInUser != null)
+            if(signedInUser != null && signedInUser.idToken != null)
             {
                 return signedInUser;
             }

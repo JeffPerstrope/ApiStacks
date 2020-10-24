@@ -45,9 +45,6 @@ namespace ApiStacks_API
         public static string API_QRCode = "https://us-central1-apistacks-basicapps.cloudfunctions.net/generateqr?url=";
         public static string API_LanguageDetect = "https://us-central1-apistacks-basicapps.cloudfunctions.net/detectlanguage?url=";
 
-
-
-
         public static string call(string endpoint, string queryString)
         {
 
@@ -78,8 +75,6 @@ namespace ApiStacks_API
             return null;
         }
 
-
-
         public static HttpResponseMessage ReturnFormattingError()
         {
             var failureResponse = new
@@ -87,6 +82,20 @@ namespace ApiStacks_API
                 status = "failed",
                 timestamp = DateTime.Now,
                 reason = "request was not formatted properly"
+            };
+            return new HttpResponseMessage()
+            {
+                Content = new StringContent(JsonConvert.SerializeObject(failureResponse), System.Text.Encoding.UTF8, "application/json")
+            };
+        }
+
+        public static HttpResponseMessage ReturnAPIAuthorizationError(string reason)
+        {
+            var failureResponse = new
+            {
+                status = "failed",
+                timestamp = DateTime.Now,
+                reason = reason
             };
             return new HttpResponseMessage()
             {

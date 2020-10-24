@@ -27,6 +27,12 @@ namespace ApiStacks_API
             );
 
             RouteTable.Routes.MapHttpRoute(
+                name: "keepAlive",
+                routeTemplate: "v1/keepAlive/{*catchall}",
+                defaults: new { controller = "keepAlive" }
+            );
+
+            RouteTable.Routes.MapHttpRoute(
                 name: "getscreenshot",
                 routeTemplate: "v1/getscreenshot/{*catchall}",
                 defaults: new { controller = "webscreenshots" }

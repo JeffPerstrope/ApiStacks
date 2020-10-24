@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -48,11 +49,15 @@ namespace ApiStacks
 
                     };
 
-                Global.db.WriteToDB("Main/Users/" + newUser.userID + "/", payload);
-                }
+                    Global.db.WriteToDB("Main/Users/" + newUser.userID + "/", payload);
 
-                //Session["userID"] = Guid.NewGuid();
-                //Response.Redirect(@"\");
+                    SessionManager sessionMan = new SessionManager();
+                    sessionMan.LoadUserInfo(newUser);
+                }
+                
+                
+
+                Response.Redirect("/Dashboard");
             }
         }
     }

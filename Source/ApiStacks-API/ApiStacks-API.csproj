@@ -189,6 +189,7 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\DefaultController.cs" />
+    <Compile Include="Controllers\keepAliveController.cs" />
     <Compile Include="Controllers\emailvalidatorController.cs" />
     <Compile Include="Controllers\languagedetectController.cs" />
     <Compile Include="Controllers\webscraperController.cs" />
@@ -203,6 +204,7 @@
     </Compile>
     <Compile Include="Helpers\APICall.cs" />
     <Compile Include="Helpers\AppsList.cs" />
+    <Compile Include="Helpers\APIValidate.cs" />
     <Compile Include="Models\Model_ApiApp.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -222,6 +224,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\SharpFireStarter\SharpFireStarter.csproj">
+      <Project>{b043fd4a-66b5-4c40-9dfd-0ab662cb75d4}</Project>
+      <Name>SharpFireStarter</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

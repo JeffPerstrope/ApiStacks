@@ -14,10 +14,10 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>09/10/2013 16:29:20</publishTime>
     </File>
     <File Include="bin/ApiStacks-API.dll">
-      <publishTime>10/21/2020 22:28:00</publishTime>
+      <publishTime>10/24/2020 00:33:36</publishTime>
     </File>
     <File Include="bin/ApiStacks-API.pdb">
-      <publishTime>10/21/2020 22:28:00</publishTime>
+      <publishTime>10/24/2020 00:33:36</publishTime>
     </File>
     <File Include="bin/Microsoft.AspNetCore.WebUtilities.dll">
       <publishTime>02/20/2018 20:41:26</publishTime>
@@ -207,6 +207,12 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
     </File>
     <File Include="bin/roslyn/VBCSCompiler.exe.config">
       <publishTime>08/08/2018 12:18:16</publishTime>
+    </File>
+    <File Include="bin/SharpFireStarter.dll">
+      <publishTime>10/24/2020 00:22:23</publishTime>
+    </File>
+    <File Include="bin/SharpFireStarter.pdb">
+      <publishTime>10/24/2020 00:22:23</publishTime>
     </File>
     <File Include="bin/System.AppContext.dll">
       <publishTime>10/12/2020 02:08:45</publishTime>
@@ -539,7 +545,7 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>10/17/2020 23:24:43</publishTime>
     </File>
     <File Include="Web.config">
-      <publishTime>10/21/2020 22:51:33</publishTime>
+      <publishTime>10/24/2020 00:33:45</publishTime>
     </File>
   </ItemGroup>
 </Project>

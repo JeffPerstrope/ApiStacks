@@ -811,6 +811,9 @@
     <Compile Include="emailvalidate.aspx.designer.cs">
       <DependentUpon>emailvalidate.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Helpers\SessionManager.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
     <Compile Include="linkscraper.aspx.cs">
       <DependentUpon>linkscraper.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -995,9 +998,7 @@
       <DependentUpon>Web.config</DependentUpon>
     </None>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="api\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <ProjectReference Include="..\..\..\SharpFireStarter\SharpFireStarter.csproj">
       <Project>{b043fd4a-66b5-4c40-9dfd-0ab662cb75d4}</Project>
