@@ -16,14 +16,33 @@ namespace ApiStacks_API.Controllers
         [HttpGet]
         public HttpResponseMessage Get(HttpRequestMessage value)
         {
-            var sampleResponse = new { key1 = "value1", key2 = "value2" };
-            var responseValue = JsonConvert.SerializeObject(sampleResponse);
-            HttpResponseMessage response = Request.CreateResponse(HttpStatusCode.OK, responseValue);
+            Dictionary<string, string> parameters = new Dictionary<string, string>();
 
-            return response;
+            var queryString = value.GetQueryNameValuePairs();
+            foreach (var parameter in queryString)
+            {
+                var key = parameter.Key;
+                var val = parameter.Value;
+                parameters.Add(key, val);
+            }
 
-            //return new HttpResponseMessage(HttpStatusCode.Unauthorized);
+            if (!parameters.ContainsKey("url"))
+            {
+                return APICall.ReturnFormattingError();
+            }
+
+            var screenshotResponse = APICall.call(APICall.API_LanguageDetect, parameters["url"]);
+            if (screenshotResponse != null)
+            {
+                return new HttpResponseMessage()
+                {
+                    Content = new StringContent(screenshotResponse, System.Text.Encoding.UTF8, "application/json")
+                };
+            }
+            else
+            {
+                return APICall.ReturnFormattingError();
+            }
         }
-
     }
 }

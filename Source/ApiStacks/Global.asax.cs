@@ -11,9 +11,15 @@ namespace ApiStacks
 {
     public class Global : System.Web.HttpApplication
     {
+        private static string databaseURL = "https://apistacks-basicapps.firebaseio.com";
+        private static string appID = "apistacks-basicapps";
+        private static string appKey = "AIzaSyBkCHXwY87S0ZQxo6T1jNLbxYCaizgMnsU";
+
+        public static SharpFireStarter.FireBaseDB db;
 
         protected void Application_Start(object sender, EventArgs e)
         {
+            initializeFirebase();
             RouteConfig.RegisterRoutes(RouteTable.Routes);
         }
 
@@ -45,6 +51,12 @@ namespace ApiStacks
         protected void Application_End(object sender, EventArgs e)
         {
 
+        }
+
+        public static void initializeFirebase()
+        {
+            db = null;
+            db = new SharpFireStarter.FireBaseDB(appID, databaseURL, appKey);
         }
     }
 

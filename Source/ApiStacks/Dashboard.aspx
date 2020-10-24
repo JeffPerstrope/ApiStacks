@@ -63,7 +63,7 @@
                             <hr/>
                             <h6 style="font-weight: 800">Authentication:</h6>
                             <p class="text-muted" style="font-size: 13px">When authenticating your requests, pass the API Key in the request header as <a class="text-danger">' api-key' </a>:</p>
-                            <p><a class="text-primary"><%= Session["privateKey"].ToString() %></a></p>
+                            <p><a class="text-primary"><%= Session["userKey"].ToString() %></a></p>
 
                             <hr/>
                             <h6 style="font-weight: 800">Endpoint:</h6>

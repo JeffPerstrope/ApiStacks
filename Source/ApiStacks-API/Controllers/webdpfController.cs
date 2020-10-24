@@ -8,28 +8,41 @@ using System.Threading;
 using System.Web;
 using System.Web.Http;
 using System.Web.Mvc;
-using System.Web.SessionState;
 
 namespace ApiStacks_API.Controllers
 {
     public class webdpfController
     {
-        [SessionState(SessionStateBehavior.ReadOnly)]
-        public class webpdfController : ApiController
+        [System.Web.Http.HttpGet]
+        public HttpResponseMessage Get(HttpRequestMessage value)
         {
+            Dictionary<string, string> parameters = new Dictionary<string, string>();
 
-            [System.Web.Http.HttpGet]
-            public HttpResponseMessage Get(HttpRequestMessage value)
+            var queryString = value.GetQueryNameValuePairs();
+            foreach (var parameter in queryString)
             {
-                var sampleResponse = new { key1 = "value1", key2 = "value2" };
-                var responseValue = JsonConvert.SerializeObject(sampleResponse);
-                HttpResponseMessage response = Request.CreateResponse(HttpStatusCode.OK, responseValue);
-                Thread.Sleep(3000);
-                return response;
-
-                //return new HttpResponseMessage(HttpStatusCode.Unauthorized);
+                var key = parameter.Key;
+                var val = parameter.Value;
+                parameters.Add(key, val);
             }
 
+            if (!parameters.ContainsKey("url"))
+            {
+                return APICall.ReturnFormattingError();
+            }
+
+            var screenshotResponse = APICall.call(APICall.API_PDF, parameters["url"]);
+            if (screenshotResponse != null)
+            {
+                return new HttpResponseMessage()
+                {
+                    Content = new StringContent(screenshotResponse, System.Text.Encoding.UTF8, "application/json")
+                };
+            }
+            else
+            {
+                return APICall.ReturnFormattingError();
+            }
         }
     }
 }

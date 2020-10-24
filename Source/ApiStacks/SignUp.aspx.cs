@@ -32,8 +32,27 @@ namespace ApiStacks
                 if (password.Value == "")
                     return;
 
-                Session["userID"] = Guid.NewGuid();
-                Response.Redirect(@"\");
+                var userFirstName = firstName.Value;
+                var userLastName = lastName.Value;
+                var userEmail = emailAddress.Value;
+                var userPassword = password.Value;
+
+                var newUser = Global.db.SignUp(string.Format("{0} {1}", userFirstName, userLastName), userEmail, userPassword);
+                if(newUser != null)
+                {
+                    var payload = new Dictionary<string, string>
+                    {
+                        { "firstName", userFirstName},
+                        { "lastName", userLastName},
+                        { "email", userEmail},
+
+                    };
+
+                Global.db.WriteToDB("Main/Users/" + newUser.userID + "/", payload);
+                }
+
+                //Session["userID"] = Guid.NewGuid();
+                //Response.Redirect(@"\");
             }
         }
     }

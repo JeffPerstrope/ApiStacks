@@ -1,5 +1,7 @@
-﻿using System;
+﻿using ApiStacks;
+using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Web;
 using System.Web.Http;
@@ -25,33 +27,57 @@ namespace ApiStacks_API
             );
 
             RouteTable.Routes.MapHttpRoute(
-                name: "webscreenshots",
-                routeTemplate: "api/v1/webscreenshots/{*catchall}",
+                name: "getscreenshot",
+                routeTemplate: "v1/getscreenshot/{*catchall}",
                 defaults: new { controller = "webscreenshots" }
             );
 
             RouteTable.Routes.MapHttpRoute(
-                name: "webpdf",
-                routeTemplate: "api/v1/webpdf/{*catchall}",
+                name: "getpdf",
+                routeTemplate: "v1/getpdf/{*catchall}",
                 defaults: new { controller = "webpdf" }
             );
 
             RouteTable.Routes.MapHttpRoute(
-                name: "linkscraper",
-                routeTemplate: "api/v1/linkscraper/{*catchall}",
+                name: "scrapelinks",
+                routeTemplate: "v1/scrapelinks/{*catchall}",
                 defaults: new { controller = "linkscraper" }
             );
 
             RouteTable.Routes.MapHttpRoute(
-                name: "opengraph",
-                routeTemplate: "api/v1/opengraph/{*catchall}",
+               name: "scrapewebsite",
+               routeTemplate: "v1/scrapewebsite/{*catchall}",
+               defaults: new { controller = "webscraper" }
+           );
+
+            RouteTable.Routes.MapHttpRoute(
+                name: "getmeta",
+                routeTemplate: "v1/getmeta/{*catchall}",
                 defaults: new { controller = "opengraph" }
             );
 
             RouteTable.Routes.MapHttpRoute(
-                name: "whois",
-                routeTemplate: "api/v1/whois/{*catchall}",
+                name: "getwhois",
+                routeTemplate: "v1/getwhois/{*catchall}",
                 defaults: new { controller = "whois" }
+            );
+
+            RouteTable.Routes.MapHttpRoute(
+                name: "emailvalidate",
+                routeTemplate: "v1/checkemail/{*catchall}",
+                defaults: new { controller = "emailvalidator" }
+            );
+
+            RouteTable.Routes.MapHttpRoute(
+                name: "generateqr",
+                routeTemplate: "v1/generateqr/{*catchall}",
+                defaults: new { controller = "qrcode" }
+            );
+
+            RouteTable.Routes.MapHttpRoute(
+                name: "detectlanguage",
+                routeTemplate: "v1/detectlanguage/{*catchall}",
+                defaults: new { controller = "languagedetect" }
             );
 
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);

@@ -811,8 +811,6 @@
     <Compile Include="emailvalidate.aspx.designer.cs">
       <DependentUpon>emailvalidate.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Helpers\APICall.cs" />
-    <Compile Include="Helpers\AppsList.cs" />
     <Compile Include="linkscraper.aspx.cs">
       <DependentUpon>linkscraper.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -851,7 +849,6 @@
     <Compile Include="Login.aspx.designer.cs">
       <DependentUpon>Login.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Models\Model_ApiApp.cs" />
     <Compile Include="opengraph.aspx.cs">
       <DependentUpon>opengraph.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -1000,6 +997,16 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="api\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\SharpFireStarter\SharpFireStarter.csproj">
+      <Project>{b043fd4a-66b5-4c40-9dfd-0ab662cb75d4}</Project>
+      <Name>SharpFireStarter</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ApiStacks-API\ApiStacks-API.csproj">
+      <Project>{09b513b7-af90-4674-a589-3657df120950}</Project>
+      <Name>ApiStacks-API</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

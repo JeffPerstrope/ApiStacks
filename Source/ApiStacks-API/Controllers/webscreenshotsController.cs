@@ -19,34 +19,33 @@ namespace ApiStacks_API.Controllers
         [HttpGet]
         public HttpResponseMessage Get(HttpRequestMessage value)
         {
-            //Take screenshot
-            var result = TakeScreenshot().Result;
+            Dictionary<string, string> parameters = new Dictionary<string, string>();
 
-            var sampleResponse = new { key1 = "value1", key2 = "value2" };
-            var responseValue = JsonConvert.SerializeObject(sampleResponse);
-            HttpResponseMessage response = Request.CreateResponse(HttpStatusCode.OK, responseValue);
-
-            return response;
-
-            //return new HttpResponseMessage(HttpStatusCode.Unauthorized);
-        }
-
-        private async Task<string> TakeScreenshot()
-        {
-            var dir = AppDomain.CurrentDomain.BaseDirectory + @"chrome";
-            //var browserFetcherOptions = new BrowserFetcherOptions { Path = dir + "/chrome/" };
-            //var browserFetcher = new BrowserFetcher(browserFetcherOptions);
-            //await browserFetcher.DownloadAsync(BrowserFetcher.DefaultRevision);
-            //await new BrowserFetcher().DownloadAsync(BrowserFetcher.DefaultRevision);
-            var browser = await Puppeteer.LaunchAsync(new LaunchOptions
+            var queryString = value.GetQueryNameValuePairs();
+            foreach (var parameter in queryString)
             {
-                Headless = true,
-                ExecutablePath = dir 
-            });
-            var page = await browser.NewPageAsync();
-            await page.GoToAsync("http://www.google.com");
-            await page.ScreenshotAsync("/capture.png");
-            return "";
+                var key = parameter.Key;
+                var val = parameter.Value;
+                parameters.Add(key, val);
+            }
+
+            if (!parameters.ContainsKey("url"))
+            {
+                return APICall.ReturnFormattingError();
+            }
+
+            var screenshotResponse = APICall.call(APICall.API_Screenshot, parameters["url"]);
+            if (screenshotResponse != null)
+            {
+                return new HttpResponseMessage()
+                {
+                    Content = new StringContent(screenshotResponse, System.Text.Encoding.UTF8, "application/json")
+                };
+            }
+            else
+            {
+                return APICall.ReturnFormattingError();
+            }
         }
 
     }

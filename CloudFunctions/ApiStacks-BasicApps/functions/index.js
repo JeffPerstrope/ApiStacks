@@ -246,7 +246,7 @@ exports.checkemail = functions.https.onRequest((request, response) => {
       "data": data
     }
 
-    response.json(successData);
+    response.send(successData);
     return;
 
   }).catch((e) => {
@@ -258,7 +258,7 @@ exports.checkemail = functions.https.onRequest((request, response) => {
     }
 
     console.log(e);
-    response.json(errorMessage);
+    response.send(errorMessage);
     return;
   });
   
@@ -300,7 +300,7 @@ exports.generateqr = functions.https.onRequest((request, response) => {
   var imageName = imageID + ".png";
   var imageFullPath = __dirname + "/tmp/" + imageName;
   var destination = "https://api.apistacks.com/repo/" + imageName;
-
+  
   QRCode.toFile(
     imageFullPath,
     URL,
@@ -313,8 +313,8 @@ exports.generateqr = functions.https.onRequest((request, response) => {
       }
     },
     function (err) {
-      if (err){ response.sendStatus(404); return; }
-
+      if (err){ console.log(err); response.sendStatus(404); return; }
+      
       uploadScrape(imageFullPath, imageName).then(function (data) {
         //Delete file from here
         fs.unlinkSync(imageFullPath);
