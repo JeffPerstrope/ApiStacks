@@ -5,16 +5,15 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
-using System.Threading;
 using System.Web;
+using System.Web.Helpers;
 using System.Web.Http;
-using System.Web.Mvc;
 
 namespace ApiStacks_API.Controllers
 {
-    public class webdpfController
+    public class webpdfController : ApiController
     {
-        [System.Web.Http.HttpGet]
+        [HttpGet]
         public HttpResponseMessage Get(HttpRequestMessage value)
         {
             var authorizeAPI = APIValidate.AuthorizeRequest(value);
@@ -22,22 +21,22 @@ namespace ApiStacks_API.Controllers
             {
                 Dictionary<string, string> parameters = new Dictionary<string, string>();
 
-            var queryString = value.GetQueryNameValuePairs();
-            foreach (var parameter in queryString)
-            {
-                var key = parameter.Key;
-                var val = parameter.Value;
-                parameters.Add(key, val);
-            }
+                var queryString = value.GetQueryNameValuePairs();
+                foreach (var parameter in queryString)
+                {
+                    var key = parameter.Key.ToLower();
+                    var val = parameter.Value.ToLower();
+                    parameters.Add(key, val);
+                }
 
-            if (!parameters.ContainsKey("url"))
-            {
-                return APICall.ReturnFormattingError();
-            }
+                if (!parameters.ContainsKey("url"))
+                {
+                    return APICall.ReturnFormattingError();
+                }
 
-            var screenshotResponse = APICall.call(APICall.API_PDF, parameters["url"]);
-            if (screenshotResponse != null)
-            {
+                var screenshotResponse = APICall.call(APICall.API_PDF, parameters["url"]);
+                if (screenshotResponse != null)
+                {
                     var incrementUsage = APIValidate.IncrementUsageRequest(value);
                     if (incrementUsage == "success")
                     {
@@ -51,11 +50,11 @@ namespace ApiStacks_API.Controllers
                         return APICall.ReturnAPIAuthorizationError(incrementUsage);
                     }
                 }
-            else
-            {
-                return APICall.ReturnFormattingError();
+                else
+                {
+                    return APICall.ReturnFormattingError();
+                }
             }
-        }
             else
             {
                 return APICall.ReturnAPIAuthorizationError(authorizeAPI);

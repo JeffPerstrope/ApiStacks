@@ -26,8 +26,8 @@ namespace ApiStacks_API.Controllers
             var queryString = value.GetQueryNameValuePairs();
             foreach (var parameter in queryString)
             {
-                var key = parameter.Key;
-                var val = parameter.Value;
+                var key = parameter.Key.ToLower();
+                var val = parameter.Value.ToLower();
                 parameters.Add(key, val);
             }
 

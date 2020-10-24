@@ -90,7 +90,7 @@
                         <div class="form-group position-relative">
                             <label>Old password :</label>
                             <i data-feather="key" class="fea icon-sm icons"></i>
-                            <input runat="server" type="password" id="txtPasswordOld" class="form-control pl-5" placeholder="Old password" required="">
+                            <input runat="server" type="password" id="txtPasswordOld" class="form-control pl-5" placeholder="Old password">
                         </div>
                     </div>
                     <!--end col-->
@@ -99,7 +99,7 @@
                         <div class="form-group position-relative">
                             <label>New password :</label>
                             <i data-feather="key" class="fea icon-sm icons"></i>
-                            <input runat="server" type="password" id="txtPasswordNew" class="form-control pl-5" placeholder="New password" required="">
+                            <input runat="server" type="password" id="txtPasswordNew" class="form-control pl-5" placeholder="New password">
                         </div>
                     </div>
                     <!--end col-->
@@ -108,7 +108,7 @@
                         <div class="form-group position-relative">
                             <label>Re-type New password :</label>
                             <i data-feather="key" class="fea icon-sm icons"></i>
-                            <input runat="server" type="password" id="txtPasswordNewVerify" class="form-control pl-5" placeholder="Re-type New password" required="">
+                            <input runat="server" type="password" id="txtPasswordNewVerify" class="form-control pl-5" placeholder="Re-type New password">
                             <p  runat="server" id="txtPasswordError" class="mb-0 mt-3"><small class="text-danger mr-2">An error occured</small></p>
                         </div>
                     </div>

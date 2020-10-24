@@ -11,7 +11,13 @@ exports.getpdf = functions.https.onRequest((request, response) => {
   var URL = request.query.url;
   var PAGES = request.query.pages;
   if (URL === undefined || URL.trim() === "") {
-    response.sendStatus(404);
+    const errorMessage = {
+      "status": "failed",
+      "timestamp": Date.now(),
+      "value": URL,
+      "reason": "request not formatted correctly"
+    }
+    response.json(errorMessage);
     return;
   }
 
@@ -19,7 +25,7 @@ exports.getpdf = functions.https.onRequest((request, response) => {
   var imageID = getGUID();
   var imageName = imageID + ".pdf";
   //var imageFullPath = __dirname + "/public/capture/" + imageName;
-  var destination = "https://demo.adblock.evlar.net/api/" + imageName;
+  var destination = "https://api.apistacks.com/repo/" + imageName;
 
   
 console.log(puppeteer.executablePath());
@@ -32,18 +38,36 @@ console.log(puppeteer.executablePath());
         .then(function (data) {
           //Delete file from here
           //fs.unlinkSync(imageFullPath);
-          response.json(destination);
+          const successData = {
+            "status": "success",
+            "timestamp": Date.now(),
+            "value": URL,
+            "data": destination
+          }
+          response.json(successData);
           return false;
         })
         .catch((e) => {
           console.log(e);
-          response.sendStatus(500);
+          const errorMessage = {
+            "status": "failed",
+            "timestamp": Date.now(),
+            "value": URL,
+            "reason": "unable to generate pdf, possible bot blocked"
+          }
+          response.json(errorMessage);
         });
         return false;
     })
     .catch((e) => {
       console.log(e);
-      response.sendStatus(500);
+      const errorMessage = {
+        "status": "failed",
+        "timestamp": Date.now(),
+        "value": URL,
+        "reason": "unable to generate pdf, possible bot blocked"
+      }
+      response.json(errorMessage);
     });
 
     return false;
@@ -84,18 +108,3 @@ function bufferToStream(myBuuffer) {
   tmp.push(null);
   return tmp;
 }
-
-
-// // listen for requests
-// const listener = app.listen(process.env.PORT, () => {
-//   console.log("Your app is listening on port " + listener.address().port);
-// });
-
-// make all the files in 'public' available
-//app.use(express.static("public"));
-
-// https://expressjs.com/en/starter/basic-routing.html
-// app.get("/", (request, response) => {
-//   response.sendStatus(404);
-//   //response.sendFile(__dirname + "/views/index.html");
-// });

@@ -242,7 +242,7 @@ exports.checkemail = functions.https.onRequest((request, response) => {
     const successData = {
       "status": "success",
       "timestamp": Date.now(),
-      "email": URL,
+      "input": URL,
       "data": data
     }
 
@@ -292,7 +292,7 @@ exports.generateqr = functions.https.onRequest((request, response) => {
   var URL = request.query.url;
   if (URL === undefined || URL.trim() === "") {
     response.sendStatus(404);
-    return;
+    return;   
   }
 
   //URL is valid, generate GUID
@@ -314,16 +314,30 @@ exports.generateqr = functions.https.onRequest((request, response) => {
     },
     function (err) {
       if (err){ console.log(err); response.sendStatus(404); return; }
-      
+
       uploadScrape(imageFullPath, imageName).then(function (data) {
         //Delete file from here
         fs.unlinkSync(imageFullPath);
-        console.log("done");
-        response.json(destination);
+
+        const successData = {
+          "status": "success",
+          "timestamp": Date.now(),
+          "input": URL,
+          "data": destination
+        }
+  
+        response.json(successData);
         return;
       }).catch(function (err) {
-        console.error(err);
-        response.send(err);
+        const errorMessage = {
+          "status": "failed",
+          "timestamp": Date.now(),
+          "email": URL,
+          "reason": "unable to generate qr code"
+        }
+    
+        console.log(e);
+        response.send(errorMessage);
         return;
       });
       return;

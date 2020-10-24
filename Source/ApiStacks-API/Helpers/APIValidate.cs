@@ -19,6 +19,12 @@ namespace ApiStacks_API.Helpers
         /// <returns></returns>
         public static string AuthorizeRequest(HttpRequestMessage request)
         {
+            //OK if debugging
+            if(System.Diagnostics.Debugger.IsAttached)
+            {
+                return "success";
+            }
+
             //Extract API Key
             if(request.Headers.Contains("x-api-key"))
             {
@@ -68,7 +74,7 @@ namespace ApiStacks_API.Helpers
                     }
 
                     if (!appEnabled)
-                        return enabledApps + " -- " + segmentAppID + " is disabled in the dashboard";
+                        return "api is disabled in the dashboard";
 
 
                     return "success";
@@ -91,6 +97,12 @@ namespace ApiStacks_API.Helpers
         /// <returns></returns>
         public static string IncrementUsageRequest(HttpRequestMessage request)
         {
+            //OK if debugging
+            if (System.Diagnostics.Debugger.IsAttached)
+            {
+                return "success";
+            }
+
             //Extract API Key
             if (request.Headers.Contains("x-api-key"))
             {

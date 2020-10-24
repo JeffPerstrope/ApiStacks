@@ -25,22 +25,26 @@ namespace ApiStacks_API.Controllers
             {
                 Dictionary<string, string> parameters = new Dictionary<string, string>();
 
-            var queryString = value.GetQueryNameValuePairs();
-            foreach (var parameter in queryString)
-            {
-                var key = parameter.Key;
-                var val = parameter.Value;
-                parameters.Add(key, val);
-            }
+                var queryString = value.GetQueryNameValuePairs();
+                foreach (var parameter in queryString)
+                {
+                    var key = parameter.Key.ToLower();
+                    var val = parameter.Value.ToLower();
+                    parameters.Add(key, val);
+                }
 
-            if (!parameters.ContainsKey("url"))
-            {
-                return APICall.ReturnFormattingError();
-            }
+                if (!parameters.ContainsKey("url"))
+                {
+                    return APICall.ReturnFormattingError();
+                }
 
-            var screenshotResponse = APICall.call(APICall.API_Screenshot, parameters["url"]);
-            if (screenshotResponse != null)
-            {
+                //Validate URL Structure
+                if ((!parameters["url"].StartsWith("http://")) && (!parameters["url"].StartsWith("https://")))
+                    parameters["url"] = "http://" + parameters["url"];
+
+                var screenshotResponse = APICall.call(APICall.API_Screenshot, parameters["url"]);
+                if (screenshotResponse != null)
+                {
                     var incrementUsage = APIValidate.IncrementUsageRequest(value);
                     if (incrementUsage == "success")
                     {
@@ -54,11 +58,11 @@ namespace ApiStacks_API.Controllers
                         return APICall.ReturnAPIAuthorizationError(incrementUsage);
                     }
                 }
-            else
-            {
-                return APICall.ReturnFormattingError();
+                else
+                {
+                    return APICall.ReturnFormattingError();
+                }
             }
-        }
             else
             {
                 return APICall.ReturnAPIAuthorizationError(authorizeAPI);

@@ -1,4 +1,5 @@
 ﻿using ApiStacks_API;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -37,7 +38,8 @@ namespace ApiStacks
                             var screenshotResponse = APICall.call(APICall.API_Screenshot, url);
                             if (screenshotResponse != null)
                             {
-                                Session["screenshot"] = screenshotResponse.Replace(@"\", "").Replace("\"", ""); ;
+                                var returnedData = JsonConvert.DeserializeObject < Dictionary<string, object>>(screenshotResponse);
+                                Session["screenshot"] = returnedData["data"];
                                 var fileName = Session["screenshot"].ToString().Split('/').Last();
                                 Response.Redirect("webscreenshots?capture=" + fileName);
                             }

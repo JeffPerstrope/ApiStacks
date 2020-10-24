@@ -25,8 +25,8 @@ namespace ApiStacks_API.Controllers
                 var queryString = value.GetQueryNameValuePairs();
                 foreach (var parameter in queryString)
                 {
-                    var key = parameter.Key;
-                    var val = parameter.Value;
+                    var key = parameter.Key.ToLower();
+                    var val = parameter.Value.ToLower();
                     parameters.Add(key, val);
                 }
 
@@ -34,6 +34,10 @@ namespace ApiStacks_API.Controllers
                 {
                     return APICall.ReturnFormattingError();
                 }
+
+                //Validate URL Structure
+                if ((parameters["url"].StartsWith("http://")) || (!parameters["url"].StartsWith("https://")))
+                    parameters["url"] = parameters["url"].Replace("http://", "").Replace("https://", "");
 
                 var screenshotResponse = APICall.call(APICall.API_Whois, parameters["url"]);
                 if (screenshotResponse != null)

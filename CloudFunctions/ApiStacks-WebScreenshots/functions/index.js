@@ -9,7 +9,13 @@ exports.getscreenshot = functions.https.onRequest((request, response) => {
   //Parse request
   var URL = request.query.url;
   if (URL === undefined || URL.trim() === "") {
-    response.sendStatus(404);
+    const errorMessage = {
+      "status": "failed",
+      "timestamp": Date.now(),
+      "value": URL,
+      "reason": "request not formatted correctly"
+    }
+    response.json(errorMessage);
     return;
   }
 
@@ -38,18 +44,36 @@ exports.getscreenshot = functions.https.onRequest((request, response) => {
         .then(function (data) {
           //Delete file from here
           //fs.unlinkSync(imageFullPath);
-          response.json(destination);
+          const successData = {
+            "status": "success",
+            "timestamp": Date.now(),
+            "value": URL,
+            "data": destination
+          }
+          response.json(successData);
           return false;
         })
         .catch((e) => {
           console.log(e);
-          response.sendStatus(500);
+          const errorMessage = {
+            "status": "failed",
+            "timestamp": Date.now(),
+            "value": URL,
+            "reason": "unable to capture screenshot, possible bot blocked"
+          }
+          response.json(errorMessage);
         });
         return false;
     })
     .catch((e) => {
       console.log(e);
-      response.sendStatus(500);
+      const errorMessage = {
+        "status": "failed",
+        "timestamp": Date.now(),
+        "value": URL,
+        "reason": "unable to capture screenshot, possible bot blocked"
+      }
+      response.json(errorMessage);
     });
 
     return false;
@@ -90,18 +114,3 @@ function bufferToStream(myBuuffer) {
   tmp.push(null);
   return tmp;
 }
-
-
-// // listen for requests
-// const listener = app.listen(process.env.PORT, () => {
-//   console.log("Your app is listening on port " + listener.address().port);
-// });
-
-// make all the files in 'public' available
-//app.use(express.static("public"));
-
-// https://expressjs.com/en/starter/basic-routing.html
-// app.get("/", (request, response) => {
-//   response.sendStatus(404);
-//   //response.sendFile(__dirname + "/views/index.html");
-// });

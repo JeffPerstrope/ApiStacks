@@ -196,7 +196,7 @@
     <Compile Include="Controllers\qrcodeController.cs" />
     <Compile Include="Controllers\whoisController.cs" />
     <Compile Include="Controllers\opengraphController.cs" />
-    <Compile Include="Controllers\webdpfController.cs" />
+    <Compile Include="Controllers\webpdfController.cs" />
     <Compile Include="Controllers\linkscraperController.cs" />
     <Compile Include="Controllers\webscreenshotsController.cs" />
     <Compile Include="Global.asax.cs">
