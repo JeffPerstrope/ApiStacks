@@ -8,7 +8,7 @@
         <div class="row">
 
             <div class="col-md-6 mt-4 pt-2 pt-sm-0">
-                <h5>Switch Plan :</h5>
+                <h5>Premium Plans :</h5>
 
                 <div class="media key-feature align-items-center p-3 rounded shadow mt-4">
                     <div class="media-body content ml-3">
@@ -20,7 +20,7 @@
                         </div>
                         <a class="text-primary">10,000 requests / mo</a>
                         <p class="text-muted mb-0">Payment through Stripe</p>
-                        <button onclick="checkout('starter');" class="btn btn-primary">Buy</button>
+                        <button onclick="checkout('starter', '<%= Session["userEmail"].ToString().Trim()%>');" class="btn btn-primary">Buy</button>
                     </div>
                 </div>
 
@@ -34,7 +34,7 @@
                         </div>
                         <a class="text-primary">35,000 requests / mo</a>
                         <p class="text-muted mb-0">Payment through Stripe</p>
-                        <button onclick="checkout('professional');" class="btn btn-primary">Buy</button>
+                        <button onclick="checkout('professional', '<%= Session["userEmail"].ToString().Trim()%>');" class="btn btn-primary">Buy</button>
                     </div>
                 </div>
 
@@ -48,7 +48,7 @@
                         </div>
                         <a class="text-primary">100,000 requests / mo</a>
                         <p class="text-muted mb-0">Payment through Stripe</p>
-                        <button onclick="checkout('ultimate');" class="btn btn-primary">Buy</button>
+                        <button onclick="checkout('ultimate', '<%= Session["userEmail"].ToString().Trim()%>');" class="btn btn-primary">Buy</button>
                     </div>
                 </div>
 
@@ -59,7 +59,7 @@
 
 
             <div class="col-md-6 mt-4 pt-2 pt-sm-0">
-                <h5>Current Plan :</h5>
+                <h5>Free Plan :</h5>
 
                 <div class="media key-feature align-items-center p-3 rounded shadow mt-4">
                     <div class="media-body content ml-3">
@@ -93,14 +93,14 @@
 
     <script>
 
-        function checkout(plan) {
+        function checkout(plan, email) {
 
             $("#preloader").show();
             $("#status").show();
 
             var stripe = Stripe('pk_test_51HcZiyF6EVrg0l22sFpkZmUQZpmFzd4W5AEqF1rKbWtX9bX35yDvvFgzrDKI0i2xBrPJ7HHgyB7Mzt9OK2VxHSdR004PbSOz1D');
 
-            fetch('https://api.apistacks.com/v1/create-checkout-session?plan=' + plan, {
+            fetch('https://api.apistacks.com/v1/create-checkout-session?plan=' + plan + '&email=' + email, {
                 method: 'POST',
             })
                 .then(function (response) {
