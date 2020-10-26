@@ -8,9 +8,14 @@ using System.Web;
 
 namespace ApiStacks
 {
-    public class UserSessionManager: System.Web.UI.Page
+    public class UserSessionManager : System.Web.UI.Page
     {
-        public  void LoadUserInfo(User user, bool forceRefresh = false)
+        /// <summary>
+        /// Load user info from firebase
+        /// </summary>
+        /// <param name="user"></param>
+        /// <param name="forceRefresh"></param>
+        public void LoadUserInfo(User user, bool forceRefresh = false)
         {
             //Get Basic user info
             var userInfo = Global.db.GetFromDB("Main/Users/" + user.userID);
@@ -32,7 +37,9 @@ namespace ApiStacks
 
                 LoadUserUsage(user);
                 LoadStripeSubscription(user);
-            } else
+                UpdateFIrebaseData(user);
+            }
+            else
             {
                 //Something went wrong. Clear session
                 Session.Clear();
@@ -40,6 +47,11 @@ namespace ApiStacks
             }
         }
 
+
+        /// <summary>
+        /// Load usage info from firebase
+        /// </summary>
+        /// <param name="user"></param>
         private void LoadUserUsage(User user)
         {
             var usage = Global.db.GetFromDB("Main/Usage/" + Session["userKey"].ToString());
@@ -51,11 +63,18 @@ namespace ApiStacks
             Session["userUsagePercentage"] = Convert.ToInt64(userUsagePercentage);
 
             Session["userPlan"] = usageDictionary["plan"];
+            Session["userPlanRenewal"] = usageDictionary["renewal"];
             Session["userUsageCurrent"] = userUsageCurrent.ToString("N0");
             Session["userUsageMax"] = userUsageMax.ToString("N0");
             Session["userUsageRenewal"] = usageDictionary["renewal"];
         }
 
+
+        /// <summary>
+        /// Load subscription from stripe
+        /// </summary>
+        /// <param name="user"></param>
+        /// <param name="forceRefresh"></param>
         private void LoadStripeSubscription(User user, bool forceRefresh = false)
         {
             var subscriptionStarter = "price_1HcZm0F6EVrg0l22lVOfn9c8";
@@ -71,35 +90,72 @@ namespace ApiStacks
             if (customer != null)
             {
                 var subscriptions = customer.Subscriptions;
-                if(subscriptions == null || subscriptions.Count() <= 0)
+                if (subscriptions == null || subscriptions.Count() <= 0)
                 {
                     Session["userPlan"] = "free";
+                    Session["userPlanRenewal"] = DateTime.Now.AddDays(365).ToShortDateString().ToString();
                     return;
                 }
-                foreach(var sub in subscriptions)
+                foreach (var sub in subscriptions)
                 {
                     var subItem = sub.Items;
-                    foreach(var subItem_item in subItem)
+                    foreach (var subItem_item in subItem)
                     {
                         if (subItem_item.Price.Id == subscriptionStarter)
                         {
                             Session["userPlan"] = "starter";
+                            Session["userPlanRenewal"] = Convert.ToDateTime(sub.CurrentPeriodEnd.ToString()).ToShortDateString();
                             break;
                         }
 
                         else if (subItem_item.Price.Id == subscriptionProfessional)
                         {
                             Session["userPlan"] = "professional";
+                            Session["userPlanRenewal"] = Convert.ToDateTime(sub.CurrentPeriodEnd.ToString()).ToShortDateString();
                             break;
                         }
                         else if (subItem_item.Price.Id == subscriptionUltimate)
                         {
                             Session["userPlan"] = "ultimate";
+                            Session["userPlanRenewal"] = Convert.ToDateTime(sub.CurrentPeriodEnd.ToString()).ToShortDateString();
                             break;
                         }
                     }
                 }
             }
+        }
+
+
+        /// <summary>
+        /// Update firebase user plan data
+        /// </summary>
+        /// <param name="user"></param>
+        private void UpdateFIrebaseData(User user)
+        {
+            //Update Firebase Data
+            var db = new FireBaseDB("apistacks-basicapps", "https://apistacks-basicapps.firebaseio.com", "AIzaSyBkCHXwY87S0ZQxo6T1jNLbxYCaizgMnsU");
+            db.Authenticate("admin@apistacks.com", "W_e7&c':Nc`scc(S");
+            var currentPlan = Session["userPlan"].ToString();
+            var maxUsage = 1500;
+
+
+            if (currentPlan == "free")
+                maxUsage = 1200;
+            else if (currentPlan == "starter")
+                maxUsage = 10000;
+            else if (currentPlan == "professional")
+                maxUsage = 35000;
+            else if (currentPlan == "ultimate")
+                maxUsage = 100000;
+
+            var payload = new
+            {
+                plan = currentPlan,
+                max = maxUsage,
+                renewal = Session["userPlanRenewal"].ToString()
+            };
+            db.WriteToDB("Main/Usage/" + Session["userKey"].ToString(), payload);
+
         }
     }
 }

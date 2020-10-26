@@ -87,32 +87,27 @@
                         <ul class="submenu megamenu">
                             <li>
                                 <ul>
-                                    <li><a href="index-saas.html">Saas</a></li>
-                                    <li><a href="index-classic-saas.html">Classic Saas</a></li>
-                                    <li><a href="index-agency.html">Agency</a></li>
-                                    <li><a href="index-apps.html">Application</a></li>
-                                    <li><a href="index-classic-app.html">Classic Application</a></li>
-                                    <li><a href="index-studio.html">Studio</a></li>
-                                    <li><a href="index-business.html">Business</a></li>
-                                    <li><a href="index-modern-business.html">Modern Business</a></li>
-                                    <li><a href="index-hotel.html">Hotel</a></li>
-                                    <li><a href="index-marketing.html">Marketing</a></li>
-                                    <li><a href="index-enterprise.html">Enterprise</a></li>
-                                    <li><a href="index-insurance.html">Insurance</a></li>
-                                    <li><a href="index-shop.html">Shop</a></li>
-                                    <li><a href="index-coworking.html">Coworking</a></li>
+                                    <li><a target="_blank" href="/webscreenshots">Web Screenshots</a></li>
+                                    <li><a target="_blank" href="/webpdf">Web PDF</a></li>
+                                    <li><a target="_blank" href="/linkscraper">Link Scraper</a></li>
+                                    <li><a target="_blank" href="/emailvalidate">Email Checker</a></li>
+                                    <li><a target="_blank" href="/opengraph">Open Graph Scraper</a></li>
+                                    <li><a target="_blank" href="/whois">WHOIS Lookup</a></li>
+                                    <li><a target="_blank" href="/webscraper">Web Scraper</a></li>
+                                    <li><a target="_blank" href="/languagedetect">Language Detect</a></li>
+                                    <li><a target="_blank" href="/qrcode">QR Code Generator</a></li>
                                 </ul>
                             </li>
                         </ul>
                     </li>
 
+                    <li><a href="\Dashboard">Docs</a></li>
+
                     <li class="has-submenu">
-                        <a href="javascript:void(0)">Docs</a><span class="menu-arrow"></span>
+                        <a href="javascript:void(0)">Contact</a><span class="menu-arrow"></span>
                         <ul class="submenu">
-                            <li><a href="documentation.html">Documentation</a></li>
-                            <li><a href="changelog.html">Changelog</a></li>
-                            <li><a href="components.html">Components</a></li>
-                            <li><a href="widget.html">Widget</a></li>
+                            <li><a href="documentation.html">Contact Us</a></li>
+                            <li><a href="changelog.html">Report a bug</a></li>
                         </ul>
                     </li>
                 </ul>
@@ -146,7 +141,11 @@
                                     <div class="row align-items-end">
                                         <div class="col-md-7 text-md-left text-center mt-4 mt-sm-0">
                                             <h3 class="title mb-0"><%= string.Format("{0} {1}", Session["userFirstName"].ToString(), Session["userLastName"].ToString()) %></h3>
-                                            <small class="text-muted h6 mr-2"><%= Session["userPlan"].ToString().ToUpper() %> Membership</small>
+                                            <small class="text-muted h6 mr-2"><%= Session["userPlan"].ToString().ToUpper() %> Membership</small><br />
+                                            <%if (Session["userPlan"].ToString() != "free")
+                                                { %>
+                                            <p class="text-muted h6 mr-2">Renews <%= Session["userPlanRenewal"].ToString() %></p>
+                                            <%} %>
                                             <div id="modalAPIAppAlert" class="alert alert-warning" role="alert">Your email is not verified. Verify Now </div>
                                         </div>
                                         <!--end col-->
@@ -248,12 +247,8 @@
                             <h5 class="widget-title">Follow us :</h5>
                             <ul class="list-unstyled social-icon mb-0 mt-4">
                                 <li class="list-inline-item"><a href="javascript:void(0)" class="rounded"><i data-feather="facebook" class="fea icon-sm fea-social"></i></a></li>
-                                <li class="list-inline-item"><a href="javascript:void(0)" class="rounded"><i data-feather="instagram" class="fea icon-sm fea-social"></i></a></li>
                                 <li class="list-inline-item"><a href="javascript:void(0)" class="rounded"><i data-feather="twitter" class="fea icon-sm fea-social"></i></a></li>
-                                <li class="list-inline-item"><a href="javascript:void(0)" class="rounded"><i data-feather="linkedin" class="fea icon-sm fea-social"></i></a></li>
-                                <li class="list-inline-item"><a href="javascript:void(0)" class="rounded"><i data-feather="github" class="fea icon-sm fea-social"></i></a></li>
                                 <li class="list-inline-item"><a href="javascript:void(0)" class="rounded"><i data-feather="youtube" class="fea icon-sm fea-social"></i></a></li>
-                                <li class="list-inline-item"><a href="javascript:void(0)" class="rounded"><i data-feather="gitlab" class="fea icon-sm fea-social"></i></a></li>
                             </ul>
                             <!--end icon-->
                         </div>
@@ -395,7 +390,7 @@
 
 
 
-    
+
 
 
 

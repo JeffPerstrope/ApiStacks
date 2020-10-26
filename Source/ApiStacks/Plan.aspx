@@ -20,7 +20,18 @@
                         </div>
                         <a class="text-primary">10,000 requests / mo</a>
                         <p class="text-muted mb-0">Payment through Stripe</p>
+                        <%if (Session["userPlan"].ToString() == "starter")
+                            { %>
+                        <a class="btn btn-light">Current</a>
+                        <%}
+                            else if (Session["userPlan"].ToString() != "free")
+                            { %>
+                        <a class="btn btn-light">Contact to switch</a>
+                        <%}
+                            else
+                            { %>
                         <button onclick="checkout('starter', '<%= Session["userID"].ToString().Trim()%>');" class="btn btn-primary">Buy</button>
+                        <%} %>
                     </div>
                 </div>
 
@@ -34,7 +45,18 @@
                         </div>
                         <a class="text-primary">35,000 requests / mo</a>
                         <p class="text-muted mb-0">Payment through Stripe</p>
+                        <%if (Session["userPlan"].ToString() == "professional")
+                            { %>
+                        <a class="btn btn-light">Current</a>
+                        <%}
+                            else if (Session["userPlan"].ToString() != "free")
+                            { %>
+                        <a class="btn btn-primary">Contact to switch</a>
+                        <%}
+                            else
+                            { %>
                         <button onclick="checkout('professional', '<%= Session["userID"].ToString().Trim()%>');" class="btn btn-primary">Buy</button>
+                        <%} %>
                     </div>
                 </div>
 
@@ -48,7 +70,18 @@
                         </div>
                         <a class="text-primary">100,000 requests / mo</a>
                         <p class="text-muted mb-0">Payment through Stripe</p>
+                        <%if (Session["userPlan"].ToString() == "ultimate")
+                            { %>
+                        <a class="btn btn-light">Current</a>
+                        <%}
+                            else if (Session["userPlan"].ToString() != "free")
+                            { %>
+                        <a class="btn btn-primary">Contact to switch</a>
+                        <%}
+                            else
+                            { %>
                         <button onclick="checkout('ultimate', '<%= Session["userID"].ToString().Trim()%>');" class="btn btn-primary">Buy</button>
+                        <%} %>
                     </div>
                 </div>
 
@@ -71,7 +104,18 @@
                         </div>
                         <a class="text-primary">1,200 requests / mo</a>
                         <p class="text-muted mb-0">No Credit Card Required</p>
-                        <a href="javascript:void(0)" class="btn btn-light">Current</a>
+                        <%if (Session["userPlan"].ToString() == "free")
+                            { %>
+                        <a class="btn btn-light">Current</a>
+                        <%}
+                            else if (Session["userPlan"].ToString() != "free")
+                            { %>
+                        <a class="btn btn-primary">Contact to switch</a>
+                        <%}
+                            else
+                            { %>
+                        <button onclick="checkout('ultimate', '<%= Session["userID"].ToString().Trim()%>');" class="btn btn-primary">Switch</button>
+                        <%} %>
                     </div>
                 </div>
             </div>
@@ -82,6 +126,9 @@
 
         </div>
         <!--end row-->
+
+        <br />
+        <div id="modalAPIAppAlert" class="alert alert-warning" role="alert">To cancel your plan, contact us</div>
     </div>
 
 
