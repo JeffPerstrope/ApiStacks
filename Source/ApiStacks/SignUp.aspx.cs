@@ -77,11 +77,12 @@ namespace ApiStacks
             var newUser = Global.db.SignUp(string.Format("{0} {1}", userFirstName, userLastName), userEmail, userPassword);
             if (newUser != null)
             {
-                var payload = new Dictionary<string, string>
+                var payload = new Dictionary<string, object>
                     {
                         { "firstName", userFirstName},
                         { "lastName", userLastName},
                         { "email", userEmail},
+                        { "emailValid", false},
                     };
 
                 Global.db.WriteToDB("Main/Users/" + newUser.userID + "/", payload);
@@ -94,9 +95,13 @@ namespace ApiStacks
         {
             StripeConfiguration.ApiKey = "sk_test_51HcZiyF6EVrg0l22KUHmhtN6fxfGQvV1yG2vk2My3Dnq6N4zTg3CASy3OKzArWvWij8CL7BwnqGDPY8xke0Hsmq100FLmHAkYc";
 
+            var firebaseIDData = new Dictionary<string, string>();
+            firebaseIDData.Add("FirebaseID", newUser.userID);
             var options = new CustomerCreateOptions
             {
-                Email = newUser.email
+                Email = newUser.email,
+                Description = "FirebaseID: " + newUser.userID,
+                Metadata = firebaseIDData
             };
             var service = new CustomerService();
             Customer customer = service.Create(options);

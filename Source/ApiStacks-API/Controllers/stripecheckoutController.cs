@@ -40,7 +40,7 @@ namespace ApiStacks_API.Controllers
 
             FireBaseDB db = new FireBaseDB("apistacks-basicapps", "https://apistacks-basicapps.firebaseio.com", "AIzaSyBkCHXwY87S0ZQxo6T1jNLbxYCaizgMnsU");
             var user =  db.Authenticate("admin@apistacks.com", "W_e7&c':Nc`scc(S");
-            string node = "Main/Users/" ;
+            string node = "Main/Users/" + parameters["userid"].ToString();
             var dbData = db.GetFromDB(node);
             var userData = JsonConvert.DeserializeObject<Dictionary<string, object>>(dbData);
             var stripeID = userData["stripeID"].ToString();
