@@ -146,7 +146,7 @@
                                     <div class="row align-items-end">
                                         <div class="col-md-7 text-md-left text-center mt-4 mt-sm-0">
                                             <h3 class="title mb-0"><%= string.Format("{0} {1}", Session["userFirstName"].ToString(), Session["userLastName"].ToString()) %></h3>
-                                            <small class="text-muted h6 mr-2">Free Membership</small>
+                                            <small class="text-muted h6 mr-2"><%= Session["userPlan"].ToString().ToUpper() %> Membership</small>
                                         </div>
                                         <!--end col-->
                                         <div class="col-md-5 text-md-right text-center">

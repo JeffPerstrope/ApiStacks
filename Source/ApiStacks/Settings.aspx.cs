@@ -32,7 +32,7 @@ namespace ApiStacks
 
                 if (Global.db.WriteToDB("Main/Users/" + Session["userID"], payload))
                 {
-                    SessionManager sessionMan = new SessionManager();
+                    UserSessionManager sessionMan = new UserSessionManager();
                     sessionMan.LoadUserInfo((User)Session["user"]);
                 }
 

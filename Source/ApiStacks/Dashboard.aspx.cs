@@ -23,7 +23,7 @@ namespace ApiStacks
             loadAppStatuses();
 
 
-            if (Request.QueryString["activate"] != null)
+            if (Request.QueryString["activate"] != null && (bool)Session["userMaxAppsReached"] != true)
             {
                 string appID = Request.QueryString["activate"];
 

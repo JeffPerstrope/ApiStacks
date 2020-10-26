@@ -37,6 +37,11 @@ namespace ApiStacks_API
                 routeTemplate: "v1/create-checkout-session/{*catchall}",
                 defaults: new { controller = "stripecheckout" }
             );
+            RouteTable.Routes.MapHttpRoute(
+                name: "stripeEvents",
+                routeTemplate: "v1/stripe-events/{*catchall}",
+                defaults: new { controller = "stripeevents" }
+            );
 
 
 

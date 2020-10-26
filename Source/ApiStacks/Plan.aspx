@@ -59,7 +59,7 @@
 
 
             <div class="col-md-6 mt-4 pt-2 pt-sm-0">
-                <h5>Free Plan :</h5>
+                <h5>Free Plans :</h5>
 
                 <div class="media key-feature align-items-center p-3 rounded shadow mt-4">
                     <div class="media-body content ml-3">
@@ -70,7 +70,7 @@
                             <span class="h4 align-self-end mb-1">/mo</span>
                         </div>
                         <a class="text-primary">1,200 requests / mo</a>
-                        <p class="text-muted mb-0">Payment through Stripe</p>
+                        <p class="text-muted mb-0">No Credit Card Required</p>
                         <a href="javascript:void(0)" class="btn btn-light">Current</a>
                     </div>
                 </div>

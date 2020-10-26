@@ -197,6 +197,7 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\DefaultController.cs" />
+    <Compile Include="Controllers\stripeeventsController.cs" />
     <Compile Include="Controllers\stripecheckoutController.cs" />
     <Compile Include="Controllers\keepAliveController.cs" />
     <Compile Include="Controllers\emailvalidatorController.cs" />

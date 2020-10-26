@@ -40,7 +40,7 @@ namespace ApiStacks
                 var signedInUser = validateLogin(userName, password);
                 if (signedInUser != null)
                 {
-                    SessionManager sessionMan = new SessionManager();
+                    UserSessionManager sessionMan = new UserSessionManager();
                     sessionMan.LoadUserInfo(signedInUser);
 
                     Response.Redirect("/Dashboard");

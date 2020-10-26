@@ -814,7 +814,8 @@
     <Compile Include="emailvalidate.aspx.designer.cs">
       <DependentUpon>emailvalidate.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Helpers\SessionManager.cs">
+    <Compile Include="Helpers\UserCreateNew.cs" />
+    <Compile Include="Helpers\UserSessionManager.cs">
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="linkscraper.aspx.cs">
