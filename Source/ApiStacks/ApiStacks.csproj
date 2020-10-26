@@ -251,6 +251,7 @@
     <Content Include="css\style.css" />
     <Content Include="css\swiper.min.css" />
     <Content Include="Dashboard.aspx" />
+    <Content Include="Docs.aspx" />
     <Content Include="emailvalidate.aspx" />
     <Content Include="images\app\emailscraper.png" />
     <Content Include="images\app\emailvalidate.png" />
@@ -263,6 +264,9 @@
     <Content Include="images\app\webscreenshots.png" />
     <Content Include="images\app\whois.png" />
     <Content Include="images\client\default.png" />
+    <Content Include="images\docs\doc_apikey.JPG" />
+    <Content Include="images\docs\doc_dashboard.JPG" />
+    <Content Include="images\docs\doc_json.JPG" />
     <Content Include="images\fav.png" />
     <Content Include="images\logo_white.png" />
     <Content Include="images\technologies\1.png" />
@@ -806,6 +810,13 @@
     </Compile>
     <Compile Include="dashboard.Master.designer.cs">
       <DependentUpon>dashboard.Master</DependentUpon>
+    </Compile>
+    <Compile Include="Docs.aspx.cs">
+      <DependentUpon>Docs.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Docs.aspx.designer.cs">
+      <DependentUpon>Docs.aspx</DependentUpon>
     </Compile>
     <Compile Include="emailvalidate.aspx.cs">
       <DependentUpon>emailvalidate.aspx</DependentUpon>
