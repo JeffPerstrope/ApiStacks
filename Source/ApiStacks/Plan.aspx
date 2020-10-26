@@ -20,7 +20,7 @@
                         </div>
                         <a class="text-primary">10,000 requests / mo</a>
                         <p class="text-muted mb-0">Payment through Stripe</p>
-                        <button onclick="checkout('starter', '<%= Session["userEmail"].ToString().Trim()%>');" class="btn btn-primary">Buy</button>
+                        <button onclick="checkout('starter', '<%= Session["userID"].ToString().Trim()%>');" class="btn btn-primary">Buy</button>
                     </div>
                 </div>
 
@@ -34,7 +34,7 @@
                         </div>
                         <a class="text-primary">35,000 requests / mo</a>
                         <p class="text-muted mb-0">Payment through Stripe</p>
-                        <button onclick="checkout('professional', '<%= Session["userEmail"].ToString().Trim()%>');" class="btn btn-primary">Buy</button>
+                        <button onclick="checkout('professional', '<%= Session["userID"].ToString().Trim()%>');" class="btn btn-primary">Buy</button>
                     </div>
                 </div>
 
@@ -48,7 +48,7 @@
                         </div>
                         <a class="text-primary">100,000 requests / mo</a>
                         <p class="text-muted mb-0">Payment through Stripe</p>
-                        <button onclick="checkout('ultimate', '<%= Session["userEmail"].ToString().Trim()%>');" class="btn btn-primary">Buy</button>
+                        <button onclick="checkout('ultimate', '<%= Session["userID"].ToString().Trim()%>');" class="btn btn-primary">Buy</button>
                     </div>
                 </div>
 
@@ -93,14 +93,14 @@
 
     <script>
 
-        function checkout(plan, email) {
+        function checkout(plan, userId) {
 
             $("#preloader").show();
             $("#status").show();
 
             var stripe = Stripe('pk_test_51HcZiyF6EVrg0l22sFpkZmUQZpmFzd4W5AEqF1rKbWtX9bX35yDvvFgzrDKI0i2xBrPJ7HHgyB7Mzt9OK2VxHSdR004PbSOz1D');
 
-            fetch('https://api.apistacks.com/v1/create-checkout-session?plan=' + plan + '&email=' + email, {
+            fetch('https://api.apistacks.com/v1/create-checkout-session?plan=' + plan + '&userid=' + userId, {
                 method: 'POST',
             })
                 .then(function (response) {

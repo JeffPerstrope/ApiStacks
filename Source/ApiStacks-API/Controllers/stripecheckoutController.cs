@@ -11,6 +11,7 @@ using System.Web.Helpers;
 using System.Web.Http;
 using Stripe;
 using Stripe.Checkout;
+using SharpFireStarter;
 
 namespace ApiStacks_API.Controllers
 {
@@ -25,18 +26,28 @@ namespace ApiStacks_API.Controllers
             var queryString = value.GetQueryNameValuePairs();
             foreach (var parameter in queryString)
             {
-                var key = parameter.Key.ToLower();
-                var val = parameter.Value.ToLower();
+                var key = parameter.Key;
+                var val = parameter.Value;
                 parameters.Add(key, val);
             }
 
-            if (!parameters.ContainsKey("plan") || (!parameters.ContainsKey("email")))
+            if (!parameters.ContainsKey("plan") || (!parameters.ContainsKey("userid")))
             {
-                return new HttpResponseMessage(HttpStatusCode.BadRequest); ;
+                return new HttpResponseMessage(HttpStatusCode.BadRequest);
             }
 
+            //Get customer from Firebase
+
+            FireBaseDB db = new FireBaseDB("apistacks-basicapps", "https://apistacks-basicapps.firebaseio.com", "AIzaSyBkCHXwY87S0ZQxo6T1jNLbxYCaizgMnsU");
+            var user =  db.Authenticate("admin@apistacks.com", "W_e7&c':Nc`scc(S");
+            string node = "Main/Users/" ;
+            var dbData = db.GetFromDB(node);
+            var userData = JsonConvert.DeserializeObject<Dictionary<string, object>>(dbData);
+            var stripeID = userData["stripeID"].ToString();
+
+
             var priceItem = "";
-            var customerEmail = parameters["email"];
+            var customerEmail = userData["email"];
             if (parameters["plan"] == "starter")
                 priceItem = "price_1HcZm0F6EVrg0l22lVOfn9c8";
             else if (parameters["plan"] == "professional")
@@ -56,14 +67,13 @@ namespace ApiStacks_API.Controllers
                 {
                   new SessionLineItemOptions
                   {
-                    // Replace `price_...` with the actual price ID for your subscription
-                    // you created in step 2 of this guide.
                     Price = priceItem,
                     Quantity = 1
                   },
                 },
                 Mode = "subscription",
-                CustomerEmail = customerEmail,
+                //CustomerEmail = customerEmail.ToString(),
+                Customer = stripeID,
                 SuccessUrl = "https://apistacks.com/Plan?subscription=success",
                 CancelUrl = "https://apistacks.com/Plan?subscription=cancel",
             };
