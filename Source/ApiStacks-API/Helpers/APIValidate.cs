@@ -146,5 +146,13 @@ namespace ApiStacks_API.Helpers
                 return "api key not provided";
             }
         }
+
+        public static string GetUserSubscription(User user)
+        {
+
+
+
+            return "";
+        }
     }
 }
