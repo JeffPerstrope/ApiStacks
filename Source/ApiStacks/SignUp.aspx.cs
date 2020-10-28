@@ -1,5 +1,4 @@
-﻿using ApiStacks.Helpers;
-using Newtonsoft.Json;
+﻿using Newtonsoft.Json;
 using SharpFireStarter;
 using Stripe;
 using System;

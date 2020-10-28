@@ -1,7 +1,47 @@
 const functions = require('firebase-functions');
+const admin = require("firebase-admin");
+admin.initializeApp();
+
 const ftp = require("basic-ftp");
 const fs = require("fs");
 const { Duplex } = require("stream");
+
+
+
+//############################################################
+// AUTHORIZE API REQUESTS
+//############################################################
+
+function authorizeAPI(request)
+{
+  var apiKey = request.headers['x-api-key']; 
+
+  //If key is not provided
+  if(apiKey === null || apiKey === undefined)
+  {
+    return {
+      "status": "failed",
+      "timestamp": Date.now(),
+      "step": "api key authorization",
+      "reason": "api key was not found in the request header 'x-api-key'"
+    }
+  }
+
+  // Get a database reference to our posts
+  return admin.database().ref("Main/Usage/" + apiKey).once('value').then(function (userUsage) {
+    return {
+      "status": "failed",
+      "timestamp": Date.now(),
+      "step": "testing",
+      "reason": userUsage
+    };
+  });
+}
+
+
+
+//###########################################################################################################
+
 
 
 //############################################################
@@ -12,6 +52,15 @@ const whois = require("whois");
 
 // send the default array of dreams to the webpage
 exports.getwhois = functions.https.onRequest((request, response) => {
+
+  //Check for API Key
+  var validation = authorizeAPI(request);
+  if(validation.status === "failed")
+  {
+    response.json(validation);
+    return;
+  }
+
   //Parse request
   var URL = request.query.url;
   if (URL === undefined || URL.trim() === "") {
@@ -336,7 +385,7 @@ exports.generateqr = functions.https.onRequest((request, response) => {
           "reason": "unable to generate qr code"
         }
     
-        console.log(e);
+        console.log(err);
         response.send(errorMessage);
         return;
       });

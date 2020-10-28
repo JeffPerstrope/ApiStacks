@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 
-namespace ApiStacks.Helpers
+namespace ApiStacks
 {
     public static class UserCreateNew
     {

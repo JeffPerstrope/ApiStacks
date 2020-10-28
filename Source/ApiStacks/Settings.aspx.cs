@@ -1,7 +1,10 @@
 ﻿using SharpFireStarter;
 using System;
 using System.Collections.Generic;
+using System.Configuration;
+using System.IO;
 using System.Linq;
+using System.Net.Mail;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
@@ -58,7 +61,16 @@ namespace ApiStacks
                     }
                 }
 
+                //Send Email
+                var newEmail = new Model_Email
+                {
+                    email = "charifield@gmail.com",
+                    name = "Patrick",
+                    subject = "Settings have changed",
+                    body = "Thanks for creating an Landrick account. To continue, please confirm your email address by clicking the button below :"
 
+                };
+                EmailSender.SendEmail(newEmail, Server);
             }
             else
             {

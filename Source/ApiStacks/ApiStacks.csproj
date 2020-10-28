@@ -787,6 +787,9 @@
     <Content Include="samples\sampleGraph.txt" />
     <Content Include="Settings.aspx" />
     <Content Include="SignUp.aspx" />
+    <Content Include="templates\email.html">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <Content Include="ViewSwitcher.ascx" />
     <Content Include="Web.config" />
     <Content Include="Default.aspx" />
@@ -825,6 +828,10 @@
     <Compile Include="emailvalidate.aspx.designer.cs">
       <DependentUpon>emailvalidate.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Helpers\APICall.cs" />
+    <Compile Include="Helpers\APIValidate.cs" />
+    <Compile Include="Helpers\AppsList.cs" />
+    <Compile Include="Helpers\EmailSender.cs" />
     <Compile Include="Helpers\UserCreateNew.cs" />
     <Compile Include="Helpers\UserSessionManager.cs">
       <SubType>ASPXCodeBehind</SubType>
@@ -867,6 +874,8 @@
     <Compile Include="Login.aspx.designer.cs">
       <DependentUpon>Login.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Models\Model_ApiApp.cs" />
+    <Compile Include="Models\Model_Email.cs" />
     <Compile Include="opengraph.aspx.cs">
       <DependentUpon>opengraph.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -1018,10 +1027,6 @@
     <ProjectReference Include="..\..\..\SharpFireStarter\SharpFireStarter.csproj">
       <Project>{b043fd4a-66b5-4c40-9dfd-0ab662cb75d4}</Project>
       <Name>SharpFireStarter</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\ApiStacks-API\ApiStacks-API.csproj">
-      <Project>{09b513b7-af90-4674-a589-3657df120950}</Project>
-      <Name>ApiStacks-API</Name>
     </ProjectReference>
   </ItemGroup>
   <PropertyGroup>

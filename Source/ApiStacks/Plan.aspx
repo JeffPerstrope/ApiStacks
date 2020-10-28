@@ -147,8 +147,8 @@
 
             var stripe = Stripe('pk_test_51HcZiyF6EVrg0l22sFpkZmUQZpmFzd4W5AEqF1rKbWtX9bX35yDvvFgzrDKI0i2xBrPJ7HHgyB7Mzt9OK2VxHSdR004PbSOz1D');
 
-            fetch('https://api.apistacks.com/v1/create-checkout-session?plan=' + plan + '&userid=' + userId, {
-                method: 'POST',
+            fetch('https://api.apistacks.com/stripe/stripecheckout?plan=' + plan + '&userid=' + userId, {
+                method: 'GET',
             })
                 .then(function (response) {
                     return response.json();

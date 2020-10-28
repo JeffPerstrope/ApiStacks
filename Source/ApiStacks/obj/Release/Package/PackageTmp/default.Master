@@ -120,15 +120,7 @@
 
                     <li><a href="#sectionPricing">Pricing</a></li>
 
-                    <li class="has-submenu">
-                        <a href="javascript:void(0)">Docs</a><span class="menu-arrow"></span>
-                        <ul class="submenu">
-                            <li><a href="documentation.html">Documentation</a></li>
-                            <li><a href="changelog.html">Changelog</a></li>
-                            <li><a href="components.html">Components</a></li>
-                            <li><a href="widget.html">Widget</a></li>
-                        </ul>
-                    </li>
+                    <li><a href="\Docs">Docs</a></li>
 
                     <li><a href="#">Blog</a></li>
                     <li><a href="#">
