@@ -25,7 +25,7 @@ exports.getpdf = functions.https.onRequest((request, response) => {
   var imageID = getGUID();
   var imageName = imageID + ".pdf";
   //var imageFullPath = __dirname + "/public/capture/" + imageName;
-  var destination = "https://api.apistacks.com/repo/" + imageName;
+  var destination = "https://apistacks.com/cdn/repo/pdf/" + imageName;
 
   
 console.log(puppeteer.executablePath());
@@ -80,9 +80,9 @@ async function uploadScrape(imageSource, imageName) {
   client.ftp.verbose = true;
   try {
     await client.access({
-      host: "demo.adblock.evlar.net",
-      user: "apistacks",
-      password: "PassWord!",
+      host: "apistacks.com",
+      user: "apistk_ftp_pdf",
+      password: "%Yt53c5r",
       secure: false,
     });
     console.log(await client.list());

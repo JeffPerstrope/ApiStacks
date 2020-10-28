@@ -6,6 +6,8 @@ const cors = require('cors')({ origin: true });
 const express = require("express");
 const ftp = require("basic-ftp");
 const fs = require("fs");
+const https = require('https');
+
 const { Duplex } = require("stream");
 
 
@@ -48,8 +50,9 @@ async function authorizeAPIRequest(request) {
       //Check if app is enabled
       const userID = apiKeyUsageDic.userID;
       const userEnabledApps = await admin.database().ref('/Users/' + userID + '/apps').once('value');
-      var appName_dirty = request.url.substr(request.url.lastIndexOf('/') + 1);
+      var appName_dirty = request.url.toLowerCase().substr(request.url.lastIndexOf('/') + 1);
       var appName_clean = appName_dirty.split('?')[0];
+      var appName_query = appName_dirty.split('?')[1];
       console.log("Clean Name: " + appName_clean);
 
       if (!userEnabledApps.hasChild(appName_clean)) {
@@ -60,13 +63,17 @@ async function authorizeAPIRequest(request) {
         }
       }
 
+      //Load Cache Data
+      var cacheData = await loadCache(appName_clean, appName_query);
+
       //Check if user has exceeded api limit
       if (apiKeyUsageDic.current < apiKeyUsageDic.max) {
         return {
           "status": "success",
           "timestamp": Date.now(),
           "max": apiKeyUsageDic.max,
-          "current": apiKeyUsageDic.current
+          "current": apiKeyUsageDic.current,
+          "cache": cacheData
         }
       } else {
         return {
@@ -108,15 +115,208 @@ async function incrementAPIRequest(request, currentUsage) {
   await admin.database().ref('/Usage/' + apiKey).update(payload);
 }
 
-function loadCache(appname, request)
-{
-  
+async function saveCache(request, data) {
+  var appName_dirty = request.url.toLowerCase().substr(request.url.lastIndexOf('/') + 1);
+  var appName_clean = appName_dirty.split('?')[0];
+  var appName_query = appName_dirty.split('?')[1];
+
+  var encodedKey = encode(appName_query);
+  var payload = {
+    "data": data.data,
+    "timestamp": Date.now()
+  }
+
+  await admin.database().ref('Cache/' + appName_clean + '/' + encodedKey).set(payload);
+}
+
+async function loadCache(appname, query) {
+  var encodedKey = encode(query);
+  const cacheData = await admin.database().ref('Cache/' + appname + '/' + encodedKey).once('value');
+  if (cacheData.exists()) {
+    var cacheDataVal = cacheData.val();
+    const cacheReturn = {
+      "status": "success",
+      "timestamp": Date.now(),
+      "url": URL,
+      "data": cacheDataVal.data
+    }
+    return cacheReturn;
+  }
+  else {
+    return null;
+  }
+}
+
+function encode(string, base) {
+  var number = "0x";
+  var length = string.length;
+  for (var i = 0; i < length; i++)
+    number += string.charCodeAt(i).toString(36);
+
+  var trimmedKey = number; //.substring(0, 40);
+  if (trimmedKey !== undefined && trimmedKey !== "") {
+    return "0x1" + trimmedKey;
+  } else {
+    return number;
+  }
 }
 
 
 //#################################################  API ENDPOINTS ##########################################################
 
 
+
+//############################################################
+// WEB SCREENSHOTS
+//############################################################
+
+const captureWebsite = require("capture-website");
+
+exports.getscreenshot = functions.https.onRequest((request, response) => {
+
+  //Authorize Request
+  return authorizeAPIRequest(request).then(function (authorizationResult) {
+    if (authorizationResult.status === "failed") {
+      return response.json(authorizationResult);
+    }
+
+    //Return cache if exists
+    if (authorizationResult.cache !== null && authorizationResult.cache !== undefined && authorizationResult.cache !== "") {
+      incrementAPIRequest(request, authorizationResult.current);
+      return response.json(authorizationResult.cache);
+    }
+
+    //URL is valid, generate GUID
+    var URL = request.query.url;
+    var imageID = getGUID();
+    var imageName = imageID + ".jpeg";
+    var destination = "https://apistacks.com/cdn/repo/screenshots/" + imageName;
+
+    //Grab Image
+    return captureWebsite
+      .buffer(URL, {
+        type: "jpeg",
+        quality: 0.2,
+        scaleFactor: 2,
+        timeout: 30,
+        launchOptions: {
+          args: ["--no-sandbox"]
+        },
+      })
+      .then(function (data) {
+        const myReadableStream = bufferToStream(data);
+
+        uploadftp(myReadableStream, imageName, "apistk_ftp_shot", "6p$1sx9C")
+          .then(function (data) {
+            const successData = {
+              "status": "success",
+              "timestamp": Date.now(),
+              "data": destination
+            }
+
+            //Save new data to the cache
+            saveCache(request, successData);
+            incrementAPIRequest(request, authorizationResult.current);
+            return response.json(successData);
+          })
+          .catch((e) => {
+            console.log(e);
+            const errorMessage = {
+              "status": "failed",
+              "timestamp": Date.now(),
+              "reason": "unable to capture screenshot 1, possible bot blocked"
+            }
+            response.json(errorMessage);
+          });
+        return false;
+      })
+      .catch((e) => {
+        console.log(e);
+        const errorMessage = {
+          "status": "failed",
+          "timestamp": Date.now(),
+          "reason": "unable to capture screenshot 2, possible bot blocked"
+        }
+        response.json(errorMessage);
+      });
+  });
+});
+
+
+//############################################################
+// WEB PDF
+//############################################################
+
+const puppeteer = require("puppeteer");
+const RenderPDF = require('chrome-headless-render-pdf');
+
+exports.getpdf = functions.https.onRequest((request, response) => {
+
+  //Authorize Request
+  return authorizeAPIRequest(request).then(function (authorizationResult) {
+    if (authorizationResult.status === "failed") {
+      return response.json(authorizationResult);
+    }
+
+    //Return cache if exists
+    if (authorizationResult.cache !== null && authorizationResult.cache !== undefined && authorizationResult.cache !== "") {
+      incrementAPIRequest(request, authorizationResult.current);
+      return response.json(authorizationResult.cache);
+    }
+
+    //URL is valid, generate GUID
+    var URL = request.query.url;
+    var imageID = getGUID();
+    var imageName = imageID + ".pdf";
+    //var imageFullPath = __dirname + "/public/capture/" + imageName;
+    var destination = "https://apistacks.com/cdn/repo/pdf/" + imageName;
+    
+    RenderPDF.generatePdfBuffer(URL, { "chromeBinary": puppeteer.executablePath(), "includeBackground": true, "chromeOptions": ["--ignore-certificate-errors", "--no-sandbox", "--ignore-certificate-errors", "--disable-setuid-sandbox"] })
+      .then((pdfBuffer) => {
+        const myReadableStream = bufferToStream(pdfBuffer);
+
+        uploadftp(myReadableStream, imageName, "apistk_ftp_pdf", "%Yt53c5r")
+          .then(function (data) {
+            //Delete file from here
+            //fs.unlinkSync(imageFullPath);
+            const successData = {
+              "status": "success",
+              "timestamp": Date.now(),
+              "value": URL,
+              "data": destination
+            }
+
+            //Save new data to the cache
+            saveCache(request, successData);
+            incrementAPIRequest(request, authorizationResult.current);
+            response.json(successData);
+            return false;
+          })
+          .catch((e) => {
+            console.log(e);
+            const errorMessage = {
+              "status": "failed",
+              "timestamp": Date.now(),
+              "reason": "unable to generate pdf, possible bot blocked"
+            }
+            response.json(errorMessage);
+          });
+        return false;
+      })
+      .catch((e) => {
+        console.log(e);
+        const errorMessage = {
+          "status": "failed",
+          "timestamp": Date.now(),
+          "reason": "unable to generate pdf, possible bot blocked"
+        }
+        response.json(errorMessage);
+      });
+
+    return false;
+    //response.json(imageID + dreams);
+  });
+});
 
 
 //############################################################
@@ -128,20 +328,26 @@ const whois = require("whois");
 // send the default array of dreams to the webpage
 exports.getwhois = functions.https.onRequest((request, response) => {
 
+  //Clean URL
+  var URL = request.query.url.toLowerCase().replace("http://", "").replace("https://", "");
+  if (URL === undefined || URL.trim() === "") {
+    return response.json({
+      "status": "failed",
+      "timestamp": Date.now(),
+      "reason": "incorrect request format"
+    });
+  }
+
   //Authorize Request
   return authorizeAPIRequest(request).then(function (authorizationResult) {
     if (authorizationResult.status === "failed") {
       return response.json(authorizationResult);
     }
 
-    //Clean URL
-    var URL = request.query.url.toLowerCase().replace("http://", "").replace("https://", "");
-    if (URL === undefined || URL.trim() === "") {
-      return response.json({
-        "status": "failed",
-        "timestamp": Date.now(),
-        "reason": "incorrect request format"
-      });
+    //Return cache if exists
+    if (authorizationResult.cache !== null && authorizationResult.cache !== undefined && authorizationResult.cache !== "") {
+      incrementAPIRequest(request, authorizationResult.current);
+      return response.json(authorizationResult.cache);
     }
 
     whois.lookup(URL, function (err, data) {
@@ -166,6 +372,8 @@ exports.getwhois = functions.https.onRequest((request, response) => {
         "data": array
       }
 
+      //Save new data to the cache
+      saveCache(request, successData);
       incrementAPIRequest(request, authorizationResult.current);
 
       response.json(successData);
@@ -188,17 +396,20 @@ var htmlRequest = require("request");
 // send the default array of dreams to the webpage
 exports.scrapewebsite = functions.https.onRequest((request, response) => {
 
+  //Parse request
+  var URL = "http://" + request.query.url.replace("http://", "").replace("https://", "");
+  if (URL === undefined || URL.trim() === "") {
+    return response.json({
+      "status": "failed",
+      "timestamp": Date.now(),
+      "reason": "incorrect request format"
+    });
+  }
+
   //Authorize Request
   return authorizeAPIRequest(request).then(function (authorizationResult) {
     if (authorizationResult.status === "failed") {
       return response.json(authorizationResult);
-    }
-
-    //Parse request
-    var URL = "http://" + request.query.url.replace("http://", "").replace("https://", "");
-    if (URL === undefined || URL.trim() === "") {
-      response.sendStatus(404);
-      return;
     }
 
     //Get HTML
@@ -237,16 +448,20 @@ const rp = require("request-promise");
 
 exports.scrapelinks = functions.https.onRequest((request, response) => {
 
+  //Parse request
+  var URL = "https://" + request.query.url.replace("http://", "").replace("https://", "");
+  if (URL === undefined || URL.trim() === "") {
+    return response.json({
+      "status": "failed",
+      "timestamp": Date.now(),
+      "reason": "incorrect request format"
+    });
+  }
+
   //Authorize Request
   return authorizeAPIRequest(request).then(function (authorizationResult) {
     if (authorizationResult.status === "failed") {
       return response.json(authorizationResult);
-    }
-    //Parse request
-    var URL = "https://" + request.query.url.replace("http://", "").replace("https://", "");
-    if (URL === undefined || URL.trim() === "") {
-      response.sendStatus(404);
-      return;
     }
 
     rp(URL)
@@ -320,18 +535,27 @@ const extract = require('meta-extractor');
 // send the default array of dreams to the webpage
 exports.getmeta = functions.https.onRequest((request, response) => {
 
+  //Parse request
+  var URL = "http://" + request.query.url.replace("http://", "").replace("https://", "");
+  if (URL === undefined || URL.trim() === "") {
+    return response.json({
+      "status": "failed",
+      "timestamp": Date.now(),
+      "reason": "incorrect request format"
+    });
+  }
+
   //Authorize Request
   return authorizeAPIRequest(request).then(function (authorizationResult) {
     if (authorizationResult.status === "failed") {
       return response.json(authorizationResult);
     }
-    //Parse request
-    var URL = "http://" + request.query.url.replace("http://", "").replace("https://", "");
-    if (URL === undefined || URL.trim() === "") {
-      response.sendStatus(404);
-      return;
-    }
 
+    //Return cache if exists
+    if (authorizationResult.cache !== null && authorizationResult.cache !== undefined && authorizationResult.cache !== "") {
+      incrementAPIRequest(request, authorizationResult.current);
+      return response.json(authorizationResult.cache);
+    }
 
     return extract({ uri: URL }, (err, res) => {
       if (err !== null) {
@@ -376,27 +600,37 @@ var emailCheck = require('@reacherhq/api');
 
 exports.checkemail = functions.https.onRequest((request, response) => {
 
+  //Parse request
+  var URL = request.query.url;
+  if (URL === undefined || URL.trim() === "") {
+    return response.json({
+      "status": "failed",
+      "timestamp": Date.now(),
+      "reason": "incorrect request format"
+    });
+  }
+
+  //Parse Email
+  if (!validateEmail(URL)) {
+    return response.json({
+      "status": "failed",
+      "timestamp": Date.now(),
+      "email": URL,
+      "reason": "email was not valid"
+    });
+  }
+
+
   //Authorize Request
   return authorizeAPIRequest(request).then(function (authorizationResult) {
     if (authorizationResult.status === "failed") {
       return response.json(authorizationResult);
     }
 
-
-    //Parse request
-    var URL = request.query.url;
-    if (URL === undefined || URL.trim() === "") {
-      response.sendStatus(404);
-      return;
-    }
-
-    if (!validateEmail(URL)) {
-      return response.json({
-        "status": "failed",
-        "timestamp": Date.now(),
-        "email": URL,
-        "reason": "email was not valid"
-      });
+    //Return cache if exists
+    if (authorizationResult.cache !== null && authorizationResult.cache !== undefined && authorizationResult.cache !== "") {
+      incrementAPIRequest(request, authorizationResult.current);
+      return response.json(authorizationResult.cache);
     }
 
     return emailCheck.checkEmail({ to_email: URL }).then(function (data) {
@@ -453,24 +687,33 @@ const QRCode = require("qrcode");
 // send the default array of dreams to the webpage
 exports.generateqr = functions.https.onRequest((request, response) => {
 
+  //Parse request
+  var URL = request.query.url;
+  if (URL === undefined || URL.trim() === "") {
+    return response.json({
+      "status": "failed",
+      "timestamp": Date.now(),
+      "reason": "incorrect request format"
+    });
+  }
+
   //Authorize Request
   return authorizeAPIRequest(request).then(function (authorizationResult) {
     if (authorizationResult.status === "failed") {
       return response.json(authorizationResult);
     }
 
-    //Parse request
-    var URL = request.query.url;
-    if (URL === undefined || URL.trim() === "") {
-      response.sendStatus(404);
-      return;
+    //Return cache if exists
+    if (authorizationResult.cache !== null && authorizationResult.cache !== undefined && authorizationResult.cache !== "") {
+      incrementAPIRequest(request, authorizationResult.current);
+      return response.json(authorizationResult.cache);
     }
 
     //URL is valid, generate GUID
     var imageID = getGUID();
     var imageName = imageID + ".png";
     var imageFullPath = __dirname + "/tmp/" + imageName;
-    var destination = "https://api.apistacks.com/repo/" + imageName;
+    var destination = "https://apistacks.com/cdn/repo/qr/" + imageName;
 
     QRCode.toFile(
       imageFullPath,
@@ -486,7 +729,7 @@ exports.generateqr = functions.https.onRequest((request, response) => {
       function (err) {
         if (err) { console.log(err); response.sendStatus(404); return; }
 
-        uploadScrape(imageFullPath, imageName).then(function (data) {
+        uploadftp(myReadableStream, imageName, "apistk_ftp_qr", "%Yt53c5r").then(function (data) {
           //Delete file from here
           fs.unlinkSync(imageFullPath);
 
@@ -524,40 +767,6 @@ exports.generateqr = functions.https.onRequest((request, response) => {
   });
 });
 
-//Upload file to drive
-async function uploadScrape(imageSource, imageName) {
-  const client = new ftp.Client();
-  client.ftp.verbose = true;
-  try {
-    await client.access({
-      host: "demo.adblock.evlar.net",
-      user: "apistacks",
-      password: "PassWord!",
-      secure: false
-    });
-    console.log(await client.list());
-    await client.uploadFrom(imageSource, "/" + imageName);
-    //await client.downloadTo("README_COPY.md", "README_FTP.md")
-  } catch (err) {
-    console.log(err);
-  }
-  client.close();
-}
-
-function getGUID() {
-  return "xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx".replace(/[xy]/g, function (c) {
-    var r = (Math.random() * 16) | 0,
-      v = c === "x" ? r : (r & 0x3) | 0x8;
-    return v.toString(16);
-  });
-}
-
-function bufferToStream(myBuuffer) {
-  let tmp = new Duplex();
-  tmp.push(myBuuffer);
-  tmp.push(null);
-  return tmp;
-}
 
 
 
@@ -574,19 +783,21 @@ const LanguageDetect = require('languagedetect');
 // send the default array of dreams to the webpage
 exports.detectlanguage = functions.https.onRequest((request, response) => {
 
+  //Parse request
+  var URL = request.query.url;
+  if (URL === undefined || URL.trim() === "") {
+    return response.json({
+      "status": "failed",
+      "timestamp": Date.now(),
+      "reason": "incorrect request format"
+    });
+  }
+
 
   //Authorize Request
   return authorizeAPIRequest(request).then(function (authorizationResult) {
     if (authorizationResult.status === "failed") {
       return response.json(authorizationResult);
-    }
-
-
-    //Parse request
-    var URL = request.query.url;
-    if (URL === undefined || URL.trim() === "") {
-      response.sendStatus(404);
-      return;
     }
 
     const lngDetector = new LanguageDetect();
@@ -628,9 +839,18 @@ exports.detectlanguage = functions.https.onRequest((request, response) => {
 
 const Scraper = require("email-crawler");
 
-
 // send the default array of dreams to the webpage
 exports.scrapeemail = functions.https.onRequest((request, response) => {
+
+  //Parse request
+  var URL = request.query.url;
+  if (URL === undefined || URL.trim() === "") {
+    return response.json({
+      "status": "failed",
+      "timestamp": Date.now(),
+      "reason": "incorrect request format"
+    });
+  }
 
   //Authorize Request
   return authorizeAPIRequest(request).then(function (authorizationResult) {
@@ -638,12 +858,6 @@ exports.scrapeemail = functions.https.onRequest((request, response) => {
       return response.json(authorizationResult);
     }
 
-    //Parse request
-    var URL = request.query.url;
-    if (URL === undefined || URL.trim() === "") {
-      response.sendStatus(404);
-      return;
-    }
     var emailscraper = new Scraper(URL);
     // A level is how far removed (in  terms of link clicks) a page is from the root page (only follows same domain routes)
     return emailscraper.getLevels(50).then((emails) => {
@@ -704,3 +918,46 @@ exports.stripecheckout = functions.https.onRequest((request, response) => {
     });
   });
 });
+
+
+
+
+
+
+//#################################################  HELPERS ##########################################################
+
+//Upload file to drive
+async function uploadftp(imageSource, imageName, user, password) {
+  const client = new ftp.Client();
+  client.ftp.verbose = true;
+  try {
+    await client.access({
+      host: "apistacks.com",
+      user: user,
+      password: password,
+      secure: false,
+    });
+    console.log(await client.list());
+    await client.uploadFrom(imageSource, "/" + imageName);
+    //await client.downloadTo("README_COPY.md", "README_FTP.md")
+  } catch (err) {
+    console.log(err);
+  }
+  client.close();
+}
+
+
+function getGUID() {
+  return "xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx".replace(/[xy]/g, function (c) {
+    var r = (Math.random() * 16) | 0,
+      v = c === "x" ? r : (r & 0x3) | 0x8;
+    return v.toString(16);
+  });
+}
+
+function bufferToStream(myBuuffer) {
+  let tmp = new Duplex();
+  tmp.push(myBuuffer);
+  tmp.push(null);
+  return tmp;
+}

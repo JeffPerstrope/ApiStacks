@@ -27,7 +27,10 @@
     "languagedetect": "^2.0.0",
     "@reacherhq/api": "^0.1.5",
     "stripe": "^8.102.0",
-    "cors": "^2.8.5"
+    "cors": "^2.8.5",
+    "puppeteer": "^5.3.1",
+    "capture-website": "^1.2.1",
+    "chrome-headless-render-pdf": "^1.8.5"
   },
   "devDependencies": {
     "eslint": "^5.12.0",

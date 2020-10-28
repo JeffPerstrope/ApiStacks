@@ -23,7 +23,7 @@ exports.getscreenshot = functions.https.onRequest((request, response) => {
   var imageID = getGUID();
   var imageName = imageID + ".jpeg";
   //var imageFullPath = __dirname + "/public/capture/" + imageName;
-  var destination = "https://api.apistacks.com/repo/" + imageName;
+  var destination = "https://apistacks.com/cdn/repo/screenshots" + imageName;
 
   //Grab Image
   //https://www.npmjs.com/package/capture-website
@@ -86,9 +86,9 @@ async function uploadScrape(imageSource, imageName) {
   client.ftp.verbose = true;
   try {
     await client.access({
-      host: "demo.adblock.evlar.net",
-      user: "apistacks",
-      password: "PassWord!",
+      host: "apistacks.com",
+      user: "apistk_ftp_shot",
+      password: "6p$1sx9C",
       secure: false,
     });
     console.log(await client.list());

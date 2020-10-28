@@ -9,7 +9,10 @@
 
     "rewrites": [
       { "source": "/stripe/stripecheckout", "function": "stripecheckout" },
-      
+
+      { "source": "/v1/getscreenshot", "function": "getscreenshot" },
+      { "source": "/v1/getpdf", "function": "getpdf" },
+      { "source": "/v1/getwhois", "function": "getwhois" },
       { "source": "/v1/getwhois", "function": "getwhois" },
       { "source": "/v1/scrapewebsite", "function": "scrapewebsite" },
       { "source": "/v1/scrapelinks", "function": "scrapelinks" },
