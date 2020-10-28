@@ -11,9 +11,9 @@ namespace ApiStacks
 {
     public class Global : System.Web.HttpApplication
     {
-        public static string databaseURL = "https://apistacks-basicapps.firebaseio.com";
-        public static string appID = "apistacks-basicapps";
-        public static string appKey = "AIzaSyBkCHXwY87S0ZQxo6T1jNLbxYCaizgMnsU";
+        public static string databaseURL = "https://apistacks-58c16.firebaseio.com";
+        public static string appID = "apistacks-58c16";
+        public static string appKey = "AIzaSyAPWF83ypScrGhUrQykEjfcWwV2xWW5LT8";
 
         public static SharpFireStarter.FireBaseDB db;
 

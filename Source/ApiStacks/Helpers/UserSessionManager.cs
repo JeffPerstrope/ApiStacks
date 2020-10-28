@@ -18,7 +18,7 @@ namespace ApiStacks
         public void LoadUserInfo(User user, bool forceRefresh = false)
         {
             //Get Basic user info
-            var userInfo = Global.db.GetFromDB("Main/Users/" + user.userID);
+            var userInfo = Global.db.GetFromDB("Users/" + user.userID);
             var userInfoDictionary = JsonConvert.DeserializeObject<Dictionary<string, object>>(userInfo);
 
             if (userInfoDictionary != null)
@@ -54,7 +54,7 @@ namespace ApiStacks
         /// <param name="user"></param>
         private void LoadUserUsage(User user)
         {
-            var usage = Global.db.GetFromDB("Main/Usage/" + Session["userKey"].ToString());
+            var usage = Global.db.GetFromDB("Usage/" + Session["userKey"].ToString());
             var usageDictionary = JsonConvert.DeserializeObject<Dictionary<string, string>>(usage);
 
             var userUsageCurrent = Convert.ToDouble(usageDictionary["current"]);
@@ -133,7 +133,7 @@ namespace ApiStacks
         private void UpdateFIrebaseData(User user)
         {
             //Update Firebase Data
-            var db = new FireBaseDB("apistacks-basicapps", "https://apistacks-basicapps.firebaseio.com", "AIzaSyBkCHXwY87S0ZQxo6T1jNLbxYCaizgMnsU");
+            var db = new FireBaseDB(Global.appID, Global.databaseURL, Global.appKey);
             db.Authenticate("admin@apistacks.com", "W_e7&c':Nc`scc(S");
             var currentPlan = Session["userPlan"].ToString();
             var maxUsage = 1500;
@@ -154,7 +154,7 @@ namespace ApiStacks
                 max = maxUsage,
                 renewal = Session["userPlanRenewal"].ToString()
             };
-            db.WriteToDB("Main/Usage/" + Session["userKey"].ToString(), payload);
+            db.WriteToDB("Usage/" + Session["userKey"].ToString(), payload);
 
         }
     }

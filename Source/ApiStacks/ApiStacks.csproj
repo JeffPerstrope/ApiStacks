@@ -829,7 +829,6 @@
       <DependentUpon>emailvalidate.aspx</DependentUpon>
     </Compile>
     <Compile Include="Helpers\APICall.cs" />
-    <Compile Include="Helpers\APIValidate.cs" />
     <Compile Include="Helpers\AppsList.cs" />
     <Compile Include="Helpers\EmailSender.cs" />
     <Compile Include="Helpers\UserCreateNew.cs" />

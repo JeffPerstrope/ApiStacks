@@ -14,58 +14,82 @@ const { Duplex } = require("stream");
 // AUTHORIZE API REQUESTS
 //############################################################
 
+const AdminAPIKey = "9f61ed46-1214-4a95-b17f-eec1b0161994";
 
 async function authorizeAPIRequest(request) {
-  var apiKey = request.headers['x-api-key'];
+  try {
+    var apiKey = request.headers['x-api-key'];
 
-  //If key is not provided
-  if (apiKey === null || apiKey === undefined) {
-    return {
-      "status": "failed",
-      "timestamp": Date.now(),
-      "reason": "'x-api-key'was not found in header"
-    }
-  }
-
-  //Authorize Admin Key
-  if (apiKey === "9f61ed46-1214-4a95-b17f-eec1b0161994") {
-    return {
-      "status": "success",
-      "max": 10000000,
-      "current": 1
-    };
-  }
-
-  //Get Data from Database
-  const apiKeyUsageData = await admin.database().ref('/Usage/' + apiKey).once('value');
-
-  //Check if user can proceed
-  if (apiKeyUsageData.exists()) {
-    var apiKeyUsageDic = apiKeyUsageData.val();
-
-    //Check if user has exceeded api limit
-    if (apiKeyUsageDic.current < apiKeyUsageDic.max) {
-      return {
-        "status": "success",
-        "timestamp": Date.now(),
-        "max": apiKeyUsageDic.max,
-        "current": apiKeyUsageDic.current
-      }
-    } else {
+    //If key is not provided
+    if (apiKey === null || apiKey === undefined) {
       return {
         "status": "failed",
         "timestamp": Date.now(),
-        "reason": "usage limit exceeded"
+        "reason": "'x-api-key'was not found in header"
       }
     }
-  }
 
-  //API Key was not found in the database
-  else {
+    //Authorize Admin Key
+    if (apiKey === AdminAPIKey) {
+      return {
+        "status": "success",
+        "max": 10000000,
+        "current": 1
+      };
+    }
+
+    //Get Data from Database
+    const apiKeyUsageData = await admin.database().ref('/Usage/' + apiKey).once('value');
+
+    //Check if user can proceed
+    if (apiKeyUsageData.exists()) {
+      var apiKeyUsageDic = apiKeyUsageData.val();
+
+      //Check if app is enabled
+      const userID = apiKeyUsageDic.userID;
+      const userEnabledApps = await admin.database().ref('/Users/' + userID + '/apps').once('value');
+      var appName_dirty = request.url.substr(request.url.lastIndexOf('/') + 1);
+      var appName_clean = appName_dirty.split('?')[0];
+      console.log("Clean Name: " + appName_clean);
+
+      if (!userEnabledApps.hasChild(appName_clean)) {
+        return {
+          "status": "failed",
+          "timestamp": Date.now(),
+          "reason": appName_clean + " is currently disabled"
+        }
+      }
+
+      //Check if user has exceeded api limit
+      if (apiKeyUsageDic.current < apiKeyUsageDic.max) {
+        return {
+          "status": "success",
+          "timestamp": Date.now(),
+          "max": apiKeyUsageDic.max,
+          "current": apiKeyUsageDic.current
+        }
+      } else {
+        return {
+          "status": "failed",
+          "timestamp": Date.now(),
+          "reason": "usage limit exceeded"
+        }
+      }
+    }
+
+    //API Key was not found in the database
+    else {
+      return {
+        "status": "failed",
+        "timestamp": Date.now(),
+        "reason": "invalid authorization key"
+      }
+    }
+  } catch (ex) {
     return {
       "status": "failed",
       "timestamp": Date.now(),
-      "reason": "invalid authorization key"
+      "reason": "unknown error occured:" + ex
     }
   }
 }
@@ -73,7 +97,7 @@ async function authorizeAPIRequest(request) {
 async function incrementAPIRequest(request, currentUsage) {
   var apiKey = request.headers['x-api-key'];
 
-  if (apiKey === "9f61ed46-1214-4a95-b17f-eec1b0161994") {
+  if (apiKey === AdminAPIKey) {
     return;
   }
 
@@ -84,6 +108,10 @@ async function incrementAPIRequest(request, currentUsage) {
   await admin.database().ref('/Usage/' + apiKey).update(payload);
 }
 
+function loadCache(appname, request)
+{
+  
+}
 
 
 //#################################################  API ENDPOINTS ##########################################################

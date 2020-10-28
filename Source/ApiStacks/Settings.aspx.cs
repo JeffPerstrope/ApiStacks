@@ -33,7 +33,7 @@ namespace ApiStacks
                     website = txtWebsite.Value
                 };
 
-                if (Global.db.WriteToDB("Main/Users/" + Session["userID"], payload))
+                if (Global.db.WriteToDB("Users/" + Session["userID"], payload))
                 {
                     UserSessionManager sessionMan = new UserSessionManager();
                     sessionMan.LoadUserInfo((User)Session["user"]);

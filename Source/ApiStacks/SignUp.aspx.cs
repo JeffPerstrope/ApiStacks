@@ -84,7 +84,7 @@ namespace ApiStacks
                         { "emailValid", false},
                     };
 
-                Global.db.WriteToDB("Main/Users/" + newUser.userID + "/", payload);
+                Global.db.WriteToDB("Users/" + newUser.userID + "/", payload);
                 return newUser;
             }
             return null;
@@ -112,7 +112,7 @@ namespace ApiStacks
                         { "stripeID", customer.Id},
                     };
 
-                Global.db.WriteToDB("Main/Users/" + newUser.userID + "/", payload);
+                Global.db.WriteToDB("Users/" + newUser.userID + "/", payload);
                 return true;
             }
 

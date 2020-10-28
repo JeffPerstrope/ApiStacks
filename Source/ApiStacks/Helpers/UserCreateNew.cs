@@ -21,7 +21,7 @@ namespace ApiStacks
                 key = APIKey
             };
 
-            firebaseInstance.WriteToDB("Main/Users/" + user.userID, keyPayload);
+            firebaseInstance.WriteToDB("Users/" + user.userID, keyPayload);
 
             var usagePayload = new
             {
@@ -32,7 +32,7 @@ namespace ApiStacks
                 userID = user.userID
             };
 
-            firebaseInstance.WriteToDB("Main/Usage/" + APIKey, usagePayload);
+            firebaseInstance.WriteToDB("Usage/" + APIKey, usagePayload);
 
             return true;
         }

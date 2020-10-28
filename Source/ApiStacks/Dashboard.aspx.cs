@@ -31,7 +31,7 @@ namespace ApiStacks
                 var payload = new Dictionary<object, object>();
                 payload.Add(appID, true);
 
-                if (Global.db.WriteToDB("Main/Users/" + Session["userID"].ToString() + "/apps/", payload))
+                if (Global.db.WriteToDB("Users/" + Session["userID"].ToString() + "/apps/", payload))
                 {
                     AppsList.activateApp(appID);
                 }
@@ -46,7 +46,7 @@ namespace ApiStacks
                 var payload = new Dictionary<object, object>();
                 payload.Add(appID, null);
 
-                if (Global.db.WriteToDB("Main/Users/" + Session["userID"].ToString() + "/apps/", payload))
+                if (Global.db.WriteToDB("Users/" + Session["userID"].ToString() + "/apps/", payload))
                 {
                     AppsList.deactivateApp(appID);
                 }
@@ -56,7 +56,7 @@ namespace ApiStacks
 
         private void loadAppStatuses()
         {
-            var appStatuses = Global.db.GetFromDB("Main/Users/" + Session["userID"].ToString() + "/apps/");
+            var appStatuses = Global.db.GetFromDB("Users/" + Session["userID"].ToString() + "/apps/");
             if (appStatuses != null)
             {
                 var appStatusesDic = JsonConvert.DeserializeObject<Dictionary<string, object>>(appStatuses);
