@@ -24,7 +24,7 @@
                             <span class="badge badge-pill badge-danger mr-1">0.1.2 BETA</span>
                             <span class="content">Start <span class="text-primary">building</span> with this API</span>
                         </div>
-                        <p class="para-desc mx-auto text-muted">Turn websites into high definition screenshot images super quick and super easy! Give it a try</p>
+                        <p class="para-desc mx-auto text-muted">Convert any website link into a downloadable and printable PDF document that can be customized. Give it a try</p>
 
 
                         <%--Give it a try--%>
@@ -37,8 +37,8 @@
 
 
 
-                    <div class="home-dashboard" style="margin-top: 50px">
-                        <embed id="screenshotImage" runat="server" src= "samples/samplePDF.pdf" type="application/pdf" width= "800" height= "800" />
+                    <div class="home-dashboard" style="margin-top: 50px; height: 800px">
+                        <embed id="screenshotImage" runat="server" src= "samples/samplePDF.pdf" type="application/pdf" width= "100%" height= "100%" />
                         <%--<img runat="server" id="screenshotImage" src="images/webscreenshots_Browser.jpeg" alt="" class="img-fluid">--%>
                     </div>
                 </div>

@@ -25,7 +25,7 @@
                             <span class="badge badge-pill badge-danger mr-1">0.1.2 BETA</span>
                             <span class="content">Start <span class="text-primary">building</span> with this API</span>
                         </div>
-                        <p class="para-desc mx-auto text-muted">Turn websites into high definition screenshot images super quick and super easy! Give it a try</p>
+                        <p class="para-desc mx-auto text-muted">Turn any URL or even text into a downloadable and printable QR code with ease. Give it a try</p>
 
 
                         <%--Give it a try--%>
@@ -52,16 +52,26 @@
     <!-- Partners start -->
     <section class="section bg-light mt-0 mt-md-5">
         <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-12 text-center">
+                    <div class="section-title mb-4 pb-2">
+                        <h4 class="title mb-4">Send us the URL, we'll do the rest 😎</h4>
+                        <p class="text-muted para-desc mb-0 mx-auto">We've done all the hard work, so you don't have to.</p>
+                    </div>
+                </div>
+                <!--end col-->
+            </div>
+
             <div class="row">
                 <div class="col-md-4 col-12">
                     <div class="features">
                         <div class="image position-relative d-inline-block">
-                            <img src="images/icon/user.svg" class="avatar avatar-small" alt="">
+                            <img src="images/icon/24-hours.svg" class="avatar avatar-small" alt="">
                         </div>
 
                         <div class="content mt-4">
-                            <h4 class="title-2">Easy To Use</h4>
-                            <p class="text-muted mb-0">Nisi aenean vulputate eleifend tellus vitae eleifend enim a Aliquam eleifend aenean elementum semper.</p>
+                            <h4 class="title-2">Always Up</h4>
+                            <p class="text-muted mb-0">Now you don't have to worry about uptime and managing servers. This API will be ready to go as soon as you request it</p>
                         </div>
                     </div>
                 </div>
@@ -70,12 +80,12 @@
                 <div class="col-md-4 col-12 mt-5 mt-sm-0">
                     <div class="features">
                         <div class="image position-relative d-inline-block">
-                            <img src="images/icon/calendar.svg" class="avatar avatar-small" alt="">
+                            <img src="images/icon/speedometer.svg" class="avatar avatar-small" alt="">
                         </div>
 
                         <div class="content mt-4">
-                            <h4 class="title-2">Daily Reports</h4>
-                            <p class="text-muted mb-0">Allegedly, a Latin scholar established the origin of the established text by compiling unusual word.</p>
+                            <h4 class="title-2">Scalable CDN</h4>
+                            <p class="text-muted mb-0">This API is distributed and served through a Content Delivery Network, ensuring very fast and reliable data</p>
                         </div>
                     </div>
                 </div>
@@ -84,12 +94,12 @@
                 <div class="col-md-4 col-12 mt-5 mt-sm-0">
                     <div class="features">
                         <div class="image position-relative d-inline-block">
-                            <img src="images/icon/sand-clock.svg" class="avatar avatar-small" alt="">
+                            <img src="images/icon/code.svg" class="avatar avatar-small" alt="">
                         </div>
 
                         <div class="content mt-4">
-                            <h4 class="title-2">Real Time Zone</h4>
-                            <p class="text-muted mb-0">It seems that only fragments of the original text remain in only fragments the Lorem Ipsum texts used today.</p>
+                            <h4 class="title-2">Customizable</h4>
+                            <p class="text-muted mb-0">Customize your API requests to ensure that you get data that suits your needs perfectly, everytime</p>
                         </div>
                     </div>
                 </div>
@@ -98,7 +108,6 @@
         </div>
         <!--end container-->
     </section>
-    <!--end section-->
     <!-- Partners End -->
 
     <!-- Feature Start -->

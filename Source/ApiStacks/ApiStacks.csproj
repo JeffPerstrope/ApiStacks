@@ -251,7 +251,7 @@
     <Content Include="css\style.css" />
     <Content Include="css\swiper.min.css" />
     <Content Include="Dashboard.aspx" />
-    <Content Include="Docs.aspx" />
+    <Content Include="docs.aspx" />
     <Content Include="emailvalidate.aspx" />
     <Content Include="images\app\emailscraper.png" />
     <Content Include="images\app\emailvalidate.png" />
@@ -814,12 +814,12 @@
     <Compile Include="dashboard.Master.designer.cs">
       <DependentUpon>dashboard.Master</DependentUpon>
     </Compile>
-    <Compile Include="Docs.aspx.cs">
-      <DependentUpon>Docs.aspx</DependentUpon>
+    <Compile Include="docs.aspx.cs">
+      <DependentUpon>docs.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Docs.aspx.designer.cs">
-      <DependentUpon>Docs.aspx</DependentUpon>
+    <Compile Include="docs.aspx.designer.cs">
+      <DependentUpon>docs.aspx</DependentUpon>
     </Compile>
     <Compile Include="emailvalidate.aspx.cs">
       <DependentUpon>emailvalidate.aspx</DependentUpon>

@@ -23,7 +23,7 @@
                             <span class="badge badge-pill badge-danger mr-1">0.1.2 BETA</span>
                             <span class="content">Start <span class="text-primary">building</span> with this API</span>
                         </div>
-                        <p class="para-desc mx-auto text-muted">Quickly and easily extract website Open Graph data like Author, publisher, primary image, and more. Give it a try </p>
+                        <p class="para-desc mx-auto text-muted">Extract open graph and social details from any website or URL with just one line of code. Give it a try </p>
 
 
                         <%--Give it a try--%>

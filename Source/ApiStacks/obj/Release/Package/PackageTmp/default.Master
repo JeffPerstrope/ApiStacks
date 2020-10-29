@@ -116,7 +116,7 @@
                         </ul>
                     </li>
 
-                    <%if (Session["currentURL"].ToString().EndsWith("privacy") || Session["currentURL"].ToString().EndsWith("terms"))
+                    <%if (Session["currentURL"].ToString().EndsWith("privacy") || Session["currentURL"].ToString().EndsWith("terms") || Session["currentURL"].ToString().EndsWith("docs"))
                         {%>
                     <li><a href="/#sectionPricing">Pricing</a></li>
                     <%}
@@ -125,12 +125,10 @@
                     <li><a href="#sectionPricing">Pricing</a></li>
                     <%} %>
 
-                    <li><a href="\Docs">Docs</a></li>
+                    <li><a href="\docs">Docs</a></li>
 
                     <li><a href="#">Blog</a></li>
-                    <li><a href="#">
-                        <div style="width: 10px; height: 10px; background-color: greenyellow; border-radius: 5px; display: inline-block"></div>
-                        Status</a></li>
+                    <li><a><div style="width: 10px; height: 10px; background-color: greenyellow; border-radius: 5px; display: inline-block"></div>Status</a></li>
 
                 </ul>
                 <!--end navigation menu-->

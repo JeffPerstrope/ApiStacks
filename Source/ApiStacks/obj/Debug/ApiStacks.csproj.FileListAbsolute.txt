@@ -1,3 +1,4 @@
+C:\Personal Projects\ApiStacks\Source\ApiStacks\bin\templates\email.html
 C:\Personal Projects\ApiStacks\Source\ApiStacks\bin\ApiStacks.dll.config
 C:\Personal Projects\ApiStacks\Source\ApiStacks\bin\ApiStacks.dll
 C:\Personal Projects\ApiStacks\Source\ApiStacks\bin\ApiStacks.pdb
@@ -160,6 +161,7 @@ C:\Personal Projects\ApiStacks\Source\ApiStacks\bin\Microsoft.Extensions.Logging
 C:\Personal Projects\ApiStacks\Source\ApiStacks\bin\Microsoft.Extensions.Primitives.dll
 C:\Personal Projects\ApiStacks\Source\ApiStacks\bin\Newtonsoft.Json.dll
 C:\Personal Projects\ApiStacks\Source\ApiStacks\bin\SharpFireStarter.dll
+C:\Personal Projects\ApiStacks\Source\ApiStacks\bin\Stripe.net.dll
 C:\Personal Projects\ApiStacks\Source\ApiStacks\bin\System.Buffers.dll
 C:\Personal Projects\ApiStacks\Source\ApiStacks\bin\System.ComponentModel.Annotations.dll
 C:\Personal Projects\ApiStacks\Source\ApiStacks\bin\System.Diagnostics.DiagnosticSource.dll
@@ -186,6 +188,8 @@ C:\Personal Projects\ApiStacks\Source\ApiStacks\bin\Microsoft.Extensions.Hosting
 C:\Personal Projects\ApiStacks\Source\ApiStacks\bin\Microsoft.Extensions.Logging.Abstractions.xml
 C:\Personal Projects\ApiStacks\Source\ApiStacks\bin\Microsoft.Extensions.Primitives.xml
 C:\Personal Projects\ApiStacks\Source\ApiStacks\bin\Newtonsoft.Json.xml
+C:\Personal Projects\ApiStacks\Source\ApiStacks\bin\Stripe.net.pdb
+C:\Personal Projects\ApiStacks\Source\ApiStacks\bin\Stripe.net.xml
 C:\Personal Projects\ApiStacks\Source\ApiStacks\bin\System.Buffers.xml
 C:\Personal Projects\ApiStacks\Source\ApiStacks\bin\System.Diagnostics.DiagnosticSource.xml
 C:\Personal Projects\ApiStacks\Source\ApiStacks\bin\System.IO.Pipelines.xml
@@ -201,7 +205,3 @@ C:\Personal Projects\ApiStacks\Source\ApiStacks\obj\Debug\ApiStacks.csproj.CoreC
 C:\Personal Projects\ApiStacks\Source\ApiStacks\obj\Debug\ApiStacks.csproj.CopyComplete
 C:\Personal Projects\ApiStacks\Source\ApiStacks\obj\Debug\ApiStacks.dll
 C:\Personal Projects\ApiStacks\Source\ApiStacks\obj\Debug\ApiStacks.pdb
-C:\Personal Projects\ApiStacks\Source\ApiStacks\bin\Stripe.net.dll
-C:\Personal Projects\ApiStacks\Source\ApiStacks\bin\Stripe.net.pdb
-C:\Personal Projects\ApiStacks\Source\ApiStacks\bin\Stripe.net.xml
-C:\Personal Projects\ApiStacks\Source\ApiStacks\bin\templates\email.html

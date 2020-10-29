@@ -1,8 +1,8 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Docs.aspx.cs" Inherits="ApiStacks.Docs" MasterPageFile="~/default.Master" ClientIDMode="Static" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="docs.aspx.cs" Inherits="ApiStacks.Docs" MasterPageFile="~/default.Master" ClientIDMode="Static" %>
 
 
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder_Head" runat="server">
-    <title>webscreenshots</title>
+    <title>Documentation | ApiStacks Restful API</title>
 </asp:Content>
 
 <asp:Content ContentPlaceHolderID="ContentPlaceHolder_HeaderButton" runat="server">
@@ -14,14 +14,14 @@
 
     <body>
         <!-- Loader -->
-        <!-- <div id="preloader">
+         <div id="preloader">
             <div id="status">
                 <div class="spinner">
                     <div class="double-bounce1"></div>
                     <div class="double-bounce2"></div>
                 </div>
             </div>
-        </div> -->
+        </div> 
         <!-- Loader -->
         
         
