@@ -50,8 +50,7 @@ namespace ApiStacks
                     Response.Redirect("/Login");
                 if (!CreateCustomer_Stripe(newUser))
                     Response.Redirect("/Login");
-                if(!UserCreateNew.CreateCustomer_FirebaseUsage(newUser))
-                    Response.Redirect("/Login");
+                
 
                 //All went well, load session data
                 UserSessionManager sessionMan = new UserSessionManager();
@@ -76,15 +75,36 @@ namespace ApiStacks
             var newUser = Global.db.SignUp(string.Format("{0} {1}", userFirstName, userLastName), userEmail, userPassword);
             if (newUser != null)
             {
+                //Generate new API Key
+                var APIKey = Guid.NewGuid().ToString().ToLower();
+                Session["userKey"] = APIKey;
+
                 var payload = new Dictionary<string, object>
                     {
                         { "firstName", userFirstName},
                         { "lastName", userLastName},
                         { "email", userEmail},
                         { "emailValid", false},
+                        { "key", APIKey }
                     };
 
                 Global.db.WriteToDB("Users/" + newUser.userID + "/", payload);
+
+                //Authenticate with admin user to access firebase DB
+                var firebaseInstance = new FireBaseDB(Global.appID, Global.databaseURL, Global.appKey);
+                _ = firebaseInstance.Authenticate("admin@apistacks.com", "W_e7&c':Nc`scc(S");
+
+                var usagePayload = new
+                {
+                    current = 0,
+                    max = 1500,
+                    plan = "free",
+                    renewal = DateTime.Now.ToShortDateString(),
+                    userID = newUser.userID
+                };
+
+                firebaseInstance.WriteToDB("Usage/" + APIKey, usagePayload);
+
                 return newUser;
             }
             return null;
@@ -113,12 +133,11 @@ namespace ApiStacks
                     };
 
                 Global.db.WriteToDB("Users/" + newUser.userID + "/", payload);
+                Global.db.WriteToDB("Usage/" + Session["userKey"].ToString() + "/", payload);
                 return true;
             }
 
             return false;
         }
-
-        
     }
 }

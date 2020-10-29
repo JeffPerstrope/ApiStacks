@@ -1,4 +1,5 @@
 ﻿
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -35,9 +36,11 @@ namespace ApiStacks
                         var screenshotResponse = APICall.call(APICall.API_QRCode, url);
                         if (screenshotResponse != null)
                         {
-                            Session["qrCodeData"] = screenshotResponse.Replace(@"\", "").Replace("\"", ""); ;
+                            var returnedData = JsonConvert.DeserializeObject<Dictionary<string, object>>(screenshotResponse);
+                            Session["qrCodeData"] = returnedData["data"];
+                            var fileName = Session["qrCodeData"].ToString().Split('/').Last();
+                            Response.Redirect("qrcode?code=" + fileName);
                         }
-                        //}
                     }
                 }
                 catch (Exception ex)

@@ -831,7 +831,6 @@
     <Compile Include="Helpers\APICall.cs" />
     <Compile Include="Helpers\AppsList.cs" />
     <Compile Include="Helpers\EmailSender.cs" />
-    <Compile Include="Helpers\UserCreateNew.cs" />
     <Compile Include="Helpers\UserSessionManager.cs">
       <SubType>ASPXCodeBehind</SubType>
     </Compile>

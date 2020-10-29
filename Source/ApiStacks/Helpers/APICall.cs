@@ -22,8 +22,8 @@ namespace ApiStacks
         //public static string API_QRCode = "https://apistacks-qrcodegen.glitch.me/generateqr?url=";
         //public static string API_LanguageDetect = "https://apistacks-languagedetect.glitch.me/detectlanguage?url=";
 
-        public static string API_Screenshot = "https://us-central1-apistacks-webscreenshot.cloudfunctions.net/getscreenshot?url=";
-        public static string API_PDF = "https://us-central1-apistacks-webpdf.cloudfunctions.net/getpdf?pages=1&url=";
+        public static string API_Screenshot = "https://api.apistacks.com/v1/getscreenshot?url=";
+        public static string API_PDF = "https://api.apistacks.com/v1/getpdf?pages=1&url=";
         public static string API_LinkScraper = "https://api.apistacks.com/v1/scrapelinks?url=";
         public static string API_Whois = "https://api.apistacks.com/v1/getwhois?url=";
         public static string API_WebScraper = "https://api.apistacks.com/v1/scrapewebsite?url=";

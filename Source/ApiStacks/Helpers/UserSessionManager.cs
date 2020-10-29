@@ -28,7 +28,6 @@ namespace ApiStacks
                 Session["userFirstName"] = userInfoDictionary["firstName"];
                 Session["userLastName"] = userInfoDictionary["lastName"];
                 Session["userEmail"] = userInfoDictionary["email"];
-                Session["userStripeID"] = userInfoDictionary["stripeID"];
                 Session["userKey"] = userInfoDictionary.ContainsKey("key") ? userInfoDictionary["key"] : "";
 
                 Session["userBusiness"] = userInfoDictionary.ContainsKey("business") ? userInfoDictionary["business"] : "";
@@ -62,6 +61,7 @@ namespace ApiStacks
             var userUsagePercentage = ((userUsageCurrent / userUsageMax) * 100);
             Session["userUsagePercentage"] = Convert.ToInt64(userUsagePercentage);
 
+            Session["userStripeID"] = usageDictionary["stripeID"];
             Session["userPlan"] = usageDictionary["plan"];
             Session["userPlanRenewal"] = usageDictionary["renewal"];
             Session["userUsageCurrent"] = userUsageCurrent.ToString("N0");
