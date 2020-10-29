@@ -7,7 +7,6 @@
 
 
 <asp:Content ContentPlaceHolderID="ContentPlaceHolder_HeaderButton" runat="server">
-    
 </asp:Content>
 
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder2" runat="server">
@@ -22,7 +21,16 @@
                             <span class="element text-primary" data-elements="APIs, Webapps, Data"></span></h1>
                         <p class="para-desc text-muted">Don't re-invent the wheel. Save time and money by implementing these Web APIs to your product and get to market faster! 😎</p>
                         <div class="mt-4">
-                            <a href="\SignUp.aspx" class="btn btn-primary mt-2 mr-2"><i class="mdi mdi-account"></i> Sign up for free</a>
+                            <%if (Session["userID"] == null)
+                                { %>
+                            <a href="\SignUp.aspx" class="btn btn-primary mt-2 mr-2"><i class="mdi mdi-account"></i>Sign up for free</a>
+                            <% }
+                                else
+                                { %>
+                            <a href="\Dashboard.aspx" class="btn btn-primary">Visit Dashboard</a>
+                            <% } %>
+
+
                             <%--<a href="#sectionPricing" class="btn btn-outline-primary mt-2"><i class="mdi mdi-currency-usd"></i>Pricing</a>--%>
                         </div>
                     </div>
@@ -272,7 +280,7 @@
                 </div>
 
 
-                
+
 
 
                 <div class="col-lg-4 col-md-6 col-12 mt-4 pt-2">
@@ -308,7 +316,7 @@
                 </div>
 
 
-                
+
                 <!--end col-->
             </div>
             <!--end row-->
@@ -317,7 +325,7 @@
     </section>
 
 
-    
+
 
     <!-- javascript -->
     <script src="js/jquery-3.5.1.min.js"></script>

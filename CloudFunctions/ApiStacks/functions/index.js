@@ -371,17 +371,22 @@ exports.getwhois = functions.https.onRequest((request, response) => {
     }
 
     whois.lookup(URL, function (err, data) {
+
+      data = data.replace("\\", "");
+      if (err !== null) {
+        return response.json({
+          "status": "failed",
+          "timestamp": Date.now(),
+          "reason": "whois request was blocked"
+        });
+      }
+
       var array = [];
       var char = '\n';
       var i = j = 0;
       while ((j = data.indexOf(char, i)) !== -1) {
-        array.push(data.substring(i, j).replace(':', '": "').replace("\\", ""));
+        array.push(data.substring(i, j).replace(':', '": "'));
         i = j + 1;
-      }
-
-      if (err !== null) {
-        response.sendStatus(404);
-        return;
       }
 
       const successData = {
@@ -757,7 +762,6 @@ exports.generateqr = functions.https.onRequest((request, response) => {
           
           return response.json(errorMessage);
         }
-        console.log("!!!!!!!!!!STEP 4");
         uploadftp(imageFullPath, imageName, "apistk_ftp_qr", "Gjh2*8v9").then(function (data) {
           //Delete file from here
           fs.unlinkSync(imageFullPath);

@@ -36,9 +36,6 @@
     <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
 
     <link href="https://fonts.googleapis.com/css2?family=Space+Mono&display=swap" rel="stylesheet">
-
-
-
 </head>
 
 
@@ -95,19 +92,20 @@
                         <ul class="submenu megamenu">
                             <li>
                                 <ul>
-                                    <li><a href="\webscreenshots">Web Screenshots <span class="badge badge-pill badge-warning ml-2">Hot</span></a></li>
+                                    <%--<li><a href="\webscreenshots">Web Screenshots <span class="badge badge-pill badge-warning ml-2">Hot</span></a></li>--%>
+                                    <li><a href="\webscreenshots">Web Screenshots</a></li>
                                     <li><a href="\webpdf">Web PDF</a></li>
                                     <li><a href="\linkscraper">Link Scraper</a></li>
                                     <li><a href="\opengraph">Open Graph Scraper</a></li>
-                                    
+
                                     <li><a href="\webscraper">Web Scraper</a></li>
-                                     <li><a href="\languagedetect">Language Detect</a></li>
+                                    <li><a href="\languagedetect">Language Detect</a></li>
                                 </ul>
                             </li>
 
                             <li>
                                 <ul>
-                                   <li><a href="\whois">WHOIS Lookup</a></li>
+                                    <li><a href="\whois">WHOIS Lookup</a></li>
                                     <li><a href="\emailvalidate">Email Validator</a></li>
                                     <li><a href="\qrcode">QR Code Generator</a></li>
                                     <li><a href="\emailscraper">Email Scraper <span class="badge badge-success rounded">Soon</span></a></li>
@@ -443,7 +441,7 @@
             <div class="row">
                 <div class="col-lg-4 col-12 mb-0 mb-md-4 pb-0 pb-md-2">
                     <a href="#" class="logo-footer">
-                        <img src="images/logo.png" height="80" alt="">
+                        <img src="images/logo_white.png" height="80" alt="">
                     </a>
                     <p class="mt-4">Don't re-invent the wheel. Save time and money by implementing these Web APIs to your product and get to market faster! 😎</p>
                     <ul class="list-unstyled social-icon social mb-0 mt-4">
@@ -459,12 +457,15 @@
                 <div class="col-lg-2 col-md-4 col-12 mt-4 mt-sm-0 pt-2 pt-sm-0">
                     <h4 class="text-light footer-head">API Products</h4>
                     <ul class="list-unstyled footer-list mt-4">
-                        <li><a href="\webscreenshots.aspx" class="text-foot"><i class="mdi mdi-chevron-right mr-1"></i>Web Screenshots</a></li>
-                        <li><a href="#" class="text-foot"><i class="mdi mdi-chevron-right mr-1"></i>Open Graph</a></li>
-                        <li><a href="#" class="text-foot"><i class="mdi mdi-chevron-right mr-1"></i>IP Geolocation</a></li>
-                        <li><a href="#" class="text-foot"><i class="mdi mdi-chevron-right mr-1"></i>Language Detect</a></li>
-                        <li><a href="#" class="text-foot"><i class="mdi mdi-chevron-right mr-1"></i>Web Scraper</a></li>
-                        <li><a href="#" class="text-foot"><i class="mdi mdi-chevron-right mr-1"></i>Email Validator</a></li>
+                        <li><a href="\webscreenshots" class="text-foot"><i class="mdi mdi-chevron-right mr-1"></i>Web Screenshots</a></li>
+                        <li><a href="\webpdf" class="text-foot"><i class="mdi mdi-chevron-right mr-1"></i>Web PDF</a></li>
+                        <li><a href="\linkscraper" class="text-foot"><i class="mdi mdi-chevron-right mr-1"></i>Link Scraper </a></li>
+                        <li><a href="\opengraph" class="text-foot"><i class="mdi mdi-chevron-right mr-1"></i>Open Graph</a></li>
+                        <li><a href="\webscraper" class="text-foot"><i class="mdi mdi-chevron-right mr-1"></i>Web Scraper</a></li>
+                        <li><a href="\languagedetect" class="text-foot"><i class="mdi mdi-chevron-right mr-1"></i>Language Detect</a></li>
+                        <li><a href="\whois" class="text-foot"><i class="mdi mdi-chevron-right mr-1"></i>Whois</a></li>
+                        <li><a href="\emailvalidate" class="text-foot"><i class="mdi mdi-chevron-right mr-1"></i>Email Validator</a></li>
+                        <li><a href="#" class="text-foot"><i class="mdi mdi-chevron-right mr-1"></i>QR Code</a></li>
                     </ul>
                 </div>
                 <!--end col-->
@@ -475,7 +476,6 @@
                         <li><a href="page-terms.html" class="text-foot"><i class="mdi mdi-chevron-right mr-1"></i>Terms of Services</a></li>
                         <li><a href="page-privacy.html" class="text-foot"><i class="mdi mdi-chevron-right mr-1"></i>Privacy Policy</a></li>
                         <li><a href="documentation.html" class="text-foot"><i class="mdi mdi-chevron-right mr-1"></i>Documentation</a></li>
-                        <li><a href="changelog.html" class="text-foot"><i class="mdi mdi-chevron-right mr-1"></i>Changelog</a></li>
                         <li><a href="components.html" class="text-foot"><i class="mdi mdi-chevron-right mr-1"></i>Bug Reports</a></li>
                     </ul>
                 </div>
@@ -529,6 +529,36 @@
     <!-- Footer End -->
 
 
+
+
+    <!-- Start of Async Drift Code -->
+    <script>
+        "use strict";
+
+        !function () {
+            var t = window.driftt = window.drift = window.driftt || [];
+            if (!t.init) {
+                if (t.invoked) return void (window.console && console.error && console.error("Drift snippet included twice."));
+                t.invoked = !0, t.methods = ["identify", "config", "track", "reset", "debug", "show", "ping", "page", "hide", "off", "on"],
+                    t.factory = function (e) {
+                        return function () {
+                            var n = Array.prototype.slice.call(arguments);
+                            return n.unshift(e), t.push(n), t;
+                        };
+                    }, t.methods.forEach(function (e) {
+                        t[e] = t.factory(e);
+                    }), t.load = function (t) {
+                        var e = 3e5, n = Math.ceil(new Date() / e) * e, o = document.createElement("script");
+                        o.type = "text/javascript", o.async = !0, o.crossorigin = "anonymous", o.src = "https://js.driftt.com/include/" + n + "/" + t + ".js";
+                        var i = document.getElementsByTagName("script")[0];
+                        i.parentNode.insertBefore(o, i);
+                    };
+            }
+        }();
+        drift.SNIPPET_VERSION = '0.3.1';
+        drift.load('87gfcfcebe7e');
+    </script>
+    <!-- End of Async Drift Code -->
 
 </body>
 </html>
