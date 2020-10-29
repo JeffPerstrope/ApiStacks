@@ -134,58 +134,141 @@
     </section>
     <!-- Partners End -->
 
-    <!-- Feature Start -->
-    <div class="container mt-100 mt-60">
-        <div class="row align-items-center">
-            <div class="col-lg-5 col-md-6">
-                <img src="images/illustrator/Startup_SVG.svg" alt="">
-            </div>
-            <!--end col-->
+    <!-- Start Services -->
+        <section class="section">
+            <div class="container pb-lg-4 mb-md-5 mb-4">
+                <div class="row align-items-center mb-4">
+                    <div class="col-lg-9 col-md-8 text-sm-left">
+                        <div class="section-title">
+                            <h2 style="font-weight: 800;" >High Performance</h2>
+                            <h2 style="font-weight: 800; color: red" >with Zero Compromise</h2>
+                            <p class="text-muted para-desc mb-0">Don't worry about server maintenance, load balancing, or spending hours building and maintaining these services. <span class="text-primary font-weight-bold">ApiStacks</span> takes out all the hassle, giving you more time to build!</p>
+                        </div>
+                    </div><!--end col-->
 
-            <div class="col-lg-6 col-md-6 mt-4 mt-sm-0 pt-2 pt-sm-0">
-                <div class="section-title ml-lg-5">
-                    <h4 class="title mb-4">High performance and efficiency</h4>
-                    <p class="text-muted">Due to its widespread use as filler text for layouts, non-readability is of great importance: human perception is tuned to recognize certain patterns and repetitions in texts. If the distribution of letters visual impact.</p>
-                    <ul class="list-unstyled text-muted">
-                        <li class="mb-0"><span class="text-primary h5 mr-2"><i class="uim uim-check-circle"></i></span>Digital Marketing Solutions for Tomorrow</li>
-                        <li class="mb-0"><span class="text-primary h5 mr-2"><i class="uim uim-check-circle"></i></span>Create your own skin to match your brand</li>
-                    </ul>
-                    <a href="javascript:void(0)" class="mt-3 h6 text-primary">Find Out More <i class="mdi mdi-chevron-right"></i></a>
-                </div>
-            </div>
-            <!--end col-->
-        </div>
-        <!--end row-->
-    </div>
-    <!--end container-->
+                    <div class="col-lg-3 col-md-4 mt-4 mt-sm-0 text-sm-right pt-2 pt-sm-0">
+                        <a href="/docs" target="_blank" class="btn btn-outline-primary">Read docs <i class="mdi mdi-chevron-right"></i></a>
+                    </div><!--end col-->
+                </div><!--end row-->
 
-    <div class="container mt-100 mt-60">
-        <div class="row align-items-center">
-            <div class="col-lg-7 col-md-6 order-2 order-md-1 mt-4 mt-sm-0 pt-2 pt-sm-0">
-                <div class="section-title mr-lg-5">
-                    <h4 class="title mb-4">Customizable screenshot features</h4>
-                    <p class="text-muted">This prevents repetitive patterns from impairing the overall visual impression and facilitates the comparison of different typefaces. Furthermore, it is advantageous when the dummy text is relatively realistic.</p>
-                    <ul class="list-unstyled text-muted">
-                        <li class="mb-0"><span class="text-primary h5 mr-2"><i class="uim uim-check-circle"></i></span>Custom File Format</li>
-                        <li class="mb-0"><span class="text-primary h5 mr-2"><i class="uim uim-check-circle"></i></span>Partial or Full Page screenshot</li>
-                        <li class="mb-0"><span class="text-primary h5 mr-2"><i class="uim uim-check-circle"></i></span>Device type emulation</li>
-                        <li class="mb-0"><span class="text-primary h5 mr-2"><i class="uim uim-check-circle"></i></span>Inject CSS and JS into page</li>
-                    </ul>
-                    <a href="javascript:void(0)" class="mt-3 h6 text-primary">Documentation <i class="mdi mdi-chevron-right"></i></a>
-                </div>
-            </div>
-            <!--end col-->
+                <div class="row">
+                    <div class="col-lg-4 col-md-6 col-12 mt-5 pt-3">
+                        <div class="features">
+                            <div class="image position-relative d-inline-block">
+                                <img src="images/icon/computer.svg" class="avatar avatar-small" alt="">
+                            </div>
 
-            <div class="col-lg-5 col-md-6 order-1 order-md-2">
-                <img src="images/illustrator/app_development_SVG.svg" alt="">
-            </div>
-            <!--end col-->
-        </div>
-        <!--end row-->
-    </div>
-    <!--end container-->
+                            <div class="content mt-4">
+                                <h4 class="title-2">URL to Links</h4>
+                                <p class="text-muted">Simply provide a URL and the API will generate a list of links it finds on the page. Simple and straightforward</p>
+                            </div>
+                        </div>
+                    </div><!--end col-->
+                    
+                    <div class="col-lg-4 col-md-6 col-12 mt-5 pt-3">
+                        <div class="features">
+                            <div class="image position-relative d-inline-block">
+                                <img src="images/icon/cloud.svg" class="avatar avatar-small" alt="">
+                            </div>
+
+                            <div class="content mt-4">
+                                <h4 class="title-2">Simple, Fast, Easy</h4>
+                                <p class="text-muted">Requested links will be processed by a powerful scraping engine, delivering your results in seconds</p>
+                            </div>
+                        </div>
+                    </div><!--end col-->
+                   
+                    
+                    <div class="col-lg-4 col-md-6 col-12 mt-5 pt-3">
+                        <div class="features">
+                            <div class="image position-relative d-inline-block">
+                                <img src="images/icon/refresh.svg" class="avatar avatar-small" alt="">
+                            </div>
+
+                            <div class="content mt-4">
+                                <h4 class="title-2">... and more</h4>
+                                <p class="text-muted">Exclude internal links, limit the number of results, and emove query strings from results </p>
+                            </div>
+                        </div>
+                    </div><!--end col-->
+                </div><!--end row-->
+            </div><!--end container-->
+        </section><!--end section-->
+        
 
 
+    <!-- More About This API Start -->
+        <section class="section" style="margin-top: -150px; margin-bottom: -80px">
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-12 text-center">
+                        <div class="section-title mb-4 pb-2">
+                            <h4 class="title mb-4">More about this <span class="text-primary">API</span></h4>
+                            <p class="text-muted para-desc mx-auto mb-0">Here are all the details you need to know about this <span class="text-primary font-weight-bold">API</span></p>
+                        </div>
+                    </div><!--end col-->
+                </div><!--end row-->
+
+               
+            </div><!--end container-->
+
+            <div class="container mt-100 mt-60" style="margin-top: -30px">
+                <div class="row align-items-center">
+                    <div class="col-lg-7 col-md-6">
+                        <div class="faq-content mr-lg-5">
+                            <div class="accordion" id="accordionExampleone">
+                                <div class="card border-0 rounded mb-2">
+                                    <a data-toggle="collapse" href="#collapseone" class="faq position-relative" aria-expanded="true" aria-controls="collapseone">
+                                        <div class="card-header border-0 bg-light p-3 pr-5" id="headingfifone">
+                                            <h6 class="title mb-0"> What is this API?</h6>
+                                        </div>
+                                    </a>
+                                    <div id="collapseone" class="collapse show" aria-labelledby="headingfifone" data-parent="#accordionExampleone">
+                                        <div class="card-body px-2 py-4">
+                                            <p class="text-muted mb-0 faq-ans">Link Scraper is a service that grabs your URL and extracts links that it finds on that web page for use, however you see fit. That's it.</p>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="card border-0 rounded mb-2">
+                                    <a data-toggle="collapse" href="#collapsetwo" class="faq position-relative collapsed" aria-expanded="false" aria-controls="collapsetwo">
+                                        <div class="card-header border-0 bg-light p-3 pr-5" id="headingtwo">
+                                            <h6 class="title mb-0"> How does it work? </h6>
+                                        </div>
+                                    </a>
+                                    <div id="collapsetwo" class="collapse" aria-labelledby="headingtwo" data-parent="#accordionExampleone">
+                                        <div class="card-body px-2 py-4">
+                                            <p class="text-muted mb-0 faq-ans">All you need to do is give it the URL that you want to extract links from.</p><br />
+                                            <p class="text-muted mb-0 faq-ans">The links are scraped and extracted on our servers to ensure that any data is secure, optimized, and done as fast as possible.</p>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="card border-0 rounded mb-2">
+                                    <a data-toggle="collapse" href="#collapsethree" class="faq position-relative collapsed" aria-expanded="false" aria-controls="collapsethree">
+                                        <div class="card-header border-0 bg-light p-3 pr-5" id="headingthree">
+                                            <h6 class="title mb-0"> Why not run my own solution? </h6>
+                                        </div>
+                                    </a>
+                                    <div id="collapsethree" class="collapse" aria-labelledby="headingthree" data-parent="#accordionExampleone">
+                                        <div class="card-body px-2 py-4">
+                                            <p class="text-muted mb-0 faq-ans">Instead of worrying about server maintenance, server costs, and running your own infrastructure, <span class="text-primary font-weight-bold">ApiStacks</span> turns all that into an easy to use API endpoint.</p>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                
+                            </div>
+                        </div>
+                    </div><!--end col-->
+
+                    <div class="col-lg-5 col-md-6 mt-4 mt-sm-0 pt-2 pt-sm-0">
+                        <img src="images/illustrator/faq.svg" alt="">
+                    </div><!--end col-->
+                </div><!--end row-->
+            </div><!--end container-->
+        </section><!--end section-->
+    <!-- More About This END -->
 
 
     <!-- javascript -->
