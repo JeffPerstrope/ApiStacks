@@ -35,6 +35,7 @@ namespace ApiStacks
                             if (screenshotResponse != null)
                             {
                                 Session["languageDetectorData"] = screenshotResponse;
+                                Response.Redirect("languagedetect?capture=" + Guid.NewGuid().ToString().ToLower());
                             }
                         }
                     }

@@ -1,20 +1,36 @@
 ﻿{
     "status": "success",
-    "timestamp": 1603298684777,
-    "url": "http://yahoo.com",
+    "timestamp": 1604004197640,
+    "url": "http://digestyourfinances.com/",
     "data": {
-        "host": "yahoo.com",
+        "host": "digestyourfinances.com",
         "pathname": "/",
-        "title": "Yahoo",
-        "theme-color": "#ffffff",
-        "description": "News, email and search are just the beginning. Discover more every day. Find your yodel.",
-        "keywords": "yahoo, yahoo home page, yahoo homepage, yahoo search, yahoo mail, yahoo messenger, yahoo games, news, finance, sport, entertainment",
-        "ogTitle": "Yahoo",
+        "title": "Digest Your Finances | All Things Saving, Investing, Retirement, and Freedom",
+        "charset": "UTF-8",
+        "description": "Let's Digest Your Finances by reading all the latest personal finance material relating to making money, saving money, early retirement, dealing with student loans, and your path to financial freedom.",
+        "ogLocale": "en_US",
         "ogType": "website",
-        "ogUrl": "http://www.yahoo.com",
-        "ogDescription": "News, email and search are just the beginning. Discover more every day. Find your yodel.",
-        "ogImage": "https://s.yimg.com/cv/apiv2/social/images/yahoo_default_logo.png",
-        "ogSiteName": "Yahoo",
+        "ogTitle": "Digest Your Finances",
+        "ogDescription": "Let's Digest Your Finances by reading all the latest personal finance material relating to making money, saving money, early retirement, dealing with student loans, and your path to financial freedom.",
+        "ogUrl": "https://digestyourfinances.com/",
+        "ogSiteName": "Digest Your Finances",
+        "ogImage": "https://digestyourfinances.com/storage/2020/03/SocialShareImage.jpg",
+        "ogImageWidth": "1000",
+        "ogImageHeight": "617",
+        "twitterCard": "summary_large_image",
+        "twitterSite": "@digestfinances",
+        "feeds": [
+            {
+                "type": "rss",
+                "href": "https://digestyourfinances.com/feed/",
+                "title": "Digest Your Finances » Feed"
+            },
+            {
+                "type": "rss",
+                "href": "https://digestyourfinances.com/comments/feed/",
+                "title": "Digest Your Finances » Comments Feed"
+            }
+        ],
         "images": {}
     }
 }

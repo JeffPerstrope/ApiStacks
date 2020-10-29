@@ -34,6 +34,7 @@ namespace ApiStacks
                             if (screenshotResponse != null)
                             {
                                 Session["linkScraperData"] = screenshotResponse;
+                                Response.Redirect("linkscraper?capture=" + Guid.NewGuid().ToString().ToLower());
                             }
                         }
                     }

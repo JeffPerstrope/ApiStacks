@@ -36,6 +36,7 @@ namespace ApiStacks
                             if (screenshotResponse != null)
                             {
                                 Session["graphData"] = screenshotResponse;
+                                Response.Redirect("opengraph?website=" + Guid.NewGuid().ToString().ToLower());
                             }
                         }
                     }

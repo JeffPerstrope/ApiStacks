@@ -131,6 +131,7 @@
 
 
 
+
     <!-- Start Services -->
         <section class="section">
             <div class="container pb-lg-4 mb-md-5 mb-4">
@@ -156,8 +157,8 @@
                             </div>
 
                             <div class="content mt-4">
-                                <h4 class="title-2">URL to Screenshot</h4>
-                                <p class="text-muted">Simply provide a URL and the API will generate a screenshot for you. The returned file will be cached for continuous use</p>
+                                <h4 class="title-2">Detect Valid Email</h4>
+                                <p class="text-muted">Not only can this API detect if an email is formatted correctly, it also uses various methods to verify if the email is actually valid </p>
                             </div>
                         </div>
                     </div><!--end col-->
@@ -170,7 +171,7 @@
 
                             <div class="content mt-4">
                                 <h4 class="title-2">Simple, Fast, Easy</h4>
-                                <p class="text-muted">Requested screenshot will be processed by a powerful screenshot rendering engine, delivering your results in seconds</p>
+                                <p class="text-muted">Requested email verification will be performed using SMTP verification, deliverability checks, and network methods, delivering your results in seconds</p>
                             </div>
                         </div>
                     </div><!--end col-->
@@ -182,8 +183,8 @@
                             </div>
 
                             <div class="content mt-4">
-                                <h4 class="title-2">Device Emulation</h4>
-                                <p class="text-muted">Emulate which device you want to use frmo a large list of supported devices, simulating different scenarios</p>
+                                <h4 class="title-2">Full Inbox Check</h4>
+                                <p class="text-muted">This API will check if the recepient email Inbox is full and will accept further emails. Great way to determine deliverability beforehand</p>
                             </div>
                         </div>
                     </div><!--end col-->
@@ -195,8 +196,8 @@
                             </div>
 
                             <div class="content mt-4">
-                                <h4 class="title-2">Custom Screenshot Sizing</h4>
-                                <p class="text-muted">Capture specific dimentions, or even the Full Page as desired, the rendering engine can handle that too</p>
+                                <h4 class="title-2">DNS Validation</h4>
+                                <p class="text-muted">The API will also check if the domain of the email address have valid MX DNS records</p>
                             </div>
                         </div>
                     </div><!--end col-->
@@ -208,8 +209,8 @@
                             </div>
 
                             <div class="content mt-4">
-                                <h4 class="title-2">Custom File Type</h4>
-                                <p class="text-muted">With on-the-fly rendering, you can specify which file type you would like to be delivered from your request</p>
+                                <h4 class="title-2">Disposable Email</h4>
+                                <p class="text-muted">Also verify if the email address is provided by a known disposable email address provider. The database is updated continuously</p>
                             </div>
                         </div>
                     </div><!--end col-->
@@ -222,7 +223,7 @@
 
                             <div class="content mt-4">
                                 <h4 class="title-2">... and more</h4>
-                                <p class="text-muted">Enable dark mode, custom user agent, diabling javascript, disabling animations, scale factor, quality, and more!</p>
+                                <p class="text-muted">Verify if the email is reachable, has correct syntax, is deliverable, and if the mailbox was disabled</p>
                             </div>
                         </div>
                     </div><!--end col-->
@@ -260,7 +261,7 @@
                                     </a>
                                     <div id="collapseone" class="collapse show" aria-labelledby="headingfifone" data-parent="#accordionExampleone">
                                         <div class="card-body px-2 py-4">
-                                            <p class="text-muted mb-0 faq-ans">Web Screenshots is a service that grabs your URL and converts it into a screenshot image for use, however you see fit. That's it.</p>
+                                            <p class="text-muted mb-0 faq-ans">Email Validate is a service that performs network checks for you to determine if the email is valid, safe, and deliverable. That's it.</p>
                                         </div>
                                     </div>
                                 </div>
@@ -273,8 +274,8 @@
                                     </a>
                                     <div id="collapsetwo" class="collapse" aria-labelledby="headingtwo" data-parent="#accordionExampleone">
                                         <div class="card-body px-2 py-4">
-                                            <p class="text-muted mb-0 faq-ans">All you need to do is give it the URL that you want to convert into a screenshot.</p>
-                                            <p class="text-muted mb-0 faq-ans">The screenshot is take using a chromium browser hosted on our servers to ensure that any data is secure, optimized, and done as fast as possible.</p>
+                                            <p class="text-muted mb-0 faq-ans">All you need to do is to provide an email you want validated..</p><br />
+                                            <p class="text-muted mb-0 faq-ans">The email is validated using multiple networking processes hosted on our servers to ensure that any data is secure, optimized, and done as fast as possible. No actual email is sent, making this very accurate and reliable</p>
                                         </div>
                                     </div>
                                 </div>

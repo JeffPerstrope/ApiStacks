@@ -51,10 +51,6 @@
                                         <div style="height: 400px;">
                                             <textarea readonly id="txtData" style="font-family: 'Space Mono', monospace; font-size: 13px" runat="server" class="codeReader"></textarea>
                                         </div>
-
-                                        <div style="height: 400px;">
-                                            <div  id="txtData2" runat="server" class="codeReader"></div>
-                                        </div>
                                     </div>
                                 </div>
                                 <!--end col-->
@@ -163,8 +159,8 @@
                             </div>
 
                             <div class="content mt-4">
-                                <h4 class="title-2">URL to Screenshot</h4>
-                                <p class="text-muted">Simply provide a URL and the API will generate a screenshot for you. The returned file will be cached for continuous use</p>
+                                <h4 class="title-2">Detect Language</h4>
+                                <p class="text-muted">Simply provide a sentense or two and the API will provide a list of languages it detects with a considence score</p>
                             </div>
                         </div>
                     </div><!--end col-->
@@ -177,7 +173,7 @@
 
                             <div class="content mt-4">
                                 <h4 class="title-2">Simple, Fast, Easy</h4>
-                                <p class="text-muted">Requested screenshot will be processed by a powerful screenshot rendering engine, delivering your results in seconds</p>
+                                <p class="text-muted">Requested language detection will be processed by a powerful language database with 52 human languages stored on our servers, delivering your results in seconds</p>
                             </div>
                         </div>
                     </div><!--end col-->
@@ -189,47 +185,8 @@
                             </div>
 
                             <div class="content mt-4">
-                                <h4 class="title-2">Device Emulation</h4>
-                                <p class="text-muted">Emulate which device you want to use frmo a large list of supported devices, simulating different scenarios</p>
-                            </div>
-                        </div>
-                    </div><!--end col-->
-                    
-                    <div class="col-lg-4 col-md-6 col-12 mt-5 pt-3">
-                        <div class="features">
-                            <div class="image position-relative d-inline-block">
-                                <img src="images/icon/big.svg" class="avatar avatar-small" alt="">
-                            </div>
-
-                            <div class="content mt-4">
-                                <h4 class="title-2">Custom Screenshot Sizing</h4>
-                                <p class="text-muted">Capture specific dimentions, or even the Full Page as desired, the rendering engine can handle that too</p>
-                            </div>
-                        </div>
-                    </div><!--end col-->
-                    
-                    <div class="col-lg-4 col-md-6 col-12 mt-5 pt-3">
-                        <div class="features">
-                            <div class="image position-relative d-inline-block">
-                                <img src="images/icon/database.svg" class="avatar avatar-small" alt="">
-                            </div>
-
-                            <div class="content mt-4">
-                                <h4 class="title-2">Custom File Type</h4>
-                                <p class="text-muted">With on-the-fly rendering, you can specify which file type you would like to be delivered from your request</p>
-                            </div>
-                        </div>
-                    </div><!--end col-->
-                    
-                    <div class="col-lg-4 col-md-6 col-12 mt-5 pt-3">
-                        <div class="features">
-                            <div class="image position-relative d-inline-block">
-                                <img src="images/icon/refresh.svg" class="avatar avatar-small" alt="">
-                            </div>
-
-                            <div class="content mt-4">
-                                <h4 class="title-2">... and more</h4>
-                                <p class="text-muted">Enable dark mode, custom user agent, diabling javascript, disabling animations, scale factor, quality, and more!</p>
+                                <h4 class="title-2">Show More Detections</h4>
+                                <p class="text-muted">Want to see more than just one or two detected languages and confidence scores? You can specify how many results you want to be presented on the fly</p>
                             </div>
                         </div>
                     </div><!--end col-->
@@ -267,7 +224,7 @@
                                     </a>
                                     <div id="collapseone" class="collapse show" aria-labelledby="headingfifone" data-parent="#accordionExampleone">
                                         <div class="card-body px-2 py-4">
-                                            <p class="text-muted mb-0 faq-ans">Web Screenshots is a service that grabs your URL and converts it into a screenshot image for use, however you see fit. That's it.</p>
+                                            <p class="text-muted mb-0 faq-ans">Language Detect is a service that grabs your text and detects what language it is, and also provides a confidence score. That's it.</p>
                                         </div>
                                     </div>
                                 </div>
@@ -280,8 +237,8 @@
                                     </a>
                                     <div id="collapsetwo" class="collapse" aria-labelledby="headingtwo" data-parent="#accordionExampleone">
                                         <div class="card-body px-2 py-4">
-                                            <p class="text-muted mb-0 faq-ans">All you need to do is give it the URL that you want to convert into a screenshot.</p>
-                                            <p class="text-muted mb-0 faq-ans">The screenshot is take using a chromium browser hosted on our servers to ensure that any data is secure, optimized, and done as fast as possible.</p>
+                                            <p class="text-muted mb-0 faq-ans">All you need to do is give it the text you want to detect, and let it do the rest.</p><b></b>
+                                            <p class="text-muted mb-0 faq-ans">The language is detected using the <a target="_blank" href="https://pear.php.net/package/Text_LanguageDetect"> Pear Text_Language detect library </a> that hosted on our servers to ensure that any data is secure, optimized, and done as fast as possible.</p>
                                         </div>
                                     </div>
                                 </div>

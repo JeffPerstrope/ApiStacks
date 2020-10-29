@@ -187,7 +187,7 @@
 
                             <div class="content mt-4">
                                 <h4 class="title-2">... and more</h4>
-                                <p class="text-muted">Exclude internal links, limit the number of results, and emove query strings from results </p>
+                                <p class="text-muted">Exclude internal links, limit the number of results, and remove query strings from results </p>
                             </div>
                         </div>
                     </div><!--end col-->

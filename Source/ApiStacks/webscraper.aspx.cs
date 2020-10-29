@@ -33,7 +33,10 @@ namespace ApiStacks
                             var screenshotResponse = APICall.call(APICall.API_WebScraper, url);
                             if (screenshotResponse != null)
                             {
+                                if (screenshotResponse.Length > 5000)
+                                    screenshotResponse = screenshotResponse.Substring(0, 5000);
                                 Session["webScraperData"] = screenshotResponse;
+                                Response.Redirect("webscraper?capture=" + Guid.NewGuid().ToString().ToLower());
                             }
                         }
                     }

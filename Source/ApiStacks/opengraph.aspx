@@ -161,8 +161,8 @@
                             </div>
 
                             <div class="content mt-4">
-                                <h4 class="title-2">URL to Screenshot</h4>
-                                <p class="text-muted">Simply provide a URL and the API will generate a screenshot for you. The returned file will be cached for continuous use</p>
+                                <h4 class="title-2">URL to OpenGraph</h4>
+                                <p class="text-muted">Simply provide a URL and the API will retrieve the OpenGraph data you. Very lightweight, fast, and easy to use</p>
                             </div>
                         </div>
                     </div><!--end col-->
@@ -175,7 +175,7 @@
 
                             <div class="content mt-4">
                                 <h4 class="title-2">Simple, Fast, Easy</h4>
-                                <p class="text-muted">Requested screenshot will be processed by a powerful screenshot rendering engine, delivering your results in seconds</p>
+                                <p class="text-muted">Requested data will be processed by a powerful engine, delivering your results in seconds</p>
                             </div>
                         </div>
                     </div><!--end col-->
@@ -187,8 +187,8 @@
                             </div>
 
                             <div class="content mt-4">
-                                <h4 class="title-2">Device Emulation</h4>
-                                <p class="text-muted">Emulate which device you want to use frmo a large list of supported devices, simulating different scenarios</p>
+                                <h4 class="title-2">Get RSS Feeds</h4>
+                                <p class="text-muted">If the website supports RSS feeds, this API will retrieve them for you</p>
                             </div>
                         </div>
                     </div><!--end col-->
@@ -227,7 +227,7 @@
                                     </a>
                                     <div id="collapseone" class="collapse show" aria-labelledby="headingfifone" data-parent="#accordionExampleone">
                                         <div class="card-body px-2 py-4">
-                                            <p class="text-muted mb-0 faq-ans">Web Screenshots is a service that grabs your URL and converts it into a screenshot image for use, however you see fit. That's it.</p>
+                                            <p class="text-muted mb-0 faq-ans">Open Graph API is a service that grabs your URL and scrapes the page for OpenGraph data and RSS links if found. That's it.</p>
                                         </div>
                                     </div>
                                 </div>
@@ -240,8 +240,8 @@
                                     </a>
                                     <div id="collapsetwo" class="collapse" aria-labelledby="headingtwo" data-parent="#accordionExampleone">
                                         <div class="card-body px-2 py-4">
-                                            <p class="text-muted mb-0 faq-ans">All you need to do is give it the URL that you want to convert into a screenshot.</p>
-                                            <p class="text-muted mb-0 faq-ans">The screenshot is take using a chromium browser hosted on our servers to ensure that any data is secure, optimized, and done as fast as possible.</p>
+                                            <p class="text-muted mb-0 faq-ans">All you need to do is give it the URL that you want to extract OpenGraph data from.</p><br />
+                                            <p class="text-muted mb-0 faq-ans">OpenGraph data is taken using a custom HTML parser hosted on our servers to ensure that any data is secure, optimized, and done as fast as possible.</p>
                                         </div>
                                     </div>
                                 </div>

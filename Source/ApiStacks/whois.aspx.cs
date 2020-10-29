@@ -35,6 +35,7 @@ namespace ApiStacks
                             if (screenshotResponse != null)
                             {
                                 Session["whoisData"] = screenshotResponse;
+                                Response.Redirect("whois?capture=" + Guid.NewGuid().ToString().ToLower());
                             }
                         }
                     }

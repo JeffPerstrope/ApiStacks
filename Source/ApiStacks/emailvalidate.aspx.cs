@@ -34,6 +34,7 @@ namespace ApiStacks
                             if (screenshotResponse != null)
                             {
                                 Session["emailValidateData"] = screenshotResponse;
+                                Response.Redirect("emailvalidate?email=" + Guid.NewGuid().ToString().ToLower());
                             }
                         }
                     }
