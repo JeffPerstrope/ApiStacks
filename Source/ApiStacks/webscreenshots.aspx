@@ -27,8 +27,10 @@
 
                         <%--Give it a try--%>
                         <form runat="server" id="webScnreenshotsTry">
-                            <i data-feather="link" class="fea icon-sm icons" style="position: absolute; margin-left: 15px; margin-top: 10px"></i>
-                            <input runat="server" id="txtAddress" type="text" class="form-control pl-5" style="display: inline-block; max-width: 500px; margin-bottom: 10px" placeholder="Web Address" required="">
+                            <div id="link-icon" style="display: inline; border: 1px solid #ced4da; padding: 7px; padding-left: 11px; border-right: none; border-bottom-left-radius: 0.25rem; border-top-left-radius: 0.25rem; margin-right: -5px; z-index: 9999;">
+                                <i data-feather="link" class="fea icon-sm icons" style="position: absolute; margin-left: 15px; margin-top: 10px"></i>
+                            </div>
+                            <input runat="server" id="txtAddress" type="text" class="form-control pl-5" style="display: inline-block; max-width: 500px; margin-bottom: 10px; border-left: none;border-top-left-radius: 0;margin-bottom: 10px;border-bottom-left-radius: 0;" placeholder="Web Address" required="">
                             <button id="btnTakeScreenshot" type="submit" onclick="takeScreenshot();" class="btn btn-primary" style="display: inline-block;"><span id="spinner"></span>Take Screenshot</button>
                         </form>
                     </div>
