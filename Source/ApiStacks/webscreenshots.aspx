@@ -1,7 +1,7 @@
 ﻿<%@ Page Title="" Language="C#" AutoEventWireup="true" MasterPageFile="~/default.Master" CodeBehind="webscreenshots.aspx.cs" Inherits="ApiStacks.webscreenshots" ClientIDMode="Static" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder_Head" runat="server">
-    <title>webscreenshots</title>
+    <title>Web Screenshots | ApiStacks Restful API</title>
 </asp:Content>
 
 <asp:Content ContentPlaceHolderID="ContentPlaceHolder_HeaderButton" runat="server">

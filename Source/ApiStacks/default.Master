@@ -108,9 +108,9 @@
                                     <li><a href="\whois">WHOIS Lookup</a></li>
                                     <li><a href="\emailvalidate">Email Validator</a></li>
                                     <li><a href="\qrcode">QR Code Generator</a></li>
-                                    <li><a href="\emailscraper">Email Scraper <span class="badge badge-success rounded">Soon</span></a></li>
-                                    <li><a href="\ipgeolocation">IP Geolocation  <span class="badge badge-success rounded">Soon</span></a></li>
-                                    <li><a href="#">Google Search Results  <span class="badge badge-success rounded">Soon</span></a></li>
+                                    <li><a>Email Scraper <span class="badge badge-success rounded">Soon</span></a></li>
+                                    <li><a>IP Geolocation  <span class="badge badge-success rounded">Soon</span></a></li>
+                                    <li><a>Google Search Results  <span class="badge badge-success rounded">Soon</span></a></li>
                                 </ul>
                             </li>
                         </ul>
@@ -340,7 +340,7 @@
                             <h5 class="mt-0">Can I use the ApiStack <span class="text-primary">Free Plan</span> forever ?</h5>
                             <p class="answer text-muted mb-0">Yup, you can definitely use the Free Plan for as long as you want! If you have a small project or just trying out the service, then it's an awesome plan.</p>
                             <br>
-                            <p class="answer text-muted mb-0">The Free Plan has some limitations like rate limiting so keep that in mind,</p>
+                            <p class="answer text-muted mb-0">The Free Plan has some limitations listed on the table above, so keep that in mind,</p>
                         </div>
                     </div>
                 </div>
@@ -353,7 +353,7 @@
                             <h5 class="mt-0">Can I change my plan at any time?</h5>
                             <p class="answer text-muted mb-0">Yes, you can upgrade or downgrade your plan at any time.</p>
                             <br>
-                            <p class="answer text-muted mb-0">If at any point you realize that you need more or less, send us an email at <a href="mailto: hello@apistack.net">hello@apistack.net</a>. There are no fees associated to switching plans.</p>
+                            <p class="answer text-muted mb-0">If at any point you realize that you need more or less, send us an email at <a class="text-primary">hello@apistack.com</a>. There are no fees associated to switching plans.</p>
                             <br>
                         </div>
                     </div>
@@ -365,7 +365,7 @@
                         <i data-feather="help-circle" class="fea icon-ex-md text-primary mr-2 mt-1"></i>
                         <div class="media-body">
                             <h5 class="mt-0">Do I get an API key?</h5>
-                            <p class="answer text-muted mb-0">Yes, once you sign up and pick a plan, you are given an API key within your dashboard.</p>
+                            <p class="answer text-muted mb-0">Yes, once you sign up with your free account, you are given an API key within your dashboard.</p>
                         </div>
                     </div>
                 </div>
@@ -378,7 +378,7 @@
                             <h5 class="mt-0">How do I know my plan <span class="text-primary">usage</span>?</h5>
                             <p class="answer text-muted mb-0">You can log into your account and see your quota usage.</p>
                             <br>
-                            <p class="answer text-muted mb-0">We will automatically send you an email when you reach 50% and 80% of your <span class="text-primary">quota limits</span>. You can always change this</p>
+                            <p class="answer text-muted mb-0">We will automatically send you an email when you reach 50% and 80% of your <span class="text-primary">quota limits</span>.</p>
 
                         </div>
                     </div>
@@ -401,7 +401,7 @@
                         <i data-feather="help-circle" class="fea icon-ex-md text-primary mr-2 mt-1"></i>
                         <div class="media-body">
                             <h5 class="mt-0">Can I cancel my subscription?</h5>
-                            <p class="answer text-muted mb-0">Yes, simply send an email to <a href="mailto: hello@apistack.net">hello@apistack.net</a>. Your request will be processed within 48hrs.</p>
+                            <p class="answer text-muted mb-0">Yes, simply send an email to <a class="text-primary">hello@apistack.com</a>. Your request will be processed within 48hrs.</p>
                             <br>
                         </div>
                     </div>
@@ -452,10 +452,9 @@
                     </a>
                     <p class="mt-4">Don't re-invent the wheel. Save time and money by implementing these Web APIs to your product and get to market faster! 😎</p>
                     <ul class="list-unstyled social-icon social mb-0 mt-4">
-                        <li class="list-inline-item"><a href="javascript:void(0)" class="rounded"><i data-feather="facebook" class="fea icon-sm fea-social"></i></a></li>
-                        <li class="list-inline-item"><a href="javascript:void(0)" class="rounded"><i data-feather="instagram" class="fea icon-sm fea-social"></i></a></li>
-                        <li class="list-inline-item"><a href="javascript:void(0)" class="rounded"><i data-feather="twitter" class="fea icon-sm fea-social"></i></a></li>
-                        <li class="list-inline-item"><a href="javascript:void(0)" class="rounded"><i data-feather="linkedin" class="fea icon-sm fea-social"></i></a></li>
+                        <li class="list-inline-item"><a href="https://facebook.com/" target="_blank" class="rounded"><i data-feather="facebook" class="fea icon-sm fea-social"></i></a></li>
+                        <li class="list-inline-item"><a href="https://twitter.com/" target="_blank" class="rounded"><i data-feather="twitter" class="fea icon-sm fea-social"></i></a></li>
+                        <%--<li class="list-inline-item"><a href="javascript:void(0)" class="rounded"><i data-feather="linkedin" class="fea icon-sm fea-social"></i></a></li>--%>
                     </ul>
                     <!--end icon-->
                 </div>
@@ -482,8 +481,8 @@
                     <ul class="list-unstyled footer-list mt-4">
                         <li><a href="/Terms" class="text-foot"><i class="mdi mdi-chevron-right mr-1"></i>Terms of Services</a></li>
                         <li><a href="/Privacy" class="text-foot"><i class="mdi mdi-chevron-right mr-1"></i>Privacy Policy</a></li>
-                        <li><a href="documentation.html" class="text-foot"><i class="mdi mdi-chevron-right mr-1"></i>Documentation</a></li>
-                        <li><a href="components.html" class="text-foot"><i class="mdi mdi-chevron-right mr-1"></i>Bug Reports</a></li>
+                        <li><a href="/Docs" class="text-foot"><i class="mdi mdi-chevron-right mr-1"></i>Documentation</a></li>
+                        <li><a href="mailto:bugs@apistacks.com" class="text-foot"><i class="mdi mdi-chevron-right mr-1"></i>Bug Reports</a></li>
                     </ul>
                 </div>
                 <!--end col-->
@@ -518,7 +517,7 @@
             <div class="row align-items-center">
                 <div class="col-sm-6">
                     <div class="text-sm-left">
-                        <p class="mb-0">© 2020 All Rights Reserved. Designed with <i class="mdi mdi-heart text-danger"></i>by <a href="http://www.shreethemes.in/" target="_blank" class="text-reset">ApiStack</a>.</p>
+                        <p class="mb-0">© 2020 All Rights Reserved. Designed with <i class="mdi mdi-heart text-danger"></i> by <a href="http://www.apistacks.com/" target="_blank" class="text-reset">ApiStacks</a>.</p>
                     </div>
                 </div>
                 <!--end col-->
@@ -536,10 +535,12 @@
     <!-- Footer End -->
 
 
-
+    <script src="https://unpkg.com/feather-icons"></script>
 
     <!-- Start of Async Drift Code -->
     <script>
+        feather.replace()
+
         "use strict";
 
         !function () {

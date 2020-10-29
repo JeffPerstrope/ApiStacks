@@ -18,11 +18,17 @@ namespace ApiStacks
                 sectionFAQ.Visible = false;
                 sectionPricing.Visible = false;
             }
+            else if(url.EndsWith("docs"))
+            {
+                sectionFAQ.Visible = true;
+                sectionPricing.Visible = false;
+            }
             else
             {
                 sectionFAQ.Visible = true;
                 sectionPricing.Visible = true;
             }
         }
+
     }
 }

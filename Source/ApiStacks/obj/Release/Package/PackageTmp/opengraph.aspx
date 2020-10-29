@@ -1,7 +1,7 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="opengraph.aspx.cs" Inherits="ApiStacks.opengraph" MasterPageFile="~/default.Master" ClientIDMode="Static" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder_Head" runat="server">
-    <title>webscreenshots</title>
+    <title>Open Graph Scraper | ApiStacks Restful API</title>
 </asp:Content>
 
 <asp:Content ContentPlaceHolderID="ContentPlaceHolder_HeaderButton" runat="server">

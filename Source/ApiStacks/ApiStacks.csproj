@@ -278,7 +278,6 @@
     <Content Include="images\technologies\7.png" />
     <Content Include="images\technologies\8.png" />
     <Content Include="linkscraper.aspx" />
-    <Content Include="emailscraper.aspx" />
     <Content Include="fonts\ajax-loader.gif" />
     <Content Include="fonts\materialdesignicons-webfont.svg" />
     <Content Include="Global.asax" />
@@ -736,7 +735,6 @@
     <Content Include="images\work\9.jpg" />
     <Content Include="images\work\bg-portfolio.jpg" />
     <Content Include="images\work\single.jpg" />
-    <Content Include="ipgeolocation.aspx" />
     <Content Include="js\aos.js" />
     <Content Include="js\app.js" />
     <Content Include="js\bootstrap.bundle.min.js" />
@@ -843,22 +841,8 @@
     <Compile Include="linkscraper.aspx.designer.cs">
       <DependentUpon>linkscraper.aspx</DependentUpon>
     </Compile>
-    <Compile Include="emailscraper.aspx.cs">
-      <DependentUpon>emailscraper.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="emailscraper.aspx.designer.cs">
-      <DependentUpon>emailscraper.aspx</DependentUpon>
-    </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
-    </Compile>
-    <Compile Include="ipgeolocation.aspx.cs">
-      <DependentUpon>ipgeolocation.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="ipgeolocation.aspx.designer.cs">
-      <DependentUpon>ipgeolocation.aspx</DependentUpon>
     </Compile>
     <Compile Include="languagedetect.aspx.cs">
       <DependentUpon>languagedetect.aspx</DependentUpon>

@@ -192,6 +192,7 @@ exports.getscreenshot = functions.https.onRequest((request, response) => {
       return response.json(authorizationResult);
     }
 
+    //Load Cache if present
     if (authorizationResult.cache !== null && authorizationResult.cache !== undefined && authorizationResult.cache !== "") {
       incrementAPIRequest(request, authorizationResult.current);
       return response.json(authorizationResult.cache);
